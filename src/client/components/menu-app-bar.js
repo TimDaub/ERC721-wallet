@@ -4,17 +4,15 @@ import { withStyles } from '@material-ui/core/styles'
 import AppBar from '@material-ui/core/AppBar'
 import Toolbar from '@material-ui/core/Toolbar'
 import Typography from '@material-ui/core/Typography'
-import IconButton from '@material-ui/core/IconButton'
 import MenuIcon from '@material-ui/icons/Menu'
-import AccountCircle from '@material-ui/icons/AccountCircle'
 import Drawer from '@material-ui/core/Drawer'
 import List from '@material-ui/core/List'
+import IconButton from '@material-ui/core/IconButton'
 import ListItem from '@material-ui/core/ListItem'
 import ListItemIcon from '@material-ui/core/ListItemIcon'
 import ListItemText from '@material-ui/core/ListItemText'
 import StarIcon from '@material-ui/icons/Star'
-import { connect } from 'react-redux'
-import { fetchChallenge } from '../actions/index'
+import Login from './login'
 
 const styles = {
   root: {
@@ -40,22 +38,20 @@ class MenuAppBar extends React.Component {
     })
   }
 
-  handleLogin = () => {
-    this.props.dispatch(fetchChallenge())
-  }
-
   render() {
-    const { classes, loading, address } = this.props
+    const { classes } = this.props
+    const { open } = this.state
 
     return (
       <div className={classes.root}>
         <AppBar position="static">
-          <Drawer open={this.state.open} onClose={this.toggleDrawer(false)}>
+          <Drawer open={open} onClose={this.toggleDrawer(false)}>
             <div
-              tabIndex={0} 
+              tabIndex={0}
               role="button"
               onClick={this.toggleDrawer(false)}
-              onKeyDown={this.toggleDrawer(false)}>
+              onKeyDown={this.toggleDrawer(false)}
+            >
               <div className={classes.list}>
                 <List>
                   <ListItem button>
@@ -72,34 +68,19 @@ class MenuAppBar extends React.Component {
             <IconButton
               className={classes.menuButton}
               color="inherit"
-              onClick={this.toggleDrawer(!this.state.open)}
-              aria-label="Menu">
+              onClick={this.toggleDrawer(!open)}
+              aria-label="Menu"
+            >
               <MenuIcon />
             </IconButton>
             <Typography
               variant="title"
               color="inherit"
-              className={classes.flex}>
+              className={classes.flex}
+            >
               Cinemarket
             </Typography>
-            {address && (
-              <div>
-                <IconButton
-                  aria-owns={open ? 'menu-appbar' : null}
-                  aria-haspopup="true"
-                  color="inherit">
-                  <AccountCircle />
-                </IconButton>
-              </div>
-            )}
-            {!address && loading && (
-              <div>Open Metamask</div>
-            )}
-            {!address && !loading && (
-              <Typography variant="body2" color="inherit">
-                <a onClick={this.handleLogin}>Login</a>
-              </Typography>
-            )}
+            <Login />
           </Toolbar>
         </AppBar>
       </div>
@@ -109,19 +90,6 @@ class MenuAppBar extends React.Component {
 
 MenuAppBar.propTypes = {
   classes: PropTypes.object.isRequired,
-  address: PropTypes.object,
-  loading: PropTypes.bool,
-  error: PropTypes.object,
-  dispatch: PropTypes.func
 }
 
-const mapStateToProps = state => {
-  return {
-    address: state.items,
-    loading: state.loading,
-    error: state.error
-    // TODO: Handle error
-  }
-}
-
-export default connect(mapStateToProps)(withStyles(styles)(MenuAppBar))
+export default withStyles(styles)(MenuAppBar)

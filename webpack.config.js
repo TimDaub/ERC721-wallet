@@ -17,6 +17,7 @@ module.exports = {
         exclude: /node_modules/,
         use: [
           'babel-loader',
+          'eslint-loader'
         ]
       },
       {

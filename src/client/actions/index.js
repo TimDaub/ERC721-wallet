@@ -22,13 +22,13 @@ export const fetchChallengeError = error => ({
 export function fetchChallenge() {
   return dispatch => {
     dispatch(fetchChallengeBegin())
-    return axios.get('/api/auth/' + web3.eth.accounts[0])
+    return axios.get('/api/auth/' + web3.eth.accounts[0])// eslint-disable-line
       .then(res => {
         const challenge = res.data
-        const from = web3.eth.accounts[0]
+        const from = web3.eth.accounts[0]// eslint-disable-line
         const params = [challenge, from]
         const method = 'eth_signTypedData'
-        web3.currentProvider.sendAsync({
+        web3.currentProvider.sendAsync({// eslint-disable-line
           method,
           params,
           from
@@ -42,7 +42,7 @@ export function fetchChallenge() {
           }
           axios.get('/api/auth/' + challenge[1].value + '/' + signature)
             .then(res => {
-              if (res.data === web3.eth.accounts[0]) {
+              if (res.data === web3.eth.accounts[0]) {// eslint-disable-line
                 dispatch(fetchChallengeSuccess(res))
               } else {
                 dispatch(fetchChallengeError(
