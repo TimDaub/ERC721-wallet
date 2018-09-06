@@ -43,10 +43,10 @@ export function fetchChallenge() {
           axios.get('/api/auth/' + challenge[1].value + '/' + signature)
             .then(res => {
               if (res.data === web3.eth.accounts[0]) {
-                dispatch(fetchChallengeSuccess(res.data))
+                dispatch(fetchChallengeSuccess(res))
               } else {
                 dispatch(fetchChallengeError(
-                      new Error("Couldn't authenticate")
+                  new Error("Couldn't authenticate")
                 ))
               }
             })
