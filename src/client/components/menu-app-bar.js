@@ -87,8 +87,7 @@ class MenuAppBar extends React.Component {
                 <IconButton
                   aria-owns={open ? 'menu-appbar' : null}
                   aria-haspopup="true"
-                  color="inherit"
-                >
+                  color="inherit">
                   <AccountCircle />
                 </IconButton>
               </div>
@@ -110,7 +109,7 @@ class MenuAppBar extends React.Component {
 
 MenuAppBar.propTypes = {
   classes: PropTypes.object.isRequired,
-  address: PropTyppes.string,
+  address: PropTypes.object,
   loading: PropTypes.bool,
   error: PropTypes.object,
   dispatch: PropTypes.func
