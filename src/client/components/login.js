@@ -38,19 +38,17 @@ class Login extends React.Component {
 }
 
 Login.propTypes = {
-  address: PropTypes.object,
+  address: PropTypes.string,
   loading: PropTypes.bool,
   error: PropTypes.object,
   dispatch: PropTypes.func
 }
 
-const mapStateToProps = state => {
-  return {
-    address: state.items,
-    loading: state.loading,
-    error: state.error
-    // TODO: Handle error
-  }
-}
+const mapStateToProps = state => ({
+  address: state.items,
+  loading: state.loading,
+  error: state.error
+  // TODO: Handle error
+})
 
 export default connect(mapStateToProps)(Login)

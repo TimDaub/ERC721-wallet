@@ -35,15 +35,15 @@ export function fetchChallenge() {
         }, async (err, result) => {
           const signature = result.result
           if (err) {
-            dispatch(fetchChallengeError(error))
+            dispatch(fetchChallengeError(err))
           }
           if (result.error) {
-            dispatch(fetchChallengeError(error))
+            dispatch(fetchChallengeError(result.error))
           }
           axios.get('/api/auth/' + challenge[1].value + '/' + signature)
-            .then(res => {
-              if (res.data === web3.eth.accounts[0]) {// eslint-disable-line
-                dispatch(fetchChallengeSuccess(res))
+            .then(account => {
+              if (account.data === web3.eth.accounts[0]) {// eslint-disable-line
+                dispatch(fetchChallengeSuccess(account.data))
               } else {
                 dispatch(fetchChallengeError(
                   new Error("Couldn't authenticate")
