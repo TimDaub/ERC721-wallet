@@ -2,7 +2,9 @@ const express = require('express');
 const MetaAuth = require('meta-auth');
 
 const app = express();
-const metaAuth = new MetaAuth();
+const metaAuth = new MetaAuth({
+  banner: "Cinemarket, sign to login"  
+});
 
 app.use(express.static('dist'));
 

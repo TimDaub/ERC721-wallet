@@ -21,12 +21,37 @@ export const fetchChallengeError = error => ({
 
 export function fetchChallenge() {
   return dispatch => {
-    dispatch(fetchChallengeBegin());
+    dispatch(fetchChallengeBegin())
     return axios.get("/api/auth/" + web3.eth.accounts[0])
       .then(res => {
-        res = res.data[1]
-        dispatch(fetchChallengeSuccess(res));
+        const challenge = res.data
+        const from = web3.eth.accounts[0]
+        const params = [challenge, from]
+        const method = 'eth_signTypedData'
+        web3.currentProvider.sendAsync({
+          method,
+          params,
+          from
+        }, async (err, result) => {
+          const signature = result.result
+          if (err) {
+            dispatch(fetchChallengeError(error))
+          }
+          if (result.error) {
+            dispatch(fetchChallengeError(error))
+          }
+          axios.get('/api/auth/' + challenge[1].value + '/' + signature)
+            .then(res => {
+              if (res.data === web3.eth.accounts[0]) {
+                dispatch(fetchChallengeSuccess(res.data))
+              } else {
+                dispatch(fetchChallengeError(
+                      new Error("Couldn't authenticate")
+                ))
+              }
+            })
+        })
       })
-      .catch(error => dispatch(fetchChallengeError(error)));
-  };
+      .catch(error => dispatch(fetchChallengeError(error)))
+  }
 }
