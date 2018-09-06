@@ -45,9 +45,9 @@ Login.propTypes = {
 }
 
 const mapStateToProps = state => ({
-  address: state.items,
-  loading: state.loading,
-  error: state.error
+  address: state.challenge.items,
+  loading: state.challenge.loading,
+  error: state.challenge.error
   // TODO: Handle error
 })
 
