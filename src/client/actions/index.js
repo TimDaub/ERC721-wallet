@@ -1,28 +1,28 @@
 import axios from 'axios'
 
-export const FETCH_CHALLENGE_BEGIN   = 'FETCH_CHALLENGE_BEGIN';
-export const FETCH_CHALLENGE_SUCCESS = 'FETCH_CHALLENGE_SUCCESS';
-export const FETCH_CHALLENGE_FAILURE = 'FETCH_CHALLENGE_FAILURE';
+export const FETCH_CHALLENGE_BEGIN = 'FETCH_CHALLENGE_BEGIN'
+export const FETCH_CHALLENGE_SUCCESS = 'FETCH_CHALLENGE_SUCCESS'
+export const FETCH_CHALLENGE_FAILURE = 'FETCH_CHALLENGE_FAILURE'
 
 export const fetchChallengeBegin = () => ({
-    type: FETCH_CHALLENGE_BEGIN
-});
+  type: FETCH_CHALLENGE_BEGIN
+})
 
 export const fetchChallengeSuccess = challenge => ({
-    type: FETCH_CHALLENGE_SUCCESS,
-    payload: { challenge }
-});
+  type: FETCH_CHALLENGE_SUCCESS,
+  payload: { challenge }
+})
 
 export const fetchChallengeError = error => ({
-    type: FETCH_CHALLENGE_FAILURE,
-    payload: { error }
-});
+  type: FETCH_CHALLENGE_FAILURE,
+  payload: { error }
+})
 
 
 export function fetchChallenge() {
   return dispatch => {
     dispatch(fetchChallengeBegin())
-    return axios.get("/api/auth/" + web3.eth.accounts[0])
+    return axios.get('/api/auth/' + web3.eth.accounts[0])
       .then(res => {
         const challenge = res.data
         const from = web3.eth.accounts[0]

@@ -6,6 +6,9 @@
     "node": true
   },
   "rules": {
+    "semi": [2, "never"],
+    "arrow-parens": [2, "as-needed"],
+    "avoidEscape": true,
     "no-console": "off",
     "comma-dangle": "off",
     "react/jsx-filename-extension": "off"
