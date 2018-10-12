@@ -1,7 +1,7 @@
 {
-  "name": "simple-react-full-stack",
+  "name": "erc721-wallet",
   "version": "1.0.0",
-  "description": "Boilerplate to build a full stack web application using React, Node.js, Express and Webpack.",
+  "description": "A wallet for ERC721 tokens",
   "main": "src/server/index.js",
   "scripts": {
     "start": "node src/server/index.js",
@@ -10,11 +10,9 @@
     "server": "nodemon src/server/index.js",
     "dev": "concurrently \"npm run server\" \"npm run client\""
   },
-  "author": "Sandeep Raveesh",
-  "license": "ISC",
+  "author": "Tim Daubenschütz",
+  "license": "MIT",
   "dependencies": {
-    "@material-ui/core": "^3.0.2",
-    "@material-ui/icons": "^3.0.1",
     "axios": "^0.18.0",
     "babel-polyfill": "^6.26.0",
     "body-parser": "^1.18.3",
@@ -22,15 +20,13 @@
     "express-session": "^1.15.6",
     "material-ui-password-field": "^2.0.1",
     "meta-auth": "^1.1.2",
-    "nano": "^7.0.0",
     "prop-types": "^15.6.2",
     "react": "^16.3.1",
     "react-dom": "^16.3.1",
     "react-redux": "^5.0.7",
     "redux": "^4.0.0",
-    "redux-form": "^7.4.2",
-    "redux-form-material-ui": "^5.0.0-beta.3",
-    "redux-thunk": "^2.3.0"
+    "redux-saga": "^0.16.0",
+    "web3": "^1.0.0-beta.36"
   },
   "devDependencies": {
     "@babel/core": "^7.0.0",

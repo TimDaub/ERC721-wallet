@@ -1,7 +1,7 @@
 import {
-  FETCH_CHALLENGE_BEGIN,
-  FETCH_CHALLENGE_SUCCESS,
-  FETCH_CHALLENGE_FAILURE,
+  FETCH_TRANSACTIONS_BEGIN,
+  FETCH_TRANSACTIONS_SUCCESS,
+  FETCH_TRANSACTIONS_FAILURE,
 } from '../actions/index'
 
 const initialState = {
@@ -10,23 +10,23 @@ const initialState = {
   error: null
 }
 
-export default function challengeReducer(state = initialState, action) {
+export default function transactionsReducer(state = initialState, action) {
   switch (action.type) {
-    case FETCH_CHALLENGE_BEGIN:
+    case FETCH_TRANSACTIONS_BEGIN:
       return {
         ...state,
         loading: true,
         error: null
       }
 
-    case FETCH_CHALLENGE_SUCCESS:
+    case FETCH_TRANSACTIONS_SUCCESS:
       return {
         ...state,
         loading: false,
-        items: action.payload.challenge
+        items: action.payload.transactions
       }
 
-    case FETCH_CHALLENGE_FAILURE:
+    case FETCH_TRANSACTIONS_FAILURE:
       return {
         ...state,
         loading: false,
