@@ -7,7 +7,7 @@ import { fetchTransactionsBegin } from "../actions";
 class Wallet extends Component {
   getTransactions = () => {
     return () => {
-      this.props.getTransactions("0xde0b295669a9fd93d5f28d9ec85e40f4cb697bae");
+      this.props.getTransactions("0x50d7826d4a75fc8dcf35146fc909268cccd65d9d");
     };
   };
   render() {
