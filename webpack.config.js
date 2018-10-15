@@ -6,6 +6,7 @@ const outputDirectory = 'dist';
 
 module.exports = {
   entry: './src/client/index.js',
+  devtool: true,
   output: {
     path: path.join(__dirname, outputDirectory),
     filename: 'bundle.js'

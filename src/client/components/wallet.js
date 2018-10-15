@@ -5,16 +5,20 @@ import { connect } from "react-redux";
 import { fetchTransactionsBegin } from "../actions";
 
 class Wallet extends Component {
-  getTransactions = () => {
-    return () => {
-      this.props.getTransactions("0x50d7826d4a75fc8dcf35146fc909268cccd65d9d");
-    };
-  };
+  componentDidMount() {
+    this.props.getTransactions("0x04b38b5c09e4ec66dd14350393813afba0e60499");
+  }
+
   render() {
     return (
       <div>
-        Hello world
-        <button onClick={this.getTransactions()}>Fetch</button>
+        <ul>
+          {this.props.transactions.map((token, i) => (
+            <li key={i}>
+              <img width="10%" src={token.image} />
+            </li>
+          ))}
+        </ul>
       </div>
     );
   }
@@ -23,8 +27,15 @@ class Wallet extends Component {
 const mapDispatchToProps = {
   getTransactions: fetchTransactionsBegin
 };
+
+const mapStateToProps = (state, ownProps) => {
+  console.log(state);
+  return {
+    transactions: state.transactions.items
+  };
+};
 Wallet = connect(
-  null,
+  mapStateToProps,
   mapDispatchToProps
 )(Wallet);
 export default Wallet;

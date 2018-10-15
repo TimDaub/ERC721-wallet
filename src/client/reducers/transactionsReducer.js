@@ -5,7 +5,7 @@ import {
 } from '../actions/index'
 
 const initialState = {
-  challenge: '',
+  items: [],
   loading: false,
   error: null
 }
