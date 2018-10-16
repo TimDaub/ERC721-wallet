@@ -5,7 +5,7 @@ import { Provider } from 'react-redux'
 import { createStore, applyMiddleware } from 'redux'
 import createSagaMiddleware from 'redux-saga'
 
-import Wallet from './components/wallet'
+import App from './components/App'
 import reducers from './reducers'
 import sagas from './sagas'
 
@@ -19,6 +19,6 @@ sagaMiddleware.run(sagas)
 
 ReactDOM.render(
   <Provider store={store}>
-    <Wallet />
+    <App />
   </Provider>, document.querySelector('.root')
 )

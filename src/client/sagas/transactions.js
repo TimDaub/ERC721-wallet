@@ -12,9 +12,8 @@ function* fetchTransactions({ payload: { address } }) {
   const web3 = yield getWeb3();
   var contract = new web3.eth.Contract(
     ERC721,
-    "0x5caebd3b32e210e85ce3e9d51638b9c445481567"
+    "0x9326f84fcca8a136da3a4f71bbffbde6635c58da"
   );
-  const addr = "";
   const events = yield contract.getPastEvents("Transfer", {
     fromBlock: 0,
     toBlock: "latest",
@@ -26,19 +25,20 @@ function* fetchTransactions({ payload: { address } }) {
   });
 
   const returnValues = events.map(event => event.returnValues);
-  console.log(returnValues);
   const tokenURIPromises = returnValues.map(val =>
     contract.methods.tokenURI(val._tokenId).call()
   );
   const tokenURIs = yield Promise.all(tokenURIPromises);
-  console.log(tokenURIs);
 
   const tokenJSONPromises = tokenURIs.map(uri =>
     fetch(uri).then(res => res.json())
   );
   const tokenJSON = yield Promise.all(tokenJSONPromises);
+  for (let i = 0; i < returnValues.length; i++) {
+    returnValues[i].token = tokenJSON[i];
+  }
 
-  yield put(fetchTransactionsSuccess(tokenJSON));
+  yield put(fetchTransactionsSuccess(returnValues));
 }
 
 export function* transactionsWatcher() {

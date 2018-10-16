@@ -24,6 +24,8 @@
     "react-redux": "^5.0.7",
     "redux": "^4.0.0",
     "redux-saga": "^0.16.0",
+    "styled-components": "^4.0.0",
+    "styled-react-modal": "^1.0.0",
     "web3": "^1.0.0-beta.36"
   },
   "devDependencies": {
@@ -33,6 +35,7 @@
     "@babel/preset-react": "^7.0.0",
     "babel-eslint": "^9.0.0",
     "babel-loader": "^8.0.0",
+    "babel-plugin-styled-components": "^1.8.0",
     "clean-webpack-plugin": "^0.1.19",
     "concurrently": "^4.0.0",
     "css-loader": "^1.0.0",
