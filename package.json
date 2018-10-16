@@ -26,7 +26,7 @@
     "redux-saga": "^0.16.0",
     "styled-components": "^4.0.0",
     "styled-react-modal": "^1.0.0",
-    "web3": "^1.0.0-beta.36"
+    "web3": "1.0.0-beta.35"
   },
   "devDependencies": {
     "@babel/core": "^7.0.0",
