@@ -14,7 +14,16 @@ function* fetchTransactions({ payload: { address } }) {
     ERC721,
     "0x9326f84fcca8a136da3a4f71bbffbde6635c58da"
   );
-  const events = yield contract.getPastEvents("Transfer", {
+  const outputs = yield contract.getPastEvents("Transfer", {
+    fromBlock: 0,
+    toBlock: "latest",
+    topics: [
+      Utils.sha3("Transfer(address,address,uint256)"),
+      Utils.padLeft(address, 64),
+      null
+    ]
+  });
+  const inputs = yield contract.getPastEvents("Transfer", {
     fromBlock: 0,
     toBlock: "latest",
     topics: [
@@ -24,9 +33,19 @@ function* fetchTransactions({ payload: { address } }) {
     ]
   });
 
-  const returnValues = events.map(event => event.returnValues);
-  const tokenURIPromises = returnValues.map(val =>
-    contract.methods.tokenURI(val._tokenId).call()
+  for (let i = 0; i < outputs.length; i++) {
+    const outputTokenId = outputs[i].returnValues._tokenId;
+    for (let j = 0; j < inputs.length; j++) {
+      const inputTokenId = inputs[j].returnValues._tokenId;
+      if (outputTokenId === inputTokenId) {
+        inputs.splice(j, 1);
+      }
+    }
+  }
+
+  const returnValues = inputs.map(event => event.returnValues);
+  const tokenURIPromises = returnValues.map(({ _tokenId }) =>
+    contract.methods.tokenURI(_tokenId).call()
   );
   const tokenURIs = yield Promise.all(tokenURIPromises);
 

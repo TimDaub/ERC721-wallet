@@ -37,30 +37,17 @@ class Wallet extends Component {
 
     this.state = {
       isOpen: false,
-      opacity: 0
+      modals: {}
     };
-
-    this.afterOpen = this.afterOpen.bind(this);
-    this.beforeClose = this.beforeClose.bind(this);
-    this.toggleModal = this.toggleModal.bind(this);
   }
 
-  afterOpen() {
-    setTimeout(() => {
-      this.setState({ opacity: 1 });
-    });
-  }
-
-  beforeClose() {
-    return new Promise(resolve => {
-      this.setState({ opacity: 0 });
-      setTimeout(resolve, 200);
-    });
-  }
-
-  toggleModal(e) {
-    this.setState({ isOpen: !this.state.isOpen });
-  }
+  toggleModal = tokenId => {
+    return () => {
+      let modals = this.state.modals;
+      modals[tokenId] = !modals[tokenId];
+      this.setState({ modals });
+    };
+  };
 
   async componentDidMount() {
     const web3 = await getWeb3();
@@ -74,15 +61,13 @@ class Wallet extends Component {
       <StyledWallet>
         {this.props.transactions.map(({ token, _tokenId }, i) => (
           <ListElement key={i}>
-            <img onClick={this.toggleModal} width="100%" src={token.image} />
+            <img width="100%" src={token.image} />
             <p>{_tokenId}</p>
+            <button onClick={this.toggleModal(_tokenId)}>Transfer</button>
             <StyledModal
-              isOpen={this.state.isOpen}
-              afterOpen={this.afterOpen}
-              beforeClose={this.beforeClose}
-              onBackgroundClick={this.toggleModal}
-              onEscapeKeydown={this.toggleModal}
-              opacity={this.state.opacity}
+              isOpen={this.state.modals[_tokenId]}
+              onBackgroundClick={this.toggleModal(_tokenId)}
+              onEscapeKeydown={this.toggleModal(_tokenId)}
             >
               <TransferModal tokenId={_tokenId} from={this.state.accounts[0]} />
             </StyledModal>
