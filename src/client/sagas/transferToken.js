@@ -10,11 +10,9 @@ function* transferToken({ payload: { from, to, tokenId } }) {
     ERC721,
     "0x9326f84fcca8a136da3a4f71bbffbde6635c58da"
   );
-  console.log(from, to, tokenId);
   const tx = yield contract.methods
     .transferFrom(from, to, tokenId)
     .send({ from });
-  console.log(tx);
   yield put(transferTokenSuccess(tx));
 }
 
