@@ -2,7 +2,7 @@ import {
   FETCH_TRANSACTIONS_BEGIN,
   FETCH_TRANSACTIONS_SUCCESS,
   FETCH_TRANSACTIONS_FAILURE,
-} from '../actions/index'
+} from '../actions/fetchTransactions'
 
 const initialState = {
   items: [],

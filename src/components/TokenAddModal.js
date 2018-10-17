@@ -2,7 +2,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 
-import { addTokenBegin } from "../actions";
+import { addTokenBegin } from "../actions/addToken";
 
 class TokenAddModal extends Component {
   constructor(props) {

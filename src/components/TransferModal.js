@@ -2,7 +2,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 
-import { transferTokenBegin } from "../actions";
+import { transferTokenBegin } from "../actions/transferToken";
 
 class TransferModal extends Component {
   constructor(props) {

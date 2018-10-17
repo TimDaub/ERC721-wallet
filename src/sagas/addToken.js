@@ -1,6 +1,6 @@
 // @format
 import { put, takeLatest } from "redux-saga/effects";
-import { addTokenSuccess, addTokenFailure } from "../actions/index";
+import { addTokenSuccess, addTokenFailure } from "../actions/addToken";
 import ERC721 from "../abis/ERC721.json";
 
 function* addToken({ payload: { contract } }) {

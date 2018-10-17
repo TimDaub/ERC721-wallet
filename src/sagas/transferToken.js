@@ -1,6 +1,9 @@
 // @format
 import { put, takeLatest } from "redux-saga/effects";
-import { transferTokenSuccess, transferTokenFailure } from "../actions/index";
+import {
+  transferTokenSuccess,
+  transferTokenFailure
+} from "../actions/transferToken";
 import getWeb3 from "../utils/getWeb3";
 import ERC721 from "../abis/ERC721.json";
 

@@ -3,7 +3,7 @@ import { put, takeLatest } from "redux-saga/effects";
 import {
   fetchTransactionsSuccess,
   fetchTransactionsFailure
-} from "../actions/index";
+} from "../actions/fetchTransactions";
 import getWeb3 from "../utils/getWeb3";
 import Utils from "web3-utils";
 import ERC721 from "../abis/ERC721.json";

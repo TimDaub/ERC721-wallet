@@ -6,7 +6,7 @@ import styled from "styled-components";
 import Modal from "styled-react-modal";
 import getWeb3 from "../utils/getWeb3";
 
-import { fetchTransactionsBegin } from "../actions";
+import { fetchTransactionsBegin } from "../actions/fetchTransactions";
 import TransferModal from "./TransferModal";
 
 const StyledWallet = styled.div`
