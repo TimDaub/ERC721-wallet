@@ -15,7 +15,6 @@ function* fetchTransactions({ payload: { address } }) {
 
   if (contracts) {
     contracts = contracts.split(",");
-    console.log(contracts);
 
     for (let contract of contracts) {
       var contract = new web3.eth.Contract(ERC721, contract);
@@ -54,12 +53,20 @@ function* fetchTransactions({ payload: { address } }) {
       );
       const tokenURIs = yield Promise.all(tokenURIPromises);
 
+      const tokenNamePromises = returnValues.map(() =>
+        contract.methods.name().call()
+      );
+      const tokenNames = yield Promise.all(tokenNamePromises);
+
       const tokenJSONPromises = tokenURIs.map(uri =>
-        fetch(uri).then(res => res.json())
+        fetch(uri)
+          .then(res => res.json())
+          .catch(err => null)
       );
       const tokenJSON = yield Promise.all(tokenJSONPromises);
       for (let i = 0; i < returnValues.length; i++) {
         returnValues[i].token = tokenJSON[i];
+        returnValues[i].name = tokenNames[i];
       }
 
       txs = [...txs, ...returnValues];

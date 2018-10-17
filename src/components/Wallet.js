@@ -59,9 +59,10 @@ class Wallet extends Component {
   render() {
     return (
       <StyledWallet>
-        {this.props.transactions.map(({ token, _tokenId }, i) => (
+        {this.props.transactions.map(({ token, _tokenId, name }, i) => (
           <ListElement key={i}>
-            <img width="100%" src={token.image} />
+            <img width="100%" src={token && token.image} />
+            <p>{name}</p>
             <p>{_tokenId}</p>
             <button onClick={this.toggleModal(_tokenId)}>Transfer</button>
             <StyledModal

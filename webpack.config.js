@@ -5,7 +5,7 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 const outputDirectory = 'dist';
 
 module.exports = {
-  entry: './src/client/index.js',
+  entry: './src/index.js',
   devtool: 'source-map',
   output: {
     path: path.join(__dirname, outputDirectory),
@@ -31,16 +31,7 @@ module.exports = {
     ]
   },
   devServer: {
-    port: 3000,
-    proxy: {
-      '/api/*': {
-        target: 'http://localhost:8080',
-        changeOrigin: true,
-        pathRewrite: {
-          '^/api': ''
-        }
-      }
-    }
+    port: 3000
   },
   plugins: [
     new CleanWebpackPlugin([outputDirectory]),
