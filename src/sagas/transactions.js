@@ -70,7 +70,6 @@ function* fetchTransactions({ payload: { address } }) {
         returnValues[i].contract = contractAddress;
       }
 
-      console.log(returnValues);
       txs[contractAddress] = returnValues;
     }
   }

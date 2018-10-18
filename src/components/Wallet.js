@@ -4,6 +4,7 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import styled from "styled-components";
 import Modal from "styled-react-modal";
+import { ChasingDots } from "styled-spinkit";
 
 import Token from "./Token";
 import getWeb3 from "../utils/getWeb3";
@@ -22,7 +23,7 @@ const StyledWallet = styled.div`
 const Separator = styled.div`
   width: 70%;
   margin-left: 15%;
-  border-bottom: 1px dashed black;
+  border-bottom: 1px solid black;
 `;
 
 class Wallet extends Component {
@@ -62,38 +63,46 @@ class Wallet extends Component {
 
   separator(i, name) {
     if (i === 0) {
-      return <Separator>{name}</Separator>;
+      return (
+        <Separator>
+          <h3>{name}</h3>
+        </Separator>
+      );
     }
   }
 
   render() {
     const { modals } = this.state;
-    const { transactions } = this.props;
-    return (
-      <div>
-        {Object.keys(transactions).map((contractAddress, i) => (
-          <div key={i}>
-            {this.separator(i, transactions[contractAddress][0].name)}
-            <StyledWallet>
-              {transactions[contractAddress].map(
-                ({ token, _tokenId, name, contract }, j) => (
-                  <Token
-                    key={j}
-                    token={token}
-                    tokenId={_tokenId}
-                    name={name}
-                    contract={contract}
-                    modals={modals}
-                    toggleModal={this.toggleModal}
-                    account={this.state.accounts[0]}
-                  />
-                )
-              )}
-            </StyledWallet>
-          </div>
-        ))}
-      </div>
-    );
+    const { transactions, loading } = this.props;
+    if (loading) {
+      return <ChasingDots color="#000" />;
+    } else {
+      return (
+        <div>
+          {Object.keys(transactions).map((contractAddress, i) => (
+            <div key={i}>
+              {this.separator(i, transactions[contractAddress][0].name)}
+              <StyledWallet>
+                {transactions[contractAddress].map(
+                  ({ token, _tokenId, name, contract }, j) => (
+                    <Token
+                      key={j}
+                      token={token}
+                      tokenId={_tokenId}
+                      name={name}
+                      contract={contract}
+                      modals={modals}
+                      toggleModal={this.toggleModal}
+                      account={this.state.accounts[0]}
+                    />
+                  )
+                )}
+              </StyledWallet>
+            </div>
+          ))}
+        </div>
+      );
+    }
   }
 }
 
@@ -104,6 +113,7 @@ const mapDispatchToProps = {
 const mapStateToProps = (state, ownProps) => {
   return {
     transactions: state.transactions.items,
+    loading: state.transactions.loading,
     contracts: state.contracts.items
   };
 };
