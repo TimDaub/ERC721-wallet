@@ -10,7 +10,7 @@ import ERC721 from "../abis/ERC721.json";
 function* transferToken({ payload: { from, to, tokenId, contract } }) {
   const web3 = yield getWeb3();
   var erc721Contract = new web3.eth.Contract(ERC721, contract);
-  let tx
+  let tx;
   try {
     tx = yield erc721Contract.methods
       .transferFrom(from, to, tokenId)

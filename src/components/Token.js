@@ -44,7 +44,7 @@ const Token = props => (
     >
       <TransferModal
         tokenId={props.tokenId}
-        from={props.accounts}
+        from={props.account}
         contract={props.contract}
       />
     </StyledModal>
