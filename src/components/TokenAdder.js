@@ -1,8 +1,14 @@
 // @format
 import React, { Component } from "react";
 import Modal from "styled-react-modal";
+import styled from "styled-components";
 
 import TokenAddModal from "./TokenAddModal";
+
+const StyledTokenAdder = styled.div`
+  margin-left: auto;
+  margin-right: 1em;
+`;
 
 const StyledModal = Modal.styled`
   width: 20rem;
@@ -32,7 +38,7 @@ class TokenAdder extends Component {
 
   render() {
     return (
-      <div>
+      <StyledTokenAdder>
         <button onClick={this.toggleModal}>Add Token</button>
         <StyledModal
           isOpen={this.state.isOpen}
@@ -41,7 +47,7 @@ class TokenAdder extends Component {
         >
           <TokenAddModal />
         </StyledModal>
-      </div>
+      </StyledTokenAdder>
     );
   }
 }

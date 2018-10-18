@@ -1,9 +1,10 @@
 // @format
 import React, { Component } from "react";
 import { ModalProvider } from "styled-react-modal";
-import Wallet from "./Wallet";
-import TokenAdder from "./TokenAdder";
 import { createGlobalStyle } from "styled-components";
+
+import Wallet from "./Wallet";
+import Header from "./Header";
 
 const GlobalStyle = createGlobalStyle`
   body {
@@ -14,8 +15,8 @@ const GlobalStyle = createGlobalStyle`
 
 const App = () => (
   <ModalProvider>
+    <Header />
     <GlobalStyle />
-    <TokenAdder />
     <Wallet />
   </ModalProvider>
 );
