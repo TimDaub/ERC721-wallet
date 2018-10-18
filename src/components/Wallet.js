@@ -49,11 +49,21 @@ class Wallet extends Component {
     };
   };
 
-  async componentDidMount() {
+  componentDidMount() {
+    this.updateTransactions();
+  }
+
+  async updateTransactions() {
     const web3 = await getWeb3();
     const accounts = await web3.eth.getAccounts();
     this.props.getTransactions(accounts[0]);
     this.setState({ accounts });
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    if (this.props.contracts !== prevProps.contracts) {
+      this.updateTransactions();
+    }
   }
 
   render() {
@@ -91,7 +101,8 @@ const mapDispatchToProps = {
 
 const mapStateToProps = (state, ownProps) => {
   return {
-    transactions: state.transactions.items
+    transactions: state.transactions.items,
+    contracts: state.contracts.items
   };
 };
 Wallet = connect(

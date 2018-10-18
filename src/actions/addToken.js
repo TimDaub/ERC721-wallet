@@ -1,3 +1,4 @@
+// @format
 export const ADD_TOKEN_BEGIN = "ADD_TOKEN_BEGIN";
 export const ADD_TOKEN_SUCCESS = "ADD_TOKEN_SUCCESS";
 export const ADD_TOKEN_FAILURE = "ADD_TOKEN_FAILURE";
@@ -7,9 +8,9 @@ export const addTokenBegin = contract => ({
   payload: { contract }
 });
 
-export const addTokenSuccess = () => ({
+export const addTokenSuccess = contracts => ({
   type: ADD_TOKEN_SUCCESS,
-  payload: {}
+  payload: { contracts }
 });
 
 export const addTokenFailure = error => ({
