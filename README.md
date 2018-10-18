@@ -1,6 +1,6 @@
 # ERC721 Wallet
 
-### Demo
+## Demo
 
 Check out the demo here: https://www.mycollectibles.io/
 
