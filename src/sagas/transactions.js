@@ -11,7 +11,7 @@ import ERC721 from "../abis/ERC721.json";
 function* fetchTransactions({ payload: { address } }) {
   const web3 = yield getWeb3();
   let contracts = localStorage.getItem("tokens");
-  let txs = [];
+  let txs = {};
 
   if (contracts) {
     contracts = contracts.split(",");
@@ -70,7 +70,8 @@ function* fetchTransactions({ payload: { address } }) {
         returnValues[i].contract = contractAddress;
       }
 
-      txs = [...txs, ...returnValues];
+      console.log(returnValues);
+      txs[contractAddress] = returnValues;
     }
   }
   yield put(fetchTransactionsSuccess(txs));

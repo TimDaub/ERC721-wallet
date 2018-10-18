@@ -4,31 +4,25 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import styled from "styled-components";
 import Modal from "styled-react-modal";
-import getWeb3 from "../utils/getWeb3";
 
+import Token from "./Token";
+import getWeb3 from "../utils/getWeb3";
 import { fetchTransactionsBegin } from "../actions/fetchTransactions";
 import TransferModal from "./TransferModal";
 
 const StyledWallet = styled.div`
+  width: 70%;
+  margin-left: 15%;
   display: flex;
-  align-items: center;
-  justify-content: center;
-`;
-const ListElement = styled.div`
-  width: 100px;
-  height: 100px;
-  margin: 1em;
+  align-items: space-between;
+  flex-flow: row wrap;
+  justify-content: space-between;
 `;
 
-const StyledModal = Modal.styled`
-  width: 20rem;
-  height: 20rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: white;
-  opacity: ${props => props.opacity};
-  transition: opacity ease 200ms;
+const Separator = styled.div`
+  width: 70%;
+  margin-left: 15%;
+  border-bottom: 1px dashed black;
 `;
 
 class Wallet extends Component {
@@ -66,31 +60,39 @@ class Wallet extends Component {
     }
   }
 
+  separator(i, name) {
+    if (i === 0) {
+      return <Separator>{name}</Separator>;
+    }
+  }
+
   render() {
+    const { modals } = this.state;
+    const { transactions } = this.props;
     return (
-      <StyledWallet>
-        {this.props.transactions.map(
-          ({ token, _tokenId, name, contract }, i) => (
-            <ListElement key={i}>
-              <img width="100%" src={token && token.image} />
-              <p>{name}</p>
-              <p>{_tokenId}</p>
-              <button onClick={this.toggleModal(_tokenId)}>Transfer</button>
-              <StyledModal
-                isOpen={this.state.modals[_tokenId]}
-                onBackgroundClick={this.toggleModal(_tokenId)}
-                onEscapeKeydown={this.toggleModal(_tokenId)}
-              >
-                <TransferModal
-                  tokenId={_tokenId}
-                  from={this.state.accounts[0]}
-                  contract={contract}
-                />
-              </StyledModal>
-            </ListElement>
-          )
-        )}
-      </StyledWallet>
+      <div>
+        {Object.keys(transactions).map((contractAddress, i) => (
+          <div key={i}>
+            {this.separator(i, transactions[contractAddress][0].name)}
+            <StyledWallet>
+              {transactions[contractAddress].map(
+                ({ token, _tokenId, name, contract }, j) => (
+                  <Token
+                    key={j}
+                    token={token}
+                    tokenId={_tokenId}
+                    name={name}
+                    contract={contract}
+                    modals={modals}
+                    toggleModal={this.toggleModal}
+                    account={this.state.accounts[0]}
+                  />
+                )
+              )}
+            </StyledWallet>
+          </div>
+        ))}
+      </div>
     );
   }
 }
