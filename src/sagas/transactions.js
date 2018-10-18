@@ -16,8 +16,8 @@ function* fetchTransactions({ payload: { address } }) {
   if (contracts) {
     contracts = contracts.split(",");
 
-    for (let contract of contracts) {
-      var contract = new web3.eth.Contract(ERC721, contract);
+    for (let contractAddress of contracts) {
+      const contract = new web3.eth.Contract(ERC721, contractAddress);
       const outputs = yield contract.getPastEvents("Transfer", {
         fromBlock: 0,
         toBlock: "latest",
@@ -67,6 +67,7 @@ function* fetchTransactions({ payload: { address } }) {
       for (let i = 0; i < returnValues.length; i++) {
         returnValues[i].token = tokenJSON[i];
         returnValues[i].name = tokenNames[i];
+        returnValues[i].contract = contractAddress;
       }
 
       txs = [...txs, ...returnValues];

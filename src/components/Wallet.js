@@ -59,21 +59,27 @@ class Wallet extends Component {
   render() {
     return (
       <StyledWallet>
-        {this.props.transactions.map(({ token, _tokenId, name }, i) => (
-          <ListElement key={i}>
-            <img width="100%" src={token && token.image} />
-            <p>{name}</p>
-            <p>{_tokenId}</p>
-            <button onClick={this.toggleModal(_tokenId)}>Transfer</button>
-            <StyledModal
-              isOpen={this.state.modals[_tokenId]}
-              onBackgroundClick={this.toggleModal(_tokenId)}
-              onEscapeKeydown={this.toggleModal(_tokenId)}
-            >
-              <TransferModal tokenId={_tokenId} from={this.state.accounts[0]} />
-            </StyledModal>
-          </ListElement>
-        ))}
+        {this.props.transactions.map(
+          ({ token, _tokenId, name, contract }, i) => (
+            <ListElement key={i}>
+              <img width="100%" src={token && token.image} />
+              <p>{name}</p>
+              <p>{_tokenId}</p>
+              <button onClick={this.toggleModal(_tokenId)}>Transfer</button>
+              <StyledModal
+                isOpen={this.state.modals[_tokenId]}
+                onBackgroundClick={this.toggleModal(_tokenId)}
+                onEscapeKeydown={this.toggleModal(_tokenId)}
+              >
+                <TransferModal
+                  tokenId={_tokenId}
+                  from={this.state.accounts[0]}
+                  contract={contract}
+                />
+              </StyledModal>
+            </ListElement>
+          )
+        )}
       </StyledWallet>
     );
   }

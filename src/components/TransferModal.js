@@ -15,7 +15,8 @@ class TransferModal extends Component {
     this.props.transfer(
       this.props.from,
       this.refs.to.value,
-      this.props.tokenId
+      this.props.tokenId,
+      this.props.contract
     );
   }
   render() {

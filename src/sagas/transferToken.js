@@ -7,15 +7,17 @@ import {
 import getWeb3 from "../utils/getWeb3";
 import ERC721 from "../abis/ERC721.json";
 
-function* transferToken({ payload: { from, to, tokenId } }) {
+function* transferToken({ payload: { from, to, tokenId, contract } }) {
   const web3 = yield getWeb3();
-  var contract = new web3.eth.Contract(
-    ERC721,
-    "0x9326f84fcca8a136da3a4f71bbffbde6635c58da"
-  );
-  const tx = yield contract.methods
-    .transferFrom(from, to, tokenId)
-    .send({ from });
+  var erc721Contract = new web3.eth.Contract(ERC721, contract);
+  let tx
+  try {
+    tx = yield erc721Contract.methods
+      .transferFrom(from, to, tokenId)
+      .send({ from });
+  } catch (err) {
+    yield put(transferTokenFailure(err));
+  }
   yield put(transferTokenSuccess(tx));
 }
 
