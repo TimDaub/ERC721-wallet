@@ -3,7 +3,9 @@ node_js:
     - "10.10.0"
 install:
     - npm i
-script: jest
+    - npm install -g codecov
+script: 
+    - jest && codecov
 cache:
     directories:
         - "node_modules"

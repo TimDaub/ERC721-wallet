@@ -9,6 +9,11 @@
     "dev": "webpack-dev-server --mode development --content-base src --hot --inline",
     "test": "jest --watch"
   },
+  "jest": {
+    "coverageDirectory": "./coverage/",
+    "collectCoverage": true
+  }
+
   "author": "Tim Daubenschütz",
   "license": "apache2",
   "dependencies": {
