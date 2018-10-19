@@ -12,8 +12,7 @@
   "jest": {
     "coverageDirectory": "./coverage/",
     "collectCoverage": true
-  }
-
+  },
   "author": "Tim Daubenschütz",
   "license": "apache2",
   "dependencies": {
