@@ -1,4 +1,4 @@
-# ERC721 Wallet
+# ERC721 Wallet [![Build Status](https://travis-ci.com/TimDaub/ERC721-wallet.svg?branch=master)](https://travis-ci.com/TimDaub/ERC721-wallet)
 
 ## Demo
 
