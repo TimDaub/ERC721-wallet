@@ -14,7 +14,7 @@
     "collectCoverage": true,
     "setupFiles": [
       "jest-localstorage-mock",
-      "./__tests__/setupFile.js"
+      "./setupFile.js"
     ],
     "roots": [
       "<rootDir>/__tests__"
