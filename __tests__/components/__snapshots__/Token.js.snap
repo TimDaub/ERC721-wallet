@@ -66,15 +66,19 @@ ShallowWrapper {
           "$$typeof": Symbol(react.forward_ref),
           "attrs": undefined,
           "componentStyle": ComponentStyle {
-            "componentId": "Token__StyledImage-ktkzx6-1",
+            "componentId": "sc-htpNat",
             "isStatic": true,
             "rules": Array [
-              "display:inline-block;width:100px;height:100px;",
+              "
+  display: inline-block;
+  width: 100px;
+  height: 100px;
+",
             ],
           },
-          "displayName": "Token__StyledImage",
+          "displayName": "styled.img",
           "render": [Function],
-          "styledComponentId": "Token__StyledImage-ktkzx6-1",
+          "styledComponentId": "sc-htpNat",
           "target": "img",
           "warnTooManyClasses": [Function],
           "withComponent": [Function],
@@ -138,15 +142,23 @@ ShallowWrapper {
       "$$typeof": Symbol(react.forward_ref),
       "attrs": undefined,
       "componentStyle": ComponentStyle {
-        "componentId": "Token__StyledToken-ktkzx6-0",
+        "componentId": "sc-bwzfXH",
         "isStatic": true,
         "rules": Array [
-          "margin:1em;border:1px solid #eee;border-radius:2px;padding:1em;background-color:white;text-align:center;width:150px;",
+          "
+  margin: 1em;
+  border: 1px solid #eee;
+  border-radius: 2px;
+  padding: 1em;
+  background-color: white;
+  text-align: center;
+  width: 150px;
+",
         ],
       },
-      "displayName": "Token__StyledToken",
+      "displayName": "styled.div",
       "render": [Function],
-      "styledComponentId": "Token__StyledToken-ktkzx6-0",
+      "styledComponentId": "sc-bwzfXH",
       "target": "div",
       "warnTooManyClasses": [Function],
       "withComponent": [Function],
@@ -194,15 +206,19 @@ ShallowWrapper {
             "$$typeof": Symbol(react.forward_ref),
             "attrs": undefined,
             "componentStyle": ComponentStyle {
-              "componentId": "Token__StyledImage-ktkzx6-1",
+              "componentId": "sc-htpNat",
               "isStatic": true,
               "rules": Array [
-                "display:inline-block;width:100px;height:100px;",
+                "
+  display: inline-block;
+  width: 100px;
+  height: 100px;
+",
               ],
             },
-            "displayName": "Token__StyledImage",
+            "displayName": "styled.img",
             "render": [Function],
-            "styledComponentId": "Token__StyledImage-ktkzx6-1",
+            "styledComponentId": "sc-htpNat",
             "target": "img",
             "warnTooManyClasses": [Function],
             "withComponent": [Function],
@@ -266,15 +282,23 @@ ShallowWrapper {
         "$$typeof": Symbol(react.forward_ref),
         "attrs": undefined,
         "componentStyle": ComponentStyle {
-          "componentId": "Token__StyledToken-ktkzx6-0",
+          "componentId": "sc-bwzfXH",
           "isStatic": true,
           "rules": Array [
-            "margin:1em;border:1px solid #eee;border-radius:2px;padding:1em;background-color:white;text-align:center;width:150px;",
+            "
+  margin: 1em;
+  border: 1px solid #eee;
+  border-radius: 2px;
+  padding: 1em;
+  background-color: white;
+  text-align: center;
+  width: 150px;
+",
           ],
         },
-        "displayName": "Token__StyledToken",
+        "displayName": "styled.div",
         "render": [Function],
-        "styledComponentId": "Token__StyledToken-ktkzx6-0",
+        "styledComponentId": "sc-bwzfXH",
         "target": "div",
         "warnTooManyClasses": [Function],
         "withComponent": [Function],

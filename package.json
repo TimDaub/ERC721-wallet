@@ -7,11 +7,18 @@
     "start": "node src/server/index.js",
     "build": "webpack --mode production",
     "dev": "webpack-dev-server --mode development --content-base src --hot --inline",
-    "test": "jest --watch"
+    "test": "jest -e --watch"
   },
   "jest": {
     "coverageDirectory": "./coverage/",
-    "collectCoverage": true
+    "collectCoverage": true,
+    "setupFiles": [
+      "jest-localstorage-mock",
+      "./__tests__/setupFile.js"
+    ],
+    "roots": [
+      "<rootDir>/__tests__"
+    ]
   },
   "author": "Tim Daubenschütz",
   "license": "apache2",
@@ -24,6 +31,7 @@
     "react-redux": "^5.0.7",
     "redux": "^4.0.0",
     "redux-saga": "^0.16.0",
+    "redux-saga-test-plan": "^3.7.0",
     "styled-components": "^4.0.0",
     "styled-react-modal": "^1.0.0",
     "styled-spinkit": "^0.4.0",
@@ -40,6 +48,7 @@
     "babel-eslint": "^9.0.0",
     "babel-jest": "^23.4.2",
     "babel-loader": "^8.0.0-beta.6",
+    "babel-plugin-rewire": "^1.2.0",
     "babel-plugin-styled-components": "^1.8.0",
     "clean-webpack-plugin": "^0.1.19",
     "concurrently": "^4.0.0",
@@ -54,6 +63,8 @@
     "file-loader": "^1.1.11",
     "html-webpack-plugin": "^3.2.0",
     "jest": "^23.6.0",
+    "jest-fetch-mock": "^1.6.6",
+    "jest-localstorage-mock": "^2.2.0",
     "react-test-renderer": "^16.5.2",
     "style-loader": "^0.23.0",
     "url-loader": "^1.0.1",

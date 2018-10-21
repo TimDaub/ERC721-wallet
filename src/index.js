@@ -5,19 +5,24 @@ import ReactDOM from "react-dom";
 import { Provider } from "react-redux";
 import { createStore, applyMiddleware } from "redux";
 import createSagaMiddleware from "redux-saga";
+import getWeb3 from "./utils/getWeb3";
+import config from "./config";
 
 import App from "./components/App";
 import reducers from "./reducers";
 import sagas from "./sagas";
 
-const sagaMiddleware = createSagaMiddleware();
-const store = createStore(reducers, applyMiddleware(sagaMiddleware));
+(async function boot() {
+  config.web3 = await getWeb3();
+  const sagaMiddleware = createSagaMiddleware();
+  const store = createStore(reducers, applyMiddleware(sagaMiddleware));
 
-sagaMiddleware.run(sagas);
+  sagaMiddleware.run(sagas);
 
-ReactDOM.render(
-  <Provider store={store}>
-    <App />
-  </Provider>,
-  document.querySelector(".root")
-);
+  ReactDOM.render(
+    <Provider store={store}>
+      <App />
+    </Provider>,
+    document.querySelector(".root")
+  );
+})();

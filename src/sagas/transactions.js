@@ -1,5 +1,5 @@
 // @format
-import { put, takeLatest } from "redux-saga/effects";
+import { put, takeLatest, call } from "redux-saga/effects";
 import {
   fetchTransactionsSuccess,
   fetchTransactionsFailure
@@ -7,9 +7,10 @@ import {
 import getWeb3 from "../utils/getWeb3";
 import Utils from "web3-utils";
 import ERC721 from "../abis/ERC721.json";
+import config from "../config";
 
 function* fetchTransactions({ payload: { address } }) {
-  const web3 = yield getWeb3();
+  const web3 = config.web3;
   let contracts = localStorage.getItem("tokens");
   let txs = {};
 
@@ -18,24 +19,32 @@ function* fetchTransactions({ payload: { address } }) {
 
     for (let contractAddress of contracts) {
       const contract = new web3.eth.Contract(ERC721, contractAddress);
-      const outputs = yield contract.getPastEvents("Transfer", {
-        fromBlock: 0,
-        toBlock: "latest",
-        topics: [
-          Utils.sha3("Transfer(address,address,uint256)"),
-          Utils.padLeft(address, 64),
-          null
-        ]
-      });
-      const inputs = yield contract.getPastEvents("Transfer", {
-        fromBlock: 0,
-        toBlock: "latest",
-        topics: [
-          Utils.sha3("Transfer(address,address,uint256)"),
-          null,
-          Utils.padLeft(address, 64)
-        ]
-      });
+      const outputs = yield call(
+        contract.getPastEvents.bind(contract),
+        "Transfer",
+        {
+          fromBlock: 0,
+          toBlock: "latest",
+          topics: [
+            Utils.sha3("Transfer(address,address,uint256)"),
+            Utils.padLeft(address, 64),
+            null
+          ]
+        }
+      );
+      const inputs = yield call(
+        contract.getPastEvents.bind(contract),
+        "Transfer",
+        {
+          fromBlock: 0,
+          toBlock: "latest",
+          topics: [
+            Utils.sha3("Transfer(address,address,uint256)"),
+            null,
+            Utils.padLeft(address, 64)
+          ]
+        }
+      );
 
       for (let i = 0; i < outputs.length; i++) {
         const outputTokenId = outputs[i].returnValues._tokenId;
@@ -51,19 +60,25 @@ function* fetchTransactions({ payload: { address } }) {
       const tokenURIPromises = returnValues.map(({ _tokenId }) =>
         contract.methods.tokenURI(_tokenId).call()
       );
-      const tokenURIs = yield Promise.all(tokenURIPromises);
+      const tokenURIs = yield call(Promise.all.bind(Promise), tokenURIPromises);
 
       const tokenNamePromises = returnValues.map(() =>
         contract.methods.name().call()
       );
-      const tokenNames = yield Promise.all(tokenNamePromises);
+      const tokenNames = yield call(
+        Promise.all.bind(Promise),
+        tokenNamePromises
+      );
 
       const tokenJSONPromises = tokenURIs.map(uri =>
         fetch(uri)
           .then(res => res.json())
           .catch(err => null)
       );
-      const tokenJSON = yield Promise.all(tokenJSONPromises);
+      const tokenJSON = yield call(
+        Promise.all.bind(Promise),
+        tokenJSONPromises
+      );
       for (let i = 0; i < returnValues.length; i++) {
         returnValues[i].token = tokenJSON[i];
         returnValues[i].name = tokenNames[i];

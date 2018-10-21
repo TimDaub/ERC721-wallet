@@ -28,7 +28,6 @@ const StyledModal = Modal.styled`
   align-items: center;
   justify-content: center;
   background: white;
-  opacity: ${props => props.opacity};
   transition: opacity ease 200ms;
 `;
 
