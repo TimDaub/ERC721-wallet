@@ -91,6 +91,6 @@ function* fetchTransactions({ payload: { address } }) {
   yield put(fetchTransactionsSuccess(txs));
 }
 
-export function* transactionsWatcher() {
+export function* fetchTransactionsWatcher() {
   yield takeLatest("FETCH_TRANSACTIONS_BEGIN", fetchTransactions);
 }

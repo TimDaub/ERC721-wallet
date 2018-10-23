@@ -3,7 +3,7 @@ import { expectSaga } from "redux-saga-test-plan";
 import { call } from "redux-saga/effects";
 import Web3 from "web3";
 
-const fetchTransactions = require("../../src/sagas/transactions").__get__(
+const fetchTransactions = require("../../src/sagas/fetchTransactions").__get__(
   "fetchTransactions"
 );
 import ERC721 from "../../src/abis/ERC721.json";
