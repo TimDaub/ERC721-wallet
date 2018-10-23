@@ -8,9 +8,8 @@ export const transferTokenBegin = (from, to, tokenId, contract) => ({
   payload: { from, to, tokenId, contract }
 });
 
-export const transferTokenSuccess = transaction => ({
-  type: TRANSFER_TOKEN_SUCCESS,
-  payload: { transaction }
+export const transferTokenSuccess = () => ({
+  type: TRANSFER_TOKEN_SUCCESS
 });
 
 export const transferTokenFailure = error => ({
