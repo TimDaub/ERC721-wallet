@@ -53,6 +53,7 @@ describe("transaction fetching", () => {
       })
       .run();
   });
+
   it("should process transactions correctly and return no token", async () => {
     const contractAddress = "0x9326f84fcca8a136da3a4f71bbffbde6635c58da";
     const address = "0x51Ff1fab76079d20418d1c74DA65653FfE3fD0aa";
@@ -89,6 +90,7 @@ describe("transaction fetching", () => {
       })
       .run();
   });
+
   it("shouldn't process transactions but return an empty array", async () => {
     const contractAddress = "0x9326f84fcca8a136da3a4f71bbffbde6635c58da";
     const address = "0x51Ff1fab76079d20418d1c74DA65653FfE3fD0aa";
