@@ -35,7 +35,9 @@
     "styled-components": "^4.0.0",
     "styled-react-modal": "^1.0.0",
     "styled-spinkit": "^0.4.0",
-    "web3": "1.0.0-beta.35"
+    "web3": "1.0.0-beta.35",
+    "web3-utils": "^1.0.0-beta.36",
+    "zeppelin-solidity": "^1.12.0"
   },
   "devDependencies": {
     "@babel/core": "^7.0.0",

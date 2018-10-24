@@ -81,7 +81,11 @@ class Wallet extends Component {
         <div>
           {Object.keys(transactions).map((contractAddress, i) => (
             <div key={i}>
-              {this.separator(i, transactions[contractAddress][0].name)}
+              {this.separator(
+                i,
+                transactions[contractAddress].length &&
+                  transactions[contractAddress][0].name
+              )}
               <StyledWallet>
                 {transactions[contractAddress].map(
                   ({ token, _tokenId, name, contract }, j) => (

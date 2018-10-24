@@ -60,7 +60,16 @@ function* fetchTransactions({ payload: { address } }) {
       const tokenURIPromises = returnValues.map(({ _tokenId }) =>
         contract.methods.tokenURI(_tokenId).call()
       );
-      const tokenURIs = yield call(Promise.all.bind(Promise), tokenURIPromises);
+      let tokenURIs;
+      try {
+        tokenURIs = yield call(Promise.all.bind(Promise), tokenURIPromises);
+      } catch (e) {
+        // TODO: This isn't the right way to overcome this error. What to do?
+        tokenURIs = [];
+        for (let promises in tokenURIPromises) {
+          tokenURIs.push("https://cantdecodestring.com");
+        }
+      }
 
       const tokenNamePromises = returnValues.map(() =>
         contract.methods.name().call()
