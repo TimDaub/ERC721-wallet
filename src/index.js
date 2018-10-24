@@ -9,6 +9,7 @@ import getWeb3 from "./utils/getWeb3";
 import config from "./config";
 
 import App from "./components/App";
+import Root from "./components/Root";
 import reducers from "./reducers";
 import sagas from "./sagas";
 
@@ -19,10 +20,5 @@ import sagas from "./sagas";
 
   sagaMiddleware.run(sagas);
 
-  ReactDOM.render(
-    <Provider store={store}>
-      <App />
-    </Provider>,
-    document.querySelector(".root")
-  );
+  ReactDOM.render(<Root store={store} />, document.querySelector(".root"));
 })();
