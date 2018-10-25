@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import styled from "styled-components";
 import Modal from "styled-react-modal";
-import { ChasingDots } from "styled-spinkit";
+import { FoldingCube } from "styled-spinkit";
 
 import Header from "./Header";
 import Token from "./Token";
@@ -25,6 +25,13 @@ const Separator = styled.div`
   width: 70%;
   margin-left: 15%;
   border-bottom: 1px solid black;
+`;
+
+const StyledLoader = styled.div`
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `;
 
 class Wallet extends Component {
@@ -76,7 +83,11 @@ class Wallet extends Component {
     const { modals } = this.state;
     const { transactions, loading } = this.props;
     if (loading) {
-      return <ChasingDots color="#000" />;
+      return (
+        <StyledLoader>
+          <FoldingCube color="#000" />
+        </StyledLoader>
+      );
     } else {
       return (
         <div>

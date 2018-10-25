@@ -20,7 +20,7 @@ const StyledH3 = styled.h3`
 
 const Header = props => (
   <StyledHeader>
-    <StyledH3>💠 ERC721 Wallet</StyledH3>
+    <StyledH3>💠 MyCollectibles.io</StyledH3>
     <TokenAdder />
   </StyledHeader>
 );
