@@ -38,6 +38,9 @@ ShallowWrapper {
         <p>
           Token
         </p>,
+        <p>
+          &lt;No description given&gt;
+        </p>,
         <button>
           Transfer
         </button>,
@@ -100,6 +103,17 @@ ShallowWrapper {
         "key": undefined,
         "nodeType": "host",
         "props": Object {
+          "children": "<No description given>",
+        },
+        "ref": null,
+        "rendered": "<No description given>",
+        "type": "p",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
           "children": "Transfer",
           "onClick": undefined,
         },
@@ -148,9 +162,9 @@ ShallowWrapper {
           "
   margin: 1em;
   border: 1px solid #eee;
-  border-radius: 2px;
+  border-radius: 1px;
   padding: 1em;
-  background-color: white;
+  background-color: #fafafa;
   text-align: center;
   width: 150px;
 ",
@@ -177,6 +191,9 @@ ShallowWrapper {
           />,
           <p>
             Token
+          </p>,
+          <p>
+            &lt;No description given&gt;
           </p>,
           <button>
             Transfer
@@ -240,6 +257,17 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "host",
           "props": Object {
+            "children": "<No description given>",
+          },
+          "ref": null,
+          "rendered": "<No description given>",
+          "type": "p",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
             "children": "Transfer",
             "onClick": undefined,
           },
@@ -288,9 +316,9 @@ ShallowWrapper {
             "
   margin: 1em;
   border: 1px solid #eee;
-  border-radius: 2px;
+  border-radius: 1px;
   padding: 1em;
-  background-color: white;
+  background-color: #fafafa;
   text-align: center;
   width: 150px;
 ",

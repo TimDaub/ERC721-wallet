@@ -69,7 +69,10 @@ class Wallet extends Component {
   async updateTransactions() {
     const web3 = await getWeb3();
     const accounts = await web3.eth.getAccounts();
-    this.props.getTransactions(accounts[0]);
+    let contracts = localStorage.getItem("tokens");
+    contracts = contracts.split(",");
+
+    this.props.getTransactions(accounts[0], contracts);
     this.setState({ accounts });
   }
 

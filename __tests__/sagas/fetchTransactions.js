@@ -6,14 +6,16 @@ import Web3 from "web3";
 const fetchTransactions = require("../../src/sagas/fetchTransactions").__get__(
   "fetchTransactions"
 );
+import { fetchTransactionsBatch } from "../../src/sagas/fetchTransactions";
 import ERC721 from "../../src/abis/ERC721.json";
 import config from "../../src/config";
+
+expectSaga.DEFAULT_TIMEOUT = 500;
 
 describe("transaction fetching", () => {
   it("should process transactions correctly and return a token", async () => {
     const contractAddress = "0x9326f84fcca8a136da3a4f71bbffbde6635c58da";
     const address = "0x51Ff1fab76079d20418d1c74DA65653FfE3fD0aa";
-    localStorage.setItem("tokens", contractAddress);
 
     config.web3 = {
       eth: {
@@ -33,8 +35,8 @@ describe("transaction fetching", () => {
     };
 
     const contract = new config.web3.eth.Contract(ERC721, contractAddress);
-    return expectSaga(fetchTransactions, {
-      payload: { address }
+    return expectSaga(fetchTransactionsBatch, {
+      payload: { address, contracts: [contractAddress] }
     })
       .put({
         type: "FETCH_TRANSACTIONS_SUCCESS",
@@ -57,7 +59,6 @@ describe("transaction fetching", () => {
   it("should process transactions correctly and return no token", async () => {
     const contractAddress = "0x9326f84fcca8a136da3a4f71bbffbde6635c58da";
     const address = "0x51Ff1fab76079d20418d1c74DA65653FfE3fD0aa";
-    localStorage.setItem("tokens", contractAddress);
 
     config.web3 = {
       eth: {
@@ -77,8 +78,8 @@ describe("transaction fetching", () => {
     };
 
     const contract = new config.web3.eth.Contract(ERC721, contractAddress);
-    return expectSaga(fetchTransactions, {
-      payload: { address }
+    return expectSaga(fetchTransactionsBatch, {
+      payload: { address, contracts: [contractAddress] }
     })
       .put({
         type: "FETCH_TRANSACTIONS_SUCCESS",
@@ -96,8 +97,8 @@ describe("transaction fetching", () => {
     const address = "0x51Ff1fab76079d20418d1c74DA65653FfE3fD0aa";
 
     const contract = new config.web3.eth.Contract(ERC721, contractAddress);
-    return expectSaga(fetchTransactions, {
-      payload: { address }
+    return expectSaga(fetchTransactionsBatch, {
+      payload: { address, contracts: [contractAddress] }
     })
       .put({
         type: "FETCH_TRANSACTIONS_SUCCESS",
