@@ -5,6 +5,7 @@ import { toast } from "react-toastify";
 import { withRouter } from "react-router-dom";
 
 import getWeb3 from "../utils/getWeb3";
+import Headline from "./Headline";
 
 const StyledStart = styled.div`
   text-align: center;
@@ -16,10 +17,6 @@ const StyledTagLine = styled.h1`
   padding-bottom: 7.5vh;
   padding-left: 50vh;
   padding-right: 50vh;
-`;
-
-const StyledHeadline = styled.h1`
-  margin-left: 30vh;
 `;
 
 const MetamaskButton = styled.button`
@@ -34,7 +31,9 @@ const MetamaskButton = styled.button`
     outline: 0;
   }
   &:hover {
-    background-color: grey;
+    border 1px solid rgb(246, 133, 27);
+    background-color: white;
+    color: black;
     cursor: pointer;
   }
 `;
@@ -62,7 +61,7 @@ class Start extends Component {
   render() {
     return (
       <div>
-        <StyledHeadline>💠 MyCollectibles.io</StyledHeadline>
+        <Headline />
         <StyledStart>
           <StyledTagLine>
             An open source wallet for your Crypto Collectibles.

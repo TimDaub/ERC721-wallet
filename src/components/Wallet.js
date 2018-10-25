@@ -6,7 +6,7 @@ import styled from "styled-components";
 import Modal from "styled-react-modal";
 import { FoldingCube } from "styled-spinkit";
 
-import Header from "./Header";
+import Headline from "./Headline";
 import Token from "./Token";
 import getWeb3 from "../utils/getWeb3";
 import { fetchTransactionsBegin } from "../actions/fetchTransactions";
@@ -106,7 +106,7 @@ class Wallet extends Component {
     } else if (totalCollectibles === 0) {
       return (
         <div>
-          <Header />
+          <Headline />
           <StyledEmptySet>
             <h1>No collectibles found...</h1>
             <p>Add a token to view your collectibles</p>
@@ -116,7 +116,7 @@ class Wallet extends Component {
     } else {
       return (
         <div>
-          <Header />
+          <Headline />
           {Object.keys(transactions).map((contractAddress, i) => (
             <div key={i}>
               {transactions[contractAddress].length > 0 &&

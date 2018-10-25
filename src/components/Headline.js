@@ -5,24 +5,17 @@ import styled from "styled-components";
 import TokenAdder from "./TokenAdder";
 
 const StyledHeader = styled.div`
-  top: 0;
-  height: 5vh;
-  width: 100%;
-  background-color: #212121;
+  margin-left: 15%;
+  width: 70%;
   display: flex;
   align-items: center;
 `;
 
-const StyledH3 = styled.h3`
-  color: white;
-  margin-left: 1em;
-`;
-
-const Header = props => (
+const Headline = props => (
   <StyledHeader>
-    <StyledH3>💠 MyCollectibles.io</StyledH3>
+    <h1>💠 MyCollectibles.io</h1>
     <TokenAdder />
   </StyledHeader>
 );
 
-export default Header;
+export default Headline;
