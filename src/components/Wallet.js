@@ -49,7 +49,8 @@ class Wallet extends Component {
 
     this.state = {
       isOpen: false,
-      modals: {}
+      modals: {},
+      accounts: []
     };
   }
 
