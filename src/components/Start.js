@@ -8,20 +8,28 @@ import getWeb3 from "../utils/getWeb3";
 
 const StyledStart = styled.div`
   text-align: center;
-  margin: 20vh;
 `;
 
-const StyledH1 = styled.h1`
+const StyledTagLine = styled.h1`
   font-size: 3em;
+  padding-top: 20vh;
+  padding-bottom: 7.5vh;
+  padding-left: 50vh;
+  padding-right: 50vh;
+`;
+
+const StyledHeadline = styled.h1`
+  margin-left: 30vh;
 `;
 
 const MetamaskButton = styled.button`
+  font-family: "Ubuntu", sans-serif;
   background-color: rgb(246, 133, 27);
   color: white;
   border-radius: 0.3em;
   border: none;
   padding: 0.5em;
-  font-size: 1.5em;
+  font-size: 1.3em;
   &:focus {
     outline: 0;
   }
@@ -34,7 +42,7 @@ const MetamaskButton = styled.button`
 class Start extends Component {
   constructor(props) {
     super(props);
-    this.checkMetamaskSetup= this.checkMetamaskSetup.bind(this);
+    this.checkMetamaskSetup = this.checkMetamaskSetup.bind(this);
   }
 
   async checkMetamaskSetup() {
@@ -53,12 +61,17 @@ class Start extends Component {
 
   render() {
     return (
-      <StyledStart>
-        <StyledH1>An open source wallet for your Crypto Collectibles.</StyledH1>
-        <MetamaskButton onClick={this.checkMetamaskSetup}>
-          Connect to Metamask
-        </MetamaskButton>
-      </StyledStart>
+      <div>
+        <StyledHeadline>💠 MyCollectibles.io</StyledHeadline>
+        <StyledStart>
+          <StyledTagLine>
+            An open source wallet for your Crypto Collectibles.
+          </StyledTagLine>
+          <MetamaskButton onClick={this.checkMetamaskSetup}>
+            Connect to Metamask
+          </MetamaskButton>
+        </StyledStart>
+      </div>
     );
   }
 }

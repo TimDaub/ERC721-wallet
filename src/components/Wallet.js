@@ -6,6 +6,7 @@ import styled from "styled-components";
 import Modal from "styled-react-modal";
 import { ChasingDots } from "styled-spinkit";
 
+import Header from "./Header";
 import Token from "./Token";
 import getWeb3 from "../utils/getWeb3";
 import { fetchTransactionsBegin } from "../actions/fetchTransactions";
@@ -79,6 +80,7 @@ class Wallet extends Component {
     } else {
       return (
         <div>
+          <Header />
           {Object.keys(transactions).map((contractAddress, i) => (
             <div key={i}>
               {this.separator(

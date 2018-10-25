@@ -8,21 +8,19 @@ import { ModalProvider } from "styled-react-modal";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-import Header from "./Header";
 import Wallet from "./Wallet";
 import Start from "./Start";
 
 const GlobalStyle = createGlobalStyle`
   body {
-    font-family: 'Helvetica', 'Arial', sans-serif;
-    background-color: #FAFAFA;
+    font-family: 'Ubuntu', sans-serif;
+    background-color: white;
   }
 `;
 
 const Root = ({ store }) => (
   <Provider store={store}>
     <ModalProvider>
-      <Header />
       <GlobalStyle />
       <Router>
         <Switch>

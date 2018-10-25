@@ -10,7 +10,7 @@ const StyledToken = styled.div`
   border: 1px solid #eee;
   border-radius: 2px;
   padding: 1em;
-  background-color: white;
+  background-color: #fafafa;
   text-align: center;
   width: 150px;
 `;
