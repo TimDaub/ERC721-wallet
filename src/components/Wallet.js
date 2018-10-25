@@ -79,13 +79,11 @@ class Wallet extends Component {
   }
 
   separator(i, name) {
-    if (i === 0) {
-      return (
-        <Separator>
-          <SeparatorHeadline>{name}</SeparatorHeadline>
-        </Separator>
-      );
-    }
+    return (
+      <Separator>
+        <SeparatorHeadline>{name}</SeparatorHeadline>
+      </Separator>
+    );
   }
 
   totalCollectibles(transactions) {
@@ -120,11 +118,8 @@ class Wallet extends Component {
           <Header />
           {Object.keys(transactions).map((contractAddress, i) => (
             <div key={i}>
-              {this.separator(
-                i,
-                transactions[contractAddress].length &&
-                  transactions[contractAddress][0].name
-              )}
+              {transactions[contractAddress].length > 0 &&
+                this.separator(i, transactions[contractAddress][0].name)}
               <StyledWallet>
                 {transactions[contractAddress].map(
                   ({ token, _tokenId, name, contract }, j) => (
