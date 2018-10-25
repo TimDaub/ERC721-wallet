@@ -26,8 +26,8 @@ const MetamaskButton = styled.button`
   font-family: "Ubuntu", sans-serif;
   background-color: rgb(246, 133, 27);
   color: white;
-  border-radius: 0.3em;
   border: none;
+  border-radius: 1px;
   padding: 0.5em;
   font-size: 1.3em;
   &:focus {

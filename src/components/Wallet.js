@@ -27,11 +27,20 @@ const Separator = styled.div`
   border-bottom: 1px solid black;
 `;
 
+const SeparatorHeadline = styled.h3`
+  margin-bottom: 0.1em;
+`;
+
 const StyledLoader = styled.div`
   height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
+`;
+
+const StyledEmptySet = styled.div`
+  text-align: center;
+  margin-top: 20vh;
 `;
 
 class Wallet extends Component {
@@ -73,20 +82,37 @@ class Wallet extends Component {
     if (i === 0) {
       return (
         <Separator>
-          <h3>{name}</h3>
+          <SeparatorHeadline>{name}</SeparatorHeadline>
         </Separator>
       );
     }
   }
 
+  totalCollectibles(transactions) {
+    return Object.keys(transactions).reduce((initVal, currVal) => {
+      return initVal + transactions[currVal].length;
+    }, 0);
+  }
+
   render() {
     const { modals } = this.state;
     const { transactions, loading } = this.props;
+    const totalCollectibles = this.totalCollectibles(transactions);
     if (loading) {
       return (
         <StyledLoader>
           <FoldingCube color="#000" />
         </StyledLoader>
+      );
+    } else if (totalCollectibles === 0) {
+      return (
+        <div>
+          <Header />
+          <StyledEmptySet>
+            <h1>No collectibles found...</h1>
+            <p>Add a token to view your collectibles</p>
+          </StyledEmptySet>
+        </div>
       );
     } else {
       return (

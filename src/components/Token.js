@@ -8,7 +8,7 @@ import TransferModal from "./TransferModal";
 const StyledToken = styled.div`
   margin: 1em;
   border: 1px solid #eee;
-  border-radius: 2px;
+  border-radius: 1px;
   padding: 1em;
   background-color: #fafafa;
   text-align: center;
@@ -34,7 +34,10 @@ const StyledModal = Modal.styled`
 const Token = props => (
   <StyledToken>
     <StyledImage width="100%" src={props.token && props.token.image} />
-    <p>{(props.token && props.token.name) || "No name given"}</p>
+    <p>{(props.token && props.token.name) || "<No name given>"}</p>
+    <p>
+      {(props.token && props.token.description) || "<No description given>"}
+    </p>
     <button onClick={props.toggleModal(props.tokenId)}>Transfer</button>
     <StyledModal
       isOpen={props.modals[props.tokenId]}
