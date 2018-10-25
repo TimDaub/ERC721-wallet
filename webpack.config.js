@@ -31,11 +31,12 @@ module.exports = {
   },
   devServer: {
     port: 3000,
+    historyApiFallback: true
   },
   plugins: [
     new CleanWebpackPlugin([outputDirectory]),
     new HtmlWebpackPlugin({
-      template: "./public/index.html",
+      template: "./public/index.html"
     })
   ]
 };

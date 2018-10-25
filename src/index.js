@@ -1,5 +1,5 @@
 // @format
-import "babel-polyfill";
+import "@babel/polyfill";
 import React from "react";
 import ReactDOM from "react-dom";
 import { Provider } from "react-redux";
@@ -8,7 +8,6 @@ import createSagaMiddleware from "redux-saga";
 import getWeb3 from "./utils/getWeb3";
 import config from "./config";
 
-import App from "./components/App";
 import Root from "./components/Root";
 import reducers from "./reducers";
 import sagas from "./sagas";

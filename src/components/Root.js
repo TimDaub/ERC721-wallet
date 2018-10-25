@@ -2,14 +2,36 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { Provider } from "react-redux";
-import { BrowserRouter as Router, Route } from "react-router-dom";
-import App from "./App";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { createGlobalStyle } from "styled-components";
+import { ModalProvider } from "styled-react-modal";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
+import Header from "./Header";
+import Wallet from "./Wallet";
+import Start from "./Start";
+
+const GlobalStyle = createGlobalStyle`
+  body {
+    font-family: 'Helvetica', 'Arial', sans-serif;
+    background-color: #FAFAFA;
+  }
+`;
 
 const Root = ({ store }) => (
   <Provider store={store}>
-    <Router>
-      <Route path="/" component={App} />
-    </Router>
+    <ModalProvider>
+      <Header />
+      <GlobalStyle />
+      <Router>
+        <Switch>
+          <Route exact path="/" component={Start} />
+          <Route path="/wallet" component={Wallet} />
+        </Switch>
+      </Router>
+      <ToastContainer />
+    </ModalProvider>
   </Provider>
 );
 

@@ -1,6 +1,5 @@
 // @format
 import React from "react";
-import renderer from "react-test-renderer";
 import { ModalProvider } from "styled-react-modal";
 import { shallow } from "enzyme";
 import { configure } from "enzyme";
@@ -12,7 +11,6 @@ import Token from "../../src/components/Token";
 
 describe("Token component renders the token correctly", () => {
   it("renders correctly", () => {
-    const todo = { id: 1, done: false, name: "Buy Milk" };
     const token = {
       name: "Token",
       image: "https://example.com/image.jpg"

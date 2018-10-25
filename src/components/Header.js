@@ -6,7 +6,7 @@ import TokenAdder from "./TokenAdder";
 
 const StyledHeader = styled.div`
   top: 0;
-  height: 2.5em;
+  height: 5vh;
   width: 100%;
   background-color: #212121;
   display: flex;
