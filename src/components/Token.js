@@ -1,7 +1,7 @@
 // @format
 import React, { Component } from "react";
 import styled from "styled-components";
-import Modal from "styled-react-modal";
+import Modal from "react-modal";
 
 import TransferModal from "./TransferModal";
 
@@ -21,15 +21,16 @@ const StyledImage = styled.img`
   height: 100px;
 `;
 
-const StyledModal = Modal.styled`
-  width: 20rem;
-  height: 20rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: white;
-  transition: opacity ease 200ms;
-`;
+const customStyles = {
+  content: {
+    top: "50%",
+    left: "50%",
+    right: "auto",
+    bottom: "auto",
+    marginRight: "-50%",
+    transform: "translate(-50%, -50%)"
+  }
+};
 
 const Token = props => (
   <StyledToken>
@@ -39,17 +40,19 @@ const Token = props => (
       {(props.token && props.token.description) || "<No description given>"}
     </p>
     <button onClick={props.toggleModal(props.tokenId)}>Transfer</button>
-    <StyledModal
+    <Modal
       isOpen={props.modals[props.tokenId]}
-      onBackgroundClick={props.toggleModal(props.tokenId)}
-      onEscapeKeydown={props.toggleModal(props.tokenId)}
+      onRequestClose={props.toggleModal(props.tokenId)}
+      style={customStyles}
+      contentLabel="Example Modal"
+      ariaHideApp={false}
     >
       <TransferModal
         tokenId={props.tokenId}
         from={props.account}
         contract={props.contract}
       />
-    </StyledModal>
+    </Modal>
   </StyledToken>
 );
 

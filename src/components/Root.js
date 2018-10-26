@@ -4,7 +4,6 @@ import PropTypes from "prop-types";
 import { Provider } from "react-redux";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { createGlobalStyle } from "styled-components";
-import { ModalProvider } from "styled-react-modal";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
@@ -20,7 +19,7 @@ const GlobalStyle = createGlobalStyle`
 
 const Root = ({ store }) => (
   <Provider store={store}>
-    <ModalProvider>
+    <div>
       <GlobalStyle />
       <Router>
         <Switch>
@@ -29,7 +28,7 @@ const Root = ({ store }) => (
         </Switch>
       </Router>
       <ToastContainer />
-    </ModalProvider>
+    </div>
   </Provider>
 );
 

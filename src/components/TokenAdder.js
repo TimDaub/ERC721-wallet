@@ -1,23 +1,12 @@
 // @format
 import React, { Component } from "react";
-import Modal from "styled-react-modal";
+import Modal from "react-modal";
 import styled from "styled-components";
 
 import TokenAddModal from "./TokenAddModal";
 
 const StyledTokenAdder = styled.div`
   margin-left: auto;
-`;
-
-const StyledModal = Modal.styled`
-  width: 20rem;
-  height: 20rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: white;
-  opacity: ${props => props.opacity};
-  transition: opacity ease 200ms;
 `;
 
 const StyledButton = styled.button`
@@ -38,6 +27,17 @@ const StyledButton = styled.button`
     cursor: pointer;
   }
 `;
+
+const customStyles = {
+  content: {
+    top: "50%",
+    left: "50%",
+    right: "auto",
+    bottom: "auto",
+    marginRight: "-50%",
+    transform: "translate(-50%, -50%)"
+  }
+};
 
 class TokenAdder extends Component {
   constructor(props) {
@@ -79,13 +79,15 @@ class TokenAdder extends Component {
       return (
         <StyledTokenAdder>
           <StyledButton onClick={this.toggleModal}>Add Token</StyledButton>
-          <StyledModal
+          <Modal
             isOpen={this.state.isOpen}
-            onBackgroundClick={this.toggleModal}
-            onEscapeKeydown={this.toggleModal}
+            onRequestClose={this.toggleModal}
+            style={customStyles}
+            contentLabel="Example Modal"
+            ariaHideApp={false}
           >
             <TokenAddModal />
-          </StyledModal>
+          </Modal>
         </StyledTokenAdder>
       );
     } else {

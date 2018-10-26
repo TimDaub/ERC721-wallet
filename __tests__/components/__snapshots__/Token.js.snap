@@ -44,13 +44,38 @@ ShallowWrapper {
         <button>
           Transfer
         </button>,
-        <i>
+        <Modal
+          ariaHideApp={false}
+          bodyOpenClassName="ReactModal__Body--open"
+          closeTimeoutMS={0}
+          contentLabel="Example Modal"
+          isOpen={false}
+          parentSelector={[Function]}
+          portalClassName="ReactModalPortal"
+          role="dialog"
+          shouldCloseOnEsc={true}
+          shouldCloseOnOverlayClick={true}
+          shouldFocusAfterRender={true}
+          shouldReturnFocusAfterClose={true}
+          style={
+            Object {
+              "content": Object {
+                "bottom": "auto",
+                "left": "50%",
+                "marginRight": "-50%",
+                "right": "auto",
+                "top": "50%",
+                "transform": "translate(-50%, -50%)",
+              },
+            }
+          }
+        >
           <Connect(TransferModal)
             contract="0xabc"
             from="0xabc"
             tokenId={123}
           />
-        </i>,
+        </Modal>,
       ],
     },
     "ref": null,
@@ -69,7 +94,7 @@ ShallowWrapper {
           "$$typeof": Symbol(react.forward_ref),
           "attrs": undefined,
           "componentStyle": ComponentStyle {
-            "componentId": "sc-htpNat",
+            "componentId": "sc-bwzfXH",
             "isStatic": true,
             "rules": Array [
               "
@@ -81,7 +106,7 @@ ShallowWrapper {
           },
           "displayName": "styled.img",
           "render": [Function],
-          "styledComponentId": "sc-htpNat",
+          "styledComponentId": "sc-bwzfXH",
           "target": "img",
           "warnTooManyClasses": [Function],
           "withComponent": [Function],
@@ -126,14 +151,34 @@ ShallowWrapper {
         "key": undefined,
         "nodeType": "class",
         "props": Object {
+          "ariaHideApp": false,
+          "bodyOpenClassName": "ReactModal__Body--open",
           "children": <Connect(TransferModal)
             contract="0xabc"
             from="0xabc"
             tokenId={123}
           />,
-          "isOpen": undefined,
-          "onBackgroundClick": undefined,
-          "onEscapeKeydown": undefined,
+          "closeTimeoutMS": 0,
+          "contentLabel": "Example Modal",
+          "isOpen": false,
+          "onRequestClose": undefined,
+          "parentSelector": [Function],
+          "portalClassName": "ReactModalPortal",
+          "role": "dialog",
+          "shouldCloseOnEsc": true,
+          "shouldCloseOnOverlayClick": true,
+          "shouldFocusAfterRender": true,
+          "shouldReturnFocusAfterClose": true,
+          "style": Object {
+            "content": Object {
+              "bottom": "auto",
+              "left": "50%",
+              "marginRight": "-50%",
+              "right": "auto",
+              "top": "50%",
+              "transform": "translate(-50%, -50%)",
+            },
+          },
         },
         "ref": null,
         "rendered": Object {
@@ -156,7 +201,7 @@ ShallowWrapper {
       "$$typeof": Symbol(react.forward_ref),
       "attrs": undefined,
       "componentStyle": ComponentStyle {
-        "componentId": "sc-bwzfXH",
+        "componentId": "sc-bdVaJa",
         "isStatic": true,
         "rules": Array [
           "
@@ -172,7 +217,7 @@ ShallowWrapper {
       },
       "displayName": "styled.div",
       "render": [Function],
-      "styledComponentId": "sc-bwzfXH",
+      "styledComponentId": "sc-bdVaJa",
       "target": "div",
       "warnTooManyClasses": [Function],
       "withComponent": [Function],
@@ -198,13 +243,38 @@ ShallowWrapper {
           <button>
             Transfer
           </button>,
-          <i>
+          <Modal
+            ariaHideApp={false}
+            bodyOpenClassName="ReactModal__Body--open"
+            closeTimeoutMS={0}
+            contentLabel="Example Modal"
+            isOpen={false}
+            parentSelector={[Function]}
+            portalClassName="ReactModalPortal"
+            role="dialog"
+            shouldCloseOnEsc={true}
+            shouldCloseOnOverlayClick={true}
+            shouldFocusAfterRender={true}
+            shouldReturnFocusAfterClose={true}
+            style={
+              Object {
+                "content": Object {
+                  "bottom": "auto",
+                  "left": "50%",
+                  "marginRight": "-50%",
+                  "right": "auto",
+                  "top": "50%",
+                  "transform": "translate(-50%, -50%)",
+                },
+              }
+            }
+          >
             <Connect(TransferModal)
               contract="0xabc"
               from="0xabc"
               tokenId={123}
             />
-          </i>,
+          </Modal>,
         ],
       },
       "ref": null,
@@ -223,7 +293,7 @@ ShallowWrapper {
             "$$typeof": Symbol(react.forward_ref),
             "attrs": undefined,
             "componentStyle": ComponentStyle {
-              "componentId": "sc-htpNat",
+              "componentId": "sc-bwzfXH",
               "isStatic": true,
               "rules": Array [
                 "
@@ -235,7 +305,7 @@ ShallowWrapper {
             },
             "displayName": "styled.img",
             "render": [Function],
-            "styledComponentId": "sc-htpNat",
+            "styledComponentId": "sc-bwzfXH",
             "target": "img",
             "warnTooManyClasses": [Function],
             "withComponent": [Function],
@@ -280,14 +350,34 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "class",
           "props": Object {
+            "ariaHideApp": false,
+            "bodyOpenClassName": "ReactModal__Body--open",
             "children": <Connect(TransferModal)
               contract="0xabc"
               from="0xabc"
               tokenId={123}
             />,
-            "isOpen": undefined,
-            "onBackgroundClick": undefined,
-            "onEscapeKeydown": undefined,
+            "closeTimeoutMS": 0,
+            "contentLabel": "Example Modal",
+            "isOpen": false,
+            "onRequestClose": undefined,
+            "parentSelector": [Function],
+            "portalClassName": "ReactModalPortal",
+            "role": "dialog",
+            "shouldCloseOnEsc": true,
+            "shouldCloseOnOverlayClick": true,
+            "shouldFocusAfterRender": true,
+            "shouldReturnFocusAfterClose": true,
+            "style": Object {
+              "content": Object {
+                "bottom": "auto",
+                "left": "50%",
+                "marginRight": "-50%",
+                "right": "auto",
+                "top": "50%",
+                "transform": "translate(-50%, -50%)",
+              },
+            },
           },
           "ref": null,
           "rendered": Object {
@@ -310,7 +400,7 @@ ShallowWrapper {
         "$$typeof": Symbol(react.forward_ref),
         "attrs": undefined,
         "componentStyle": ComponentStyle {
-          "componentId": "sc-bwzfXH",
+          "componentId": "sc-bdVaJa",
           "isStatic": true,
           "rules": Array [
             "
@@ -326,7 +416,7 @@ ShallowWrapper {
         },
         "displayName": "styled.div",
         "render": [Function],
-        "styledComponentId": "sc-bwzfXH",
+        "styledComponentId": "sc-bdVaJa",
         "target": "div",
         "warnTooManyClasses": [Function],
         "withComponent": [Function],
