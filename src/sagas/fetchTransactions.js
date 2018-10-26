@@ -20,14 +20,44 @@ function* getMLB(address, contractAddress, web3) {
   return returnValues;
 }
 
+function* getCryptoKitties(address, contractAddress, web3) {
+  const tokens = yield fetch(
+    "https://api.cryptokitties.co/kitties/all/" + address
+  ).then(res => res.json());
+
+  const kitties = yield all(
+    tokens.map(token =>
+      fetch("https://api.cryptokitties.co/kitties/" + token.id).then(res =>
+        res.json()
+      )
+    )
+  );
+
+  const returnValues = tokens.map((token, i) => ({
+    _tokenId: token.id,
+    link: "https://www.cryptokitties.co/kitty/" + token.id,
+    token: {
+      image: token.image_url_cdn,
+      name: kitties[i].name,
+      description: kitties[i].bio
+    }
+  }));
+  return returnValues;
+}
+
 function* fetchTransactions(address, contractAddress) {
   const web3 = config.web3;
 
   // If MLB contract
   if ("0x8c9b261faef3b3c2e64ab5e58e04615f8c788099" === contractAddress) {
     return yield getMLB(address, contractAddress, web3);
+  } else if (
+    "0x06012c8cf97bead5deae237070f9587f8e7a266d" === contractAddress ||
+    "0xb1690c08e213a35ed9bab7b318de14420fb57d8c" === contractAddress
+  ) {
+    return yield getCryptoKitties(address, contractAddress, web3);
   } else {
-    const contract = new web3.eth.Contract(ERC721, contractAddress);
+    const contract = new web3.eth.Contract(ERC721, contractAddress, web3);
     const outputs = yield call(
       contract.getPastEvents.bind(contract),
       "Transfer",
