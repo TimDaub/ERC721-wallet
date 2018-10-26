@@ -18,6 +18,7 @@ Trezor.
 |Any OpenZeppelin ERC721 contract|Fully supported|
 |CryptoKitties|Fully supported|
 |KnownOrigin.io|Fully supported|
+|left.gallery|Fully supported|
 |MLB CryptoBaseball|Partially supported|
 |Ethermoon Adventure|Partially supported|
 |Any 0xcert ERC721 contract|Not yet supported|
