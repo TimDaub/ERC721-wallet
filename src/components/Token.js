@@ -28,7 +28,8 @@ const customStyles = {
     right: "auto",
     bottom: "auto",
     marginRight: "-50%",
-    transform: "translate(-50%, -50%)"
+    transform: "translate(-50%, -50%)",
+    width: "50vh"
   }
 };
 
@@ -55,6 +56,8 @@ const Token = props => (
       <TransferModal
         tokenId={props.tokenId}
         from={props.account}
+        image={props.token && props.token.image}
+        name={(props.token && props.token.name) || "<No name given>"}
         contract={props.contract}
       />
     </Modal>

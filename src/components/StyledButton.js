@@ -1,4 +1,5 @@
-import styled from 'styled-components';
+// @format
+import styled from "styled-components";
 
 export default styled.button`
   font-family: "Ubuntu", sans-serif;
