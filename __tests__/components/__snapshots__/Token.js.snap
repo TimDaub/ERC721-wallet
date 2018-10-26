@@ -11,6 +11,7 @@ ShallowWrapper {
     toggleModal={[Function]}
     token={
       Object {
+        "description": "nft description",
         "image": "https://example.com/image.jpg",
         "name": "Token",
       }
@@ -39,13 +40,9 @@ ShallowWrapper {
           Token
         </p>,
         <p>
-          &lt;No description given&gt;
+          nft description...
         </p>,
-        <a
-          target="_blank"
-        >
-          Visit Website
-        </a>,
+        null,
         <button>
           Transfer
         </button>,
@@ -71,6 +68,7 @@ ShallowWrapper {
                 "right": "auto",
                 "top": "50%",
                 "transform": "translate(-50%, -50%)",
+                "width": "50vh",
               },
             }
           }
@@ -78,6 +76,8 @@ ShallowWrapper {
           <Connect(TransferModal)
             contract="0xabc"
             from="0xabc"
+            image="https://example.com/image.jpg"
+            name="Token"
             tokenId={123}
           />
         </Modal>,
@@ -99,7 +99,7 @@ ShallowWrapper {
           "$$typeof": Symbol(react.forward_ref),
           "attrs": undefined,
           "componentStyle": ComponentStyle {
-            "componentId": "sc-bwzfXH",
+            "componentId": "sc-gzVnrw",
             "isStatic": true,
             "rules": Array [
               "
@@ -111,7 +111,7 @@ ShallowWrapper {
           },
           "displayName": "styled.img",
           "render": [Function],
-          "styledComponentId": "sc-bwzfXH",
+          "styledComponentId": "sc-gzVnrw",
           "target": "img",
           "warnTooManyClasses": [Function],
           "withComponent": [Function],
@@ -133,25 +133,13 @@ ShallowWrapper {
         "key": undefined,
         "nodeType": "host",
         "props": Object {
-          "children": "<No description given>",
+          "children": "nft description...",
         },
         "ref": null,
-        "rendered": "<No description given>",
+        "rendered": "nft description...",
         "type": "p",
       },
-      Object {
-        "instance": null,
-        "key": undefined,
-        "nodeType": "host",
-        "props": Object {
-          "children": "Visit Website",
-          "href": undefined,
-          "target": "_blank",
-        },
-        "ref": null,
-        "rendered": "Visit Website",
-        "type": "a",
-      },
+      null,
       Object {
         "instance": null,
         "key": undefined,
@@ -174,6 +162,8 @@ ShallowWrapper {
           "children": <Connect(TransferModal)
             contract="0xabc"
             from="0xabc"
+            image="https://example.com/image.jpg"
+            name="Token"
             tokenId={123}
           />,
           "closeTimeoutMS": 0,
@@ -195,6 +185,7 @@ ShallowWrapper {
               "right": "auto",
               "top": "50%",
               "transform": "translate(-50%, -50%)",
+              "width": "50vh",
             },
           },
         },
@@ -206,6 +197,8 @@ ShallowWrapper {
           "props": Object {
             "contract": "0xabc",
             "from": "0xabc",
+            "image": "https://example.com/image.jpg",
+            "name": "Token",
             "tokenId": 123,
           },
           "ref": null,
@@ -219,7 +212,7 @@ ShallowWrapper {
       "$$typeof": Symbol(react.forward_ref),
       "attrs": undefined,
       "componentStyle": ComponentStyle {
-        "componentId": "sc-bdVaJa",
+        "componentId": "sc-bZQynM",
         "isStatic": true,
         "rules": Array [
           "
@@ -235,7 +228,7 @@ ShallowWrapper {
       },
       "displayName": "styled.div",
       "render": [Function],
-      "styledComponentId": "sc-bdVaJa",
+      "styledComponentId": "sc-bZQynM",
       "target": "div",
       "warnTooManyClasses": [Function],
       "withComponent": [Function],
@@ -256,13 +249,9 @@ ShallowWrapper {
             Token
           </p>,
           <p>
-            &lt;No description given&gt;
+            nft description...
           </p>,
-          <a
-            target="_blank"
-          >
-            Visit Website
-          </a>,
+          null,
           <button>
             Transfer
           </button>,
@@ -288,6 +277,7 @@ ShallowWrapper {
                   "right": "auto",
                   "top": "50%",
                   "transform": "translate(-50%, -50%)",
+                  "width": "50vh",
                 },
               }
             }
@@ -295,6 +285,8 @@ ShallowWrapper {
             <Connect(TransferModal)
               contract="0xabc"
               from="0xabc"
+              image="https://example.com/image.jpg"
+              name="Token"
               tokenId={123}
             />
           </Modal>,
@@ -316,7 +308,7 @@ ShallowWrapper {
             "$$typeof": Symbol(react.forward_ref),
             "attrs": undefined,
             "componentStyle": ComponentStyle {
-              "componentId": "sc-bwzfXH",
+              "componentId": "sc-gzVnrw",
               "isStatic": true,
               "rules": Array [
                 "
@@ -328,7 +320,7 @@ ShallowWrapper {
             },
             "displayName": "styled.img",
             "render": [Function],
-            "styledComponentId": "sc-bwzfXH",
+            "styledComponentId": "sc-gzVnrw",
             "target": "img",
             "warnTooManyClasses": [Function],
             "withComponent": [Function],
@@ -350,25 +342,13 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "host",
           "props": Object {
-            "children": "<No description given>",
+            "children": "nft description...",
           },
           "ref": null,
-          "rendered": "<No description given>",
+          "rendered": "nft description...",
           "type": "p",
         },
-        Object {
-          "instance": null,
-          "key": undefined,
-          "nodeType": "host",
-          "props": Object {
-            "children": "Visit Website",
-            "href": undefined,
-            "target": "_blank",
-          },
-          "ref": null,
-          "rendered": "Visit Website",
-          "type": "a",
-        },
+        null,
         Object {
           "instance": null,
           "key": undefined,
@@ -391,6 +371,8 @@ ShallowWrapper {
             "children": <Connect(TransferModal)
               contract="0xabc"
               from="0xabc"
+              image="https://example.com/image.jpg"
+              name="Token"
               tokenId={123}
             />,
             "closeTimeoutMS": 0,
@@ -412,6 +394,7 @@ ShallowWrapper {
                 "right": "auto",
                 "top": "50%",
                 "transform": "translate(-50%, -50%)",
+                "width": "50vh",
               },
             },
           },
@@ -423,6 +406,8 @@ ShallowWrapper {
             "props": Object {
               "contract": "0xabc",
               "from": "0xabc",
+              "image": "https://example.com/image.jpg",
+              "name": "Token",
               "tokenId": 123,
             },
             "ref": null,
@@ -436,7 +421,7 @@ ShallowWrapper {
         "$$typeof": Symbol(react.forward_ref),
         "attrs": undefined,
         "componentStyle": ComponentStyle {
-          "componentId": "sc-bdVaJa",
+          "componentId": "sc-bZQynM",
           "isStatic": true,
           "rules": Array [
             "
@@ -452,7 +437,7 @@ ShallowWrapper {
         },
         "displayName": "styled.div",
         "render": [Function],
-        "styledComponentId": "sc-bdVaJa",
+        "styledComponentId": "sc-bZQynM",
         "target": "div",
         "warnTooManyClasses": [Function],
         "withComponent": [Function],

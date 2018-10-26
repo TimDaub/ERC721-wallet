@@ -12,7 +12,8 @@ describe("Token component renders the token correctly", () => {
   it("renders correctly", () => {
     const token = {
       name: "Token",
-      image: "https://example.com/image.jpg"
+      image: "https://example.com/image.jpg",
+      description: "nft description"
     };
     const tokenId = 123;
     const name = "nft name";
