@@ -125,11 +125,12 @@ class Wallet extends Component {
                 this.separator(i, transactions[contractAddress][0].name)}
               <StyledWallet>
                 {transactions[contractAddress].map(
-                  ({ token, _tokenId, name, contract }, j) => (
+                  ({ token, _tokenId, name, contract, link }, j) => (
                     <Token
                       key={j}
                       token={token}
                       tokenId={_tokenId}
+                      link={link}
                       name={name}
                       contract={contract}
                       modals={modals}

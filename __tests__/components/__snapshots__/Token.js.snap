@@ -41,6 +41,11 @@ ShallowWrapper {
         <p>
           &lt;No description given&gt;
         </p>,
+        <a
+          target="_blank"
+        >
+          Visit Website
+        </a>,
         <button>
           Transfer
         </button>,
@@ -133,6 +138,19 @@ ShallowWrapper {
         "ref": null,
         "rendered": "<No description given>",
         "type": "p",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": "Visit Website",
+          "href": undefined,
+          "target": "_blank",
+        },
+        "ref": null,
+        "rendered": "Visit Website",
+        "type": "a",
       },
       Object {
         "instance": null,
@@ -240,6 +258,11 @@ ShallowWrapper {
           <p>
             &lt;No description given&gt;
           </p>,
+          <a
+            target="_blank"
+          >
+            Visit Website
+          </a>,
           <button>
             Transfer
           </button>,
@@ -332,6 +355,19 @@ ShallowWrapper {
           "ref": null,
           "rendered": "<No description given>",
           "type": "p",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": "Visit Website",
+            "href": undefined,
+            "target": "_blank",
+          },
+          "ref": null,
+          "rendered": "Visit Website",
+          "type": "a",
         },
         Object {
           "instance": null,

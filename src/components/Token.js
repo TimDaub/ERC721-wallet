@@ -39,6 +39,9 @@ const Token = props => (
     <p>
       {(props.token && props.token.description) || "<No description given>"}
     </p>
+    <a target="_blank" href={props.link}>
+      Visit Website
+    </a>
     <button onClick={props.toggleModal(props.tokenId)}>Transfer</button>
     <Modal
       isOpen={props.modals[props.tokenId]}
