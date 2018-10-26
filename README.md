@@ -16,10 +16,11 @@ Trezor.
 |Token|Support|
 |---|---|
 |Any OpenZeppelin ERC721 contract|Fully supported|
-|CryptoKitties|Fully supported|
+|CryptoKitties.co|Fully supported|
 |KnownOrigin.io|Fully supported|
 |left.gallery|Fully supported|
-|MLB CryptoBaseball|Partially supported|
+|mokens.io|Fully supported|
+|mlbcryptobaseball.com|Partially supported|
 |Ethermoon Adventure|Partially supported|
 |Any 0xcert ERC721 contract|Not yet supported|
 
