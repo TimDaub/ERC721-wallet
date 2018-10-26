@@ -2,30 +2,14 @@
 import React, { Component } from "react";
 import Modal from "react-modal";
 import styled from "styled-components";
+import { connect } from "react-redux";
 
 import TokenAddModal from "./TokenAddModal";
+import StyledButton from "./StyledButton";
+import { addNameAndSymbolReset } from "../actions/addNameAndSymbol";
 
 const StyledTokenAdder = styled.div`
   margin-left: auto;
-`;
-
-const StyledButton = styled.button`
-  font-family: "Ubuntu", sans-serif;
-  background-color: black;
-  color: white;
-  border: none;
-  border-radius: 1px;
-  padding: 0.5em;
-  font-size: 1em;
-  &:focus {
-    outline: 0;
-  }
-  &:hover {
-    background-color: white;
-    border: 1px solid black;
-    color: black;
-    cursor: pointer;
-  }
 `;
 
 const customStyles = {
@@ -35,7 +19,8 @@ const customStyles = {
     right: "auto",
     bottom: "auto",
     marginRight: "-50%",
-    transform: "translate(-50%, -50%)"
+    transform: "translate(-50%, -50%)",
+    width: "50vh"
   }
 };
 
@@ -52,7 +37,12 @@ class TokenAdder extends Component {
   }
 
   toggleModal(e) {
-    this.setState({ isOpen: !this.state.isOpen });
+    const { isOpen } = this.state;
+    const { addNameAndSymbolReset } = this.props;
+    if (isOpen) {
+      addNameAndSymbolReset();
+    }
+    this.setState({ isOpen: !isOpen });
   }
 
   componentDidMount() {
@@ -95,5 +85,14 @@ class TokenAdder extends Component {
     }
   }
 }
+
+const mapDispatchToProps = {
+  addNameAndSymbolReset
+};
+
+TokenAdder = connect(
+  null,
+  mapDispatchToProps
+)(TokenAdder);
 
 export default TokenAdder;
