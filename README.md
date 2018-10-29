@@ -16,11 +16,12 @@ Trezor.
 |Token|Support|
 |---|---|
 |Any OpenZeppelin ERC721 contract|Fully supported|
-|CryptoKitties|Fully supported|
+|CryptoKitties.co|Fully supported|
 |KnownOrigin.io|Fully supported|
 |left.gallery|Fully supported|
-|MLB CryptoBaseball|Partially supported|
-|Ethermoon Adventure|Partially supported|
+|mokens.io|Fully supported|
+|mlbcryptobaseball.com|Partially supported|
+|Ethermon Adventure|Partially supported|
 |Any 0xcert ERC721 contract|Not yet supported|
 
 We're looking for donations of NFTs (0x2418ECF0617EC94343afe7301c71E7E9dfC5E523) for testing. Additionally, we're looking for contributors implementing their custom ERC721s. For more guidance simply open an issue.
