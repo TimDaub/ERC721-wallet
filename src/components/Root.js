@@ -24,8 +24,7 @@ const Root = ({ store }) => (
       <GlobalStyle />
       <Router>
         <Switch>
-          <Route exact path="/" component={Start} />
-          <Route path="/wallet" component={Wallet} />
+          <Route path="/" component={Wallet} />
         </Switch>
       </Router>
       <ToastContainer />

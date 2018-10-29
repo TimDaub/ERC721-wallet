@@ -12,6 +12,14 @@ import getWeb3 from "../utils/getWeb3";
 import { fetchTransactionsBegin } from "../actions/fetchTransactions";
 import TransferModal from "./TransferModal";
 
+import CinemarketNavigation from "./cinemarket/CinemarketNavigation";
+import CinemarketHeadline from "./cinemarket/CinemarketHeadline";
+import CinemarketInfo from "./cinemarket/CinemarketInfo";
+
+const StyledWalletWrapper = styled.div`
+  display: flex;
+`;
+
 const StyledWallet = styled.div`
   width: 70%;
   margin-left: 15%;
@@ -124,32 +132,36 @@ class Wallet extends Component {
       );
     } else {
       return (
-        <div>
-          <Headline />
-          {Object.keys(transactions).map((contractAddress, i) => (
-            <div key={i}>
-              {transactions[contractAddress].length > 0 &&
-                this.separator(i, transactions[contractAddress][0].name)}
-              <StyledWallet>
-                {transactions[contractAddress].map(
-                  ({ token, _tokenId, name, contract, link }, j) => (
-                    <Token
-                      key={j}
-                      token={token}
-                      tokenId={_tokenId}
-                      link={link}
-                      name={name}
-                      contract={contract}
-                      modals={modals}
-                      toggleModal={this.toggleModal}
-                      account={this.state.accounts[0]}
-                    />
-                  )
-                )}
-              </StyledWallet>
-            </div>
-          ))}
-        </div>
+        <StyledWalletWrapper>
+          <CinemarketNavigation />
+          <div>
+            <CinemarketHeadline />
+            <CinemarketInfo />
+            {Object.keys(transactions).map((contractAddress, i) => (
+              <div key={i}>
+                {transactions[contractAddress].length > 0 &&
+                  this.separator(i, transactions[contractAddress][0].name)}
+                <StyledWallet>
+                  {transactions[contractAddress].map(
+                    ({ token, _tokenId, name, contract, link }, j) => (
+                      <Token
+                        key={j}
+                        token={token}
+                        tokenId={_tokenId}
+                        link={link}
+                        name={name}
+                        contract={contract}
+                        modals={modals}
+                        toggleModal={this.toggleModal}
+                        account={this.state.accounts[0]}
+                      />
+                    )
+                  )}
+                </StyledWallet>
+              </div>
+            ))}
+          </div>
+        </StyledWalletWrapper>
       );
     }
   }
