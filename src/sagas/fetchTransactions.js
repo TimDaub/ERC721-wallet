@@ -12,7 +12,12 @@ import config from "../config";
 
 function* getMLB(address, contractAddress, web3) {
   const contract = new web3.eth.Contract(MLB, contractAddress);
-  const tokenIds = yield contract.methods.tokensOfOwner(address).call();
+  let tokenIds;
+  try {
+    tokenIds = yield contract.methods.tokensOfOwner(address).call();
+  } catch (err) {
+    throw err;
+  }
   const returnValues = tokenIds.map(tokenId => ({
     _tokenId: tokenId,
     link: "https://www.mlbcryptobaseball.com/asset/" + tokenId
@@ -21,17 +26,27 @@ function* getMLB(address, contractAddress, web3) {
 }
 
 function* getCryptoKitties(address, contractAddress, web3) {
-  const tokens = yield fetch(
-    "https://api.cryptokitties.co/kitties/all/" + address
-  ).then(res => res.json());
+  let tokens;
+  try {
+    tokens = yield fetch(
+      "https://api.cryptokitties.co/kitties/all/" + address
+    ).then(res => res.json());
+  } catch (err) {
+    throw err;
+  }
 
-  const kitties = yield all(
-    tokens.map(token =>
-      fetch("https://api.cryptokitties.co/kitties/" + token.id).then(res =>
-        res.json()
+  let kitties;
+  try {
+    kitties = yield all(
+      tokens.map(token =>
+        fetch("https://api.cryptokitties.co/kitties/" + token.id).then(res =>
+          res.json()
+        )
       )
-    )
-  );
+    );
+  } catch (err) {
+    throw err;
+  }
 
   const returnValues = tokens.map((token, i) => ({
     _tokenId: token.id,
@@ -135,14 +150,19 @@ function* fetchTransactions(address, contractAddress) {
 
 export function* fetchTransactionsBatch(action) {
   const { address, contracts } = action.payload;
-  const results = yield all(
-    contracts.map(contract => call(fetchTransactions, address, contract))
-  );
+  let results;
+  try {
+    results = yield all(
+      contracts.map(contract => call(fetchTransactions, address, contract))
+    );
+  } catch (err) {
+    yield put(fetchTransactionsFailure(transactions));
+  }
   const transactions = {};
   for (let [i, contract] of contracts.entries()) {
     transactions[contract] = results[i];
   }
-  yield put({ type: "FETCH_TRANSACTIONS_SUCCESS", payload: { transactions } });
+  yield put(fetchTransactionsSuccess(transactions));
 }
 
 export function* fetchTransactionsWatcher() {

@@ -99,7 +99,6 @@ const Token = props => (
       isOpen={props.modals[props.tokenId]}
       onRequestClose={props.toggleModal(props.tokenId)}
       style={customStyles}
-      contentLabel="Example Modal"
       ariaHideApp={false}
     >
       <TransferModal
