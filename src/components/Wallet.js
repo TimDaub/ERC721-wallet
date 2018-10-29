@@ -4,6 +4,7 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import styled from "styled-components";
 import { FoldingCube } from "styled-spinkit";
+import { toast } from "react-toastify";
 
 import Headline from "./Headline";
 import Token from "./Token";
@@ -78,6 +79,9 @@ class Wallet extends Component {
   componentDidUpdate(prevProps, prevState) {
     if (this.props.contracts !== prevProps.contracts) {
       this.updateTransactions();
+    }
+    if (this.props.error) {
+      toast.error(this.props.error.message);
     }
   }
 
@@ -156,7 +160,8 @@ const mapStateToProps = (state, ownProps) => {
   return {
     transactions: state.transactions.items,
     loading: state.transactions.loading,
-    contracts: state.contracts.items
+    contracts: state.contracts.items,
+    error: state.transactions.error
   };
 };
 Wallet = connect(
