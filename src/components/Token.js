@@ -2,17 +2,53 @@
 import React, { Component } from "react";
 import styled from "styled-components";
 import Modal from "react-modal";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faExchangeAlt, faEye } from "@fortawesome/free-solid-svg-icons";
 
 import TransferModal from "./TransferModal";
 
 const StyledToken = styled.div`
   margin: 1em;
-  border: 1px solid #eee;
-  border-radius: 1px;
-  padding: 1em;
-  background-color: #fafafa;
+  padding-top: 1em;
+  background-color: white;
+  box-shadow: 0 1px 1px 0 rgba(60, 64, 67, 0.08),
+    0 1px 3px 1px rgba(60, 64, 67, 0.16);
   text-align: center;
-  width: 150px;
+  width: 200px;
+`;
+
+const StyledTokenControls = styled.ul`
+  display: block;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  height: 2em;
+  width: 100%;
+  border-top: 1px solid #eee;
+`;
+
+const StyledTokenElement = styled.li`
+  display: inline-block;
+  height: 100%;
+  width: 50%;
+  color: #424242;
+  text-align: center;
+  &:hover {
+    cursor: pointer;
+    background-color: #fafafa;
+  }
+`;
+
+const StyledTokenAnchor = styled.a`
+  display: inline-block;
+  vertical-align: middle;
+  padding-top: 0.35em;
+  text-decoration: none;
+
+  &:visited {
+    color: #424242;
+    text-decoration: none;
+  }
 `;
 
 const StyledImage = styled.img`
@@ -47,12 +83,18 @@ const Token = props => (
         props.token.description.substring(0, 50) + "...") ||
         "<No description given>"}
     </p>
-    {props.link ? (
-      <a target="_blank" href={props.link}>
-        Visit Website
-      </a>
-    ) : null}
-    <button onClick={props.toggleModal(props.tokenId)}>Transfer</button>
+    <StyledTokenControls>
+      <StyledTokenElement>
+        <StyledTokenAnchor target="_blank" href={props.link}>
+          <FontAwesomeIcon icon={faEye} /> View
+        </StyledTokenAnchor>
+      </StyledTokenElement>
+      <StyledTokenElement onClick={props.toggleModal(props.tokenId)}>
+        <StyledTokenAnchor>
+          <FontAwesomeIcon icon={faExchangeAlt} /> Transfer
+        </StyledTokenAnchor>
+      </StyledTokenElement>
+    </StyledTokenControls>
     <Modal
       isOpen={props.modals[props.tokenId]}
       onRequestClose={props.toggleModal(props.tokenId)}

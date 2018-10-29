@@ -3,8 +3,8 @@ import styled from "styled-components";
 
 export default styled.button`
   font-family: "Ubuntu", sans-serif;
-  background-color: black;
-  color: white;
+  background-color: ${props => (props.secondary ? "white" : "black")};
+  color: ${props => (props.secondary ? "black" : "white")};
   border: 1px solid black;
   border-radius: 1px;
   padding: 0.5em;
@@ -15,9 +15,9 @@ export default styled.button`
     outline: 0;
   }
   &:hover {
-    background-color: white;
+    background-color: ${props => (props.secondary ? "black" : "white")};
     border: 1px solid black;
-    color: black;
+    color: ${props => (props.secondary ? "white" : "black")};
     cursor: pointer;
   }
 `;
