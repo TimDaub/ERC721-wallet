@@ -3,11 +3,7 @@ import { expectSaga } from "redux-saga-test-plan";
 import { call } from "redux-saga/effects";
 import Web3 from "web3";
 
-const fetchTransactions = require("../../src/sagas/fetchTransactions").__get__(
-  "fetchTransactions"
-);
 import { fetchTransactionsBatch } from "../../src/sagas/fetchTransactions";
-import ERC721 from "../../src/abis/ERC721.json";
 import config from "../../src/config";
 
 expectSaga.DEFAULT_TIMEOUT = 500;
@@ -19,6 +15,9 @@ describe("transaction fetching", () => {
 
     config.web3 = {
       eth: {
+        net: {
+          getId: jest.fn(() => 1)
+        },
         Contract: jest.fn(() => {
           return {
             getPastEvents: jest
@@ -34,7 +33,6 @@ describe("transaction fetching", () => {
       }
     };
 
-    const contract = new config.web3.eth.Contract(ERC721, contractAddress);
     return expectSaga(fetchTransactionsBatch, {
       payload: { address, contracts: [contractAddress] }
     })
@@ -62,6 +60,9 @@ describe("transaction fetching", () => {
 
     config.web3 = {
       eth: {
+        net: {
+          getId: jest.fn(() => 1)
+        },
         Contract: jest.fn(() => {
           return {
             getPastEvents: jest
@@ -77,7 +78,6 @@ describe("transaction fetching", () => {
       }
     };
 
-    const contract = new config.web3.eth.Contract(ERC721, contractAddress);
     return expectSaga(fetchTransactionsBatch, {
       payload: { address, contracts: [contractAddress] }
     })
@@ -96,7 +96,6 @@ describe("transaction fetching", () => {
     const contractAddress = "0x9326f84fcca8a136da3a4f71bbffbde6635c58da";
     const address = "0x51Ff1fab76079d20418d1c74DA65653FfE3fD0aa";
 
-    const contract = new config.web3.eth.Contract(ERC721, contractAddress);
     return expectSaga(fetchTransactionsBatch, {
       payload: { address, contracts: [contractAddress] }
     })

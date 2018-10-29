@@ -156,7 +156,7 @@ export function* fetchTransactionsBatch(action) {
       contracts.map(contract => call(fetchTransactions, address, contract))
     );
   } catch (err) {
-    yield put(fetchTransactionsFailure(transactions));
+    yield put(fetchTransactionsFailure(err));
   }
   const transactions = {};
   for (let [i, contract] of contracts.entries()) {

@@ -42,15 +42,84 @@ ShallowWrapper {
         <p>
           nft description...
         </p>,
-        null,
-        <button>
-          Transfer
-        </button>,
+        <ForwardRef>
+          <ForwardRef>
+            <ForwardRef
+              target="_blank"
+            >
+              <FontAwesomeIcon
+                border={false}
+                className=""
+                fixedWidth={false}
+                flip={null}
+                icon={
+                  Object {
+                    "icon": Array [
+                      576,
+                      512,
+                      Array [],
+                      "f06e",
+                      "M569.354 231.631C512.969 135.949 407.81 72 288 72 168.14 72 63.004 135.994 6.646 231.631a47.999 47.999 0 0 0 0 48.739C63.031 376.051 168.19 440 288 440c119.86 0 224.996-63.994 281.354-159.631a47.997 47.997 0 0 0 0-48.738zM288 392c-75.162 0-136-60.827-136-136 0-75.162 60.826-136 136-136 75.162 0 136 60.826 136 136 0 75.162-60.826 136-136 136zm104-136c0 57.438-46.562 104-104 104s-104-46.562-104-104c0-17.708 4.431-34.379 12.236-48.973l-.001.032c0 23.651 19.173 42.823 42.824 42.823s42.824-19.173 42.824-42.823c0-23.651-19.173-42.824-42.824-42.824l-.032.001C253.621 156.431 270.292 152 288 152c57.438 0 104 46.562 104 104z",
+                    ],
+                    "iconName": "eye",
+                    "prefix": "fas",
+                  }
+                }
+                inverse={false}
+                listItem={false}
+                mask={null}
+                pull={null}
+                pulse={false}
+                rotation={null}
+                size={null}
+                spin={false}
+                symbol={false}
+                title=""
+                transform={null}
+              />
+               View
+            </ForwardRef>
+          </ForwardRef>
+          <ForwardRef>
+            <ForwardRef>
+              <FontAwesomeIcon
+                border={false}
+                className=""
+                fixedWidth={false}
+                flip={null}
+                icon={
+                  Object {
+                    "icon": Array [
+                      512,
+                      512,
+                      Array [],
+                      "f362",
+                      "M0 168v-16c0-13.255 10.745-24 24-24h360V80c0-21.367 25.899-32.042 40.971-16.971l80 80c9.372 9.373 9.372 24.569 0 33.941l-80 80C409.956 271.982 384 261.456 384 240v-48H24c-13.255 0-24-10.745-24-24zm488 152H128v-48c0-21.314-25.862-32.08-40.971-16.971l-80 80c-9.372 9.373-9.372 24.569 0 33.941l80 80C102.057 463.997 128 453.437 128 432v-48h360c13.255 0 24-10.745 24-24v-16c0-13.255-10.745-24-24-24z",
+                    ],
+                    "iconName": "exchange-alt",
+                    "prefix": "fas",
+                  }
+                }
+                inverse={false}
+                listItem={false}
+                mask={null}
+                pull={null}
+                pulse={false}
+                rotation={null}
+                size={null}
+                spin={false}
+                symbol={false}
+                title=""
+                transform={null}
+              />
+               Transfer
+            </ForwardRef>
+          </ForwardRef>
+        </ForwardRef>,
         <Modal
           ariaHideApp={false}
           bodyOpenClassName="ReactModal__Body--open"
           closeTimeoutMS={0}
-          contentLabel="Example Modal"
           isOpen={false}
           parentSelector={[Function]}
           portalClassName="ReactModalPortal"
@@ -99,7 +168,7 @@ ShallowWrapper {
           "$$typeof": Symbol(react.forward_ref),
           "attrs": undefined,
           "componentStyle": ComponentStyle {
-            "componentId": "sc-gzVnrw",
+            "componentId": "sc-iwsKbI",
             "isStatic": true,
             "rules": Array [
               "
@@ -111,7 +180,7 @@ ShallowWrapper {
           },
           "displayName": "styled.img",
           "render": [Function],
-          "styledComponentId": "sc-gzVnrw",
+          "styledComponentId": "sc-iwsKbI",
           "target": "img",
           "warnTooManyClasses": [Function],
           "withComponent": [Function],
@@ -139,18 +208,469 @@ ShallowWrapper {
         "rendered": "nft description...",
         "type": "p",
       },
-      null,
       Object {
         "instance": null,
         "key": undefined,
-        "nodeType": "host",
+        "nodeType": "function",
         "props": Object {
-          "children": "Transfer",
-          "onClick": undefined,
+          "children": Array [
+            <ForwardRef>
+              <ForwardRef
+                target="_blank"
+              >
+                <FontAwesomeIcon
+                  border={false}
+                  className=""
+                  fixedWidth={false}
+                  flip={null}
+                  icon={
+                    Object {
+                      "icon": Array [
+                        576,
+                        512,
+                        Array [],
+                        "f06e",
+                        "M569.354 231.631C512.969 135.949 407.81 72 288 72 168.14 72 63.004 135.994 6.646 231.631a47.999 47.999 0 0 0 0 48.739C63.031 376.051 168.19 440 288 440c119.86 0 224.996-63.994 281.354-159.631a47.997 47.997 0 0 0 0-48.738zM288 392c-75.162 0-136-60.827-136-136 0-75.162 60.826-136 136-136 75.162 0 136 60.826 136 136 0 75.162-60.826 136-136 136zm104-136c0 57.438-46.562 104-104 104s-104-46.562-104-104c0-17.708 4.431-34.379 12.236-48.973l-.001.032c0 23.651 19.173 42.823 42.824 42.823s42.824-19.173 42.824-42.823c0-23.651-19.173-42.824-42.824-42.824l-.032.001C253.621 156.431 270.292 152 288 152c57.438 0 104 46.562 104 104z",
+                      ],
+                      "iconName": "eye",
+                      "prefix": "fas",
+                    }
+                  }
+                  inverse={false}
+                  listItem={false}
+                  mask={null}
+                  pull={null}
+                  pulse={false}
+                  rotation={null}
+                  size={null}
+                  spin={false}
+                  symbol={false}
+                  title=""
+                  transform={null}
+                />
+                 View
+              </ForwardRef>
+            </ForwardRef>,
+            <ForwardRef>
+              <ForwardRef>
+                <FontAwesomeIcon
+                  border={false}
+                  className=""
+                  fixedWidth={false}
+                  flip={null}
+                  icon={
+                    Object {
+                      "icon": Array [
+                        512,
+                        512,
+                        Array [],
+                        "f362",
+                        "M0 168v-16c0-13.255 10.745-24 24-24h360V80c0-21.367 25.899-32.042 40.971-16.971l80 80c9.372 9.373 9.372 24.569 0 33.941l-80 80C409.956 271.982 384 261.456 384 240v-48H24c-13.255 0-24-10.745-24-24zm488 152H128v-48c0-21.314-25.862-32.08-40.971-16.971l-80 80c-9.372 9.373-9.372 24.569 0 33.941l80 80C102.057 463.997 128 453.437 128 432v-48h360c13.255 0 24-10.745 24-24v-16c0-13.255-10.745-24-24-24z",
+                      ],
+                      "iconName": "exchange-alt",
+                      "prefix": "fas",
+                    }
+                  }
+                  inverse={false}
+                  listItem={false}
+                  mask={null}
+                  pull={null}
+                  pulse={false}
+                  rotation={null}
+                  size={null}
+                  spin={false}
+                  symbol={false}
+                  title=""
+                  transform={null}
+                />
+                 Transfer
+              </ForwardRef>
+            </ForwardRef>,
+          ],
         },
         "ref": null,
-        "rendered": "Transfer",
-        "type": "button",
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "function",
+            "props": Object {
+              "children": <ForwardRef
+                target="_blank"
+              >
+                <FontAwesomeIcon
+                  border={false}
+                  className=""
+                  fixedWidth={false}
+                  flip={null}
+                  icon={
+                    Object {
+                      "icon": Array [
+                        576,
+                        512,
+                        Array [],
+                        "f06e",
+                        "M569.354 231.631C512.969 135.949 407.81 72 288 72 168.14 72 63.004 135.994 6.646 231.631a47.999 47.999 0 0 0 0 48.739C63.031 376.051 168.19 440 288 440c119.86 0 224.996-63.994 281.354-159.631a47.997 47.997 0 0 0 0-48.738zM288 392c-75.162 0-136-60.827-136-136 0-75.162 60.826-136 136-136 75.162 0 136 60.826 136 136 0 75.162-60.826 136-136 136zm104-136c0 57.438-46.562 104-104 104s-104-46.562-104-104c0-17.708 4.431-34.379 12.236-48.973l-.001.032c0 23.651 19.173 42.823 42.824 42.823s42.824-19.173 42.824-42.823c0-23.651-19.173-42.824-42.824-42.824l-.032.001C253.621 156.431 270.292 152 288 152c57.438 0 104 46.562 104 104z",
+                      ],
+                      "iconName": "eye",
+                      "prefix": "fas",
+                    }
+                  }
+                  inverse={false}
+                  listItem={false}
+                  mask={null}
+                  pull={null}
+                  pulse={false}
+                  rotation={null}
+                  size={null}
+                  spin={false}
+                  symbol={false}
+                  title=""
+                  transform={null}
+                />
+                 View
+              </ForwardRef>,
+            },
+            "ref": null,
+            "rendered": Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "function",
+              "props": Object {
+                "children": Array [
+                  <FontAwesomeIcon
+                    border={false}
+                    className=""
+                    fixedWidth={false}
+                    flip={null}
+                    icon={
+                      Object {
+                        "icon": Array [
+                          576,
+                          512,
+                          Array [],
+                          "f06e",
+                          "M569.354 231.631C512.969 135.949 407.81 72 288 72 168.14 72 63.004 135.994 6.646 231.631a47.999 47.999 0 0 0 0 48.739C63.031 376.051 168.19 440 288 440c119.86 0 224.996-63.994 281.354-159.631a47.997 47.997 0 0 0 0-48.738zM288 392c-75.162 0-136-60.827-136-136 0-75.162 60.826-136 136-136 75.162 0 136 60.826 136 136 0 75.162-60.826 136-136 136zm104-136c0 57.438-46.562 104-104 104s-104-46.562-104-104c0-17.708 4.431-34.379 12.236-48.973l-.001.032c0 23.651 19.173 42.823 42.824 42.823s42.824-19.173 42.824-42.823c0-23.651-19.173-42.824-42.824-42.824l-.032.001C253.621 156.431 270.292 152 288 152c57.438 0 104 46.562 104 104z",
+                        ],
+                        "iconName": "eye",
+                        "prefix": "fas",
+                      }
+                    }
+                    inverse={false}
+                    listItem={false}
+                    mask={null}
+                    pull={null}
+                    pulse={false}
+                    rotation={null}
+                    size={null}
+                    spin={false}
+                    symbol={false}
+                    title=""
+                    transform={null}
+                  />,
+                  " View",
+                ],
+                "href": undefined,
+                "target": "_blank",
+              },
+              "ref": null,
+              "rendered": Array [
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "function",
+                  "props": Object {
+                    "border": false,
+                    "className": "",
+                    "fixedWidth": false,
+                    "flip": null,
+                    "icon": Object {
+                      "icon": Array [
+                        576,
+                        512,
+                        Array [],
+                        "f06e",
+                        "M569.354 231.631C512.969 135.949 407.81 72 288 72 168.14 72 63.004 135.994 6.646 231.631a47.999 47.999 0 0 0 0 48.739C63.031 376.051 168.19 440 288 440c119.86 0 224.996-63.994 281.354-159.631a47.997 47.997 0 0 0 0-48.738zM288 392c-75.162 0-136-60.827-136-136 0-75.162 60.826-136 136-136 75.162 0 136 60.826 136 136 0 75.162-60.826 136-136 136zm104-136c0 57.438-46.562 104-104 104s-104-46.562-104-104c0-17.708 4.431-34.379 12.236-48.973l-.001.032c0 23.651 19.173 42.823 42.824 42.823s42.824-19.173 42.824-42.823c0-23.651-19.173-42.824-42.824-42.824l-.032.001C253.621 156.431 270.292 152 288 152c57.438 0 104 46.562 104 104z",
+                      ],
+                      "iconName": "eye",
+                      "prefix": "fas",
+                    },
+                    "inverse": false,
+                    "listItem": false,
+                    "mask": null,
+                    "pull": null,
+                    "pulse": false,
+                    "rotation": null,
+                    "size": null,
+                    "spin": false,
+                    "symbol": false,
+                    "title": "",
+                    "transform": null,
+                  },
+                  "ref": null,
+                  "rendered": null,
+                  "type": [Function],
+                },
+                " View",
+              ],
+              "type": Object {
+                "$$typeof": Symbol(react.forward_ref),
+                "attrs": undefined,
+                "componentStyle": ComponentStyle {
+                  "componentId": "sc-dnqmqq",
+                  "isStatic": true,
+                  "rules": Array [
+                    "
+  display: inline-block;
+  vertical-align: middle;
+  padding-top: 0.35em;
+  text-decoration: none;
+
+  &:visited {
+    color: #424242;
+    text-decoration: none;
+  }
+",
+                  ],
+                },
+                "displayName": "styled.a",
+                "render": [Function],
+                "styledComponentId": "sc-dnqmqq",
+                "target": "a",
+                "warnTooManyClasses": [Function],
+                "withComponent": [Function],
+              },
+            },
+            "type": Object {
+              "$$typeof": Symbol(react.forward_ref),
+              "attrs": undefined,
+              "componentStyle": ComponentStyle {
+                "componentId": "sc-htoDjs",
+                "isStatic": true,
+                "rules": Array [
+                  "
+  display: inline-block;
+  height: 100%;
+  width: 50%;
+  color: #424242;
+  text-align: center;
+  &:hover {
+    cursor: pointer;
+    background-color: #fafafa;
+  }
+",
+                ],
+              },
+              "displayName": "styled.li",
+              "render": [Function],
+              "styledComponentId": "sc-htoDjs",
+              "target": "li",
+              "warnTooManyClasses": [Function],
+              "withComponent": [Function],
+            },
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "function",
+            "props": Object {
+              "children": <ForwardRef>
+                <FontAwesomeIcon
+                  border={false}
+                  className=""
+                  fixedWidth={false}
+                  flip={null}
+                  icon={
+                    Object {
+                      "icon": Array [
+                        512,
+                        512,
+                        Array [],
+                        "f362",
+                        "M0 168v-16c0-13.255 10.745-24 24-24h360V80c0-21.367 25.899-32.042 40.971-16.971l80 80c9.372 9.373 9.372 24.569 0 33.941l-80 80C409.956 271.982 384 261.456 384 240v-48H24c-13.255 0-24-10.745-24-24zm488 152H128v-48c0-21.314-25.862-32.08-40.971-16.971l-80 80c-9.372 9.373-9.372 24.569 0 33.941l80 80C102.057 463.997 128 453.437 128 432v-48h360c13.255 0 24-10.745 24-24v-16c0-13.255-10.745-24-24-24z",
+                      ],
+                      "iconName": "exchange-alt",
+                      "prefix": "fas",
+                    }
+                  }
+                  inverse={false}
+                  listItem={false}
+                  mask={null}
+                  pull={null}
+                  pulse={false}
+                  rotation={null}
+                  size={null}
+                  spin={false}
+                  symbol={false}
+                  title=""
+                  transform={null}
+                />
+                 Transfer
+              </ForwardRef>,
+              "onClick": undefined,
+            },
+            "ref": null,
+            "rendered": Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "function",
+              "props": Object {
+                "children": Array [
+                  <FontAwesomeIcon
+                    border={false}
+                    className=""
+                    fixedWidth={false}
+                    flip={null}
+                    icon={
+                      Object {
+                        "icon": Array [
+                          512,
+                          512,
+                          Array [],
+                          "f362",
+                          "M0 168v-16c0-13.255 10.745-24 24-24h360V80c0-21.367 25.899-32.042 40.971-16.971l80 80c9.372 9.373 9.372 24.569 0 33.941l-80 80C409.956 271.982 384 261.456 384 240v-48H24c-13.255 0-24-10.745-24-24zm488 152H128v-48c0-21.314-25.862-32.08-40.971-16.971l-80 80c-9.372 9.373-9.372 24.569 0 33.941l80 80C102.057 463.997 128 453.437 128 432v-48h360c13.255 0 24-10.745 24-24v-16c0-13.255-10.745-24-24-24z",
+                        ],
+                        "iconName": "exchange-alt",
+                        "prefix": "fas",
+                      }
+                    }
+                    inverse={false}
+                    listItem={false}
+                    mask={null}
+                    pull={null}
+                    pulse={false}
+                    rotation={null}
+                    size={null}
+                    spin={false}
+                    symbol={false}
+                    title=""
+                    transform={null}
+                  />,
+                  " Transfer",
+                ],
+              },
+              "ref": null,
+              "rendered": Array [
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "function",
+                  "props": Object {
+                    "border": false,
+                    "className": "",
+                    "fixedWidth": false,
+                    "flip": null,
+                    "icon": Object {
+                      "icon": Array [
+                        512,
+                        512,
+                        Array [],
+                        "f362",
+                        "M0 168v-16c0-13.255 10.745-24 24-24h360V80c0-21.367 25.899-32.042 40.971-16.971l80 80c9.372 9.373 9.372 24.569 0 33.941l-80 80C409.956 271.982 384 261.456 384 240v-48H24c-13.255 0-24-10.745-24-24zm488 152H128v-48c0-21.314-25.862-32.08-40.971-16.971l-80 80c-9.372 9.373-9.372 24.569 0 33.941l80 80C102.057 463.997 128 453.437 128 432v-48h360c13.255 0 24-10.745 24-24v-16c0-13.255-10.745-24-24-24z",
+                      ],
+                      "iconName": "exchange-alt",
+                      "prefix": "fas",
+                    },
+                    "inverse": false,
+                    "listItem": false,
+                    "mask": null,
+                    "pull": null,
+                    "pulse": false,
+                    "rotation": null,
+                    "size": null,
+                    "spin": false,
+                    "symbol": false,
+                    "title": "",
+                    "transform": null,
+                  },
+                  "ref": null,
+                  "rendered": null,
+                  "type": [Function],
+                },
+                " Transfer",
+              ],
+              "type": Object {
+                "$$typeof": Symbol(react.forward_ref),
+                "attrs": undefined,
+                "componentStyle": ComponentStyle {
+                  "componentId": "sc-dnqmqq",
+                  "isStatic": true,
+                  "rules": Array [
+                    "
+  display: inline-block;
+  vertical-align: middle;
+  padding-top: 0.35em;
+  text-decoration: none;
+
+  &:visited {
+    color: #424242;
+    text-decoration: none;
+  }
+",
+                  ],
+                },
+                "displayName": "styled.a",
+                "render": [Function],
+                "styledComponentId": "sc-dnqmqq",
+                "target": "a",
+                "warnTooManyClasses": [Function],
+                "withComponent": [Function],
+              },
+            },
+            "type": Object {
+              "$$typeof": Symbol(react.forward_ref),
+              "attrs": undefined,
+              "componentStyle": ComponentStyle {
+                "componentId": "sc-htoDjs",
+                "isStatic": true,
+                "rules": Array [
+                  "
+  display: inline-block;
+  height: 100%;
+  width: 50%;
+  color: #424242;
+  text-align: center;
+  &:hover {
+    cursor: pointer;
+    background-color: #fafafa;
+  }
+",
+                ],
+              },
+              "displayName": "styled.li",
+              "render": [Function],
+              "styledComponentId": "sc-htoDjs",
+              "target": "li",
+              "warnTooManyClasses": [Function],
+              "withComponent": [Function],
+            },
+          },
+        ],
+        "type": Object {
+          "$$typeof": Symbol(react.forward_ref),
+          "attrs": undefined,
+          "componentStyle": ComponentStyle {
+            "componentId": "sc-gzVnrw",
+            "isStatic": true,
+            "rules": Array [
+              "
+  display: block;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  height: 2em;
+  width: 100%;
+  border-top: 1px solid #eee;
+",
+            ],
+          },
+          "displayName": "styled.ul",
+          "render": [Function],
+          "styledComponentId": "sc-gzVnrw",
+          "target": "ul",
+          "warnTooManyClasses": [Function],
+          "withComponent": [Function],
+        },
       },
       Object {
         "instance": null,
@@ -167,7 +687,6 @@ ShallowWrapper {
             tokenId={123}
           />,
           "closeTimeoutMS": 0,
-          "contentLabel": "Example Modal",
           "isOpen": false,
           "onRequestClose": undefined,
           "parentSelector": [Function],
@@ -217,12 +736,12 @@ ShallowWrapper {
         "rules": Array [
           "
   margin: 1em;
-  border: 1px solid #eee;
-  border-radius: 1px;
-  padding: 1em;
-  background-color: #fafafa;
+  padding-top: 1em;
+  background-color: white;
+  box-shadow: 0 1px 1px 0 rgba(60, 64, 67, 0.08),
+    0 1px 3px 1px rgba(60, 64, 67, 0.16);
   text-align: center;
-  width: 150px;
+  width: 200px;
 ",
         ],
       },
@@ -251,15 +770,84 @@ ShallowWrapper {
           <p>
             nft description...
           </p>,
-          null,
-          <button>
-            Transfer
-          </button>,
+          <ForwardRef>
+            <ForwardRef>
+              <ForwardRef
+                target="_blank"
+              >
+                <FontAwesomeIcon
+                  border={false}
+                  className=""
+                  fixedWidth={false}
+                  flip={null}
+                  icon={
+                    Object {
+                      "icon": Array [
+                        576,
+                        512,
+                        Array [],
+                        "f06e",
+                        "M569.354 231.631C512.969 135.949 407.81 72 288 72 168.14 72 63.004 135.994 6.646 231.631a47.999 47.999 0 0 0 0 48.739C63.031 376.051 168.19 440 288 440c119.86 0 224.996-63.994 281.354-159.631a47.997 47.997 0 0 0 0-48.738zM288 392c-75.162 0-136-60.827-136-136 0-75.162 60.826-136 136-136 75.162 0 136 60.826 136 136 0 75.162-60.826 136-136 136zm104-136c0 57.438-46.562 104-104 104s-104-46.562-104-104c0-17.708 4.431-34.379 12.236-48.973l-.001.032c0 23.651 19.173 42.823 42.824 42.823s42.824-19.173 42.824-42.823c0-23.651-19.173-42.824-42.824-42.824l-.032.001C253.621 156.431 270.292 152 288 152c57.438 0 104 46.562 104 104z",
+                      ],
+                      "iconName": "eye",
+                      "prefix": "fas",
+                    }
+                  }
+                  inverse={false}
+                  listItem={false}
+                  mask={null}
+                  pull={null}
+                  pulse={false}
+                  rotation={null}
+                  size={null}
+                  spin={false}
+                  symbol={false}
+                  title=""
+                  transform={null}
+                />
+                 View
+              </ForwardRef>
+            </ForwardRef>
+            <ForwardRef>
+              <ForwardRef>
+                <FontAwesomeIcon
+                  border={false}
+                  className=""
+                  fixedWidth={false}
+                  flip={null}
+                  icon={
+                    Object {
+                      "icon": Array [
+                        512,
+                        512,
+                        Array [],
+                        "f362",
+                        "M0 168v-16c0-13.255 10.745-24 24-24h360V80c0-21.367 25.899-32.042 40.971-16.971l80 80c9.372 9.373 9.372 24.569 0 33.941l-80 80C409.956 271.982 384 261.456 384 240v-48H24c-13.255 0-24-10.745-24-24zm488 152H128v-48c0-21.314-25.862-32.08-40.971-16.971l-80 80c-9.372 9.373-9.372 24.569 0 33.941l80 80C102.057 463.997 128 453.437 128 432v-48h360c13.255 0 24-10.745 24-24v-16c0-13.255-10.745-24-24-24z",
+                      ],
+                      "iconName": "exchange-alt",
+                      "prefix": "fas",
+                    }
+                  }
+                  inverse={false}
+                  listItem={false}
+                  mask={null}
+                  pull={null}
+                  pulse={false}
+                  rotation={null}
+                  size={null}
+                  spin={false}
+                  symbol={false}
+                  title=""
+                  transform={null}
+                />
+                 Transfer
+              </ForwardRef>
+            </ForwardRef>
+          </ForwardRef>,
           <Modal
             ariaHideApp={false}
             bodyOpenClassName="ReactModal__Body--open"
             closeTimeoutMS={0}
-            contentLabel="Example Modal"
             isOpen={false}
             parentSelector={[Function]}
             portalClassName="ReactModalPortal"
@@ -308,7 +896,7 @@ ShallowWrapper {
             "$$typeof": Symbol(react.forward_ref),
             "attrs": undefined,
             "componentStyle": ComponentStyle {
-              "componentId": "sc-gzVnrw",
+              "componentId": "sc-iwsKbI",
               "isStatic": true,
               "rules": Array [
                 "
@@ -320,7 +908,7 @@ ShallowWrapper {
             },
             "displayName": "styled.img",
             "render": [Function],
-            "styledComponentId": "sc-gzVnrw",
+            "styledComponentId": "sc-iwsKbI",
             "target": "img",
             "warnTooManyClasses": [Function],
             "withComponent": [Function],
@@ -348,18 +936,469 @@ ShallowWrapper {
           "rendered": "nft description...",
           "type": "p",
         },
-        null,
         Object {
           "instance": null,
           "key": undefined,
-          "nodeType": "host",
+          "nodeType": "function",
           "props": Object {
-            "children": "Transfer",
-            "onClick": undefined,
+            "children": Array [
+              <ForwardRef>
+                <ForwardRef
+                  target="_blank"
+                >
+                  <FontAwesomeIcon
+                    border={false}
+                    className=""
+                    fixedWidth={false}
+                    flip={null}
+                    icon={
+                      Object {
+                        "icon": Array [
+                          576,
+                          512,
+                          Array [],
+                          "f06e",
+                          "M569.354 231.631C512.969 135.949 407.81 72 288 72 168.14 72 63.004 135.994 6.646 231.631a47.999 47.999 0 0 0 0 48.739C63.031 376.051 168.19 440 288 440c119.86 0 224.996-63.994 281.354-159.631a47.997 47.997 0 0 0 0-48.738zM288 392c-75.162 0-136-60.827-136-136 0-75.162 60.826-136 136-136 75.162 0 136 60.826 136 136 0 75.162-60.826 136-136 136zm104-136c0 57.438-46.562 104-104 104s-104-46.562-104-104c0-17.708 4.431-34.379 12.236-48.973l-.001.032c0 23.651 19.173 42.823 42.824 42.823s42.824-19.173 42.824-42.823c0-23.651-19.173-42.824-42.824-42.824l-.032.001C253.621 156.431 270.292 152 288 152c57.438 0 104 46.562 104 104z",
+                        ],
+                        "iconName": "eye",
+                        "prefix": "fas",
+                      }
+                    }
+                    inverse={false}
+                    listItem={false}
+                    mask={null}
+                    pull={null}
+                    pulse={false}
+                    rotation={null}
+                    size={null}
+                    spin={false}
+                    symbol={false}
+                    title=""
+                    transform={null}
+                  />
+                   View
+                </ForwardRef>
+              </ForwardRef>,
+              <ForwardRef>
+                <ForwardRef>
+                  <FontAwesomeIcon
+                    border={false}
+                    className=""
+                    fixedWidth={false}
+                    flip={null}
+                    icon={
+                      Object {
+                        "icon": Array [
+                          512,
+                          512,
+                          Array [],
+                          "f362",
+                          "M0 168v-16c0-13.255 10.745-24 24-24h360V80c0-21.367 25.899-32.042 40.971-16.971l80 80c9.372 9.373 9.372 24.569 0 33.941l-80 80C409.956 271.982 384 261.456 384 240v-48H24c-13.255 0-24-10.745-24-24zm488 152H128v-48c0-21.314-25.862-32.08-40.971-16.971l-80 80c-9.372 9.373-9.372 24.569 0 33.941l80 80C102.057 463.997 128 453.437 128 432v-48h360c13.255 0 24-10.745 24-24v-16c0-13.255-10.745-24-24-24z",
+                        ],
+                        "iconName": "exchange-alt",
+                        "prefix": "fas",
+                      }
+                    }
+                    inverse={false}
+                    listItem={false}
+                    mask={null}
+                    pull={null}
+                    pulse={false}
+                    rotation={null}
+                    size={null}
+                    spin={false}
+                    symbol={false}
+                    title=""
+                    transform={null}
+                  />
+                   Transfer
+                </ForwardRef>
+              </ForwardRef>,
+            ],
           },
           "ref": null,
-          "rendered": "Transfer",
-          "type": "button",
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "function",
+              "props": Object {
+                "children": <ForwardRef
+                  target="_blank"
+                >
+                  <FontAwesomeIcon
+                    border={false}
+                    className=""
+                    fixedWidth={false}
+                    flip={null}
+                    icon={
+                      Object {
+                        "icon": Array [
+                          576,
+                          512,
+                          Array [],
+                          "f06e",
+                          "M569.354 231.631C512.969 135.949 407.81 72 288 72 168.14 72 63.004 135.994 6.646 231.631a47.999 47.999 0 0 0 0 48.739C63.031 376.051 168.19 440 288 440c119.86 0 224.996-63.994 281.354-159.631a47.997 47.997 0 0 0 0-48.738zM288 392c-75.162 0-136-60.827-136-136 0-75.162 60.826-136 136-136 75.162 0 136 60.826 136 136 0 75.162-60.826 136-136 136zm104-136c0 57.438-46.562 104-104 104s-104-46.562-104-104c0-17.708 4.431-34.379 12.236-48.973l-.001.032c0 23.651 19.173 42.823 42.824 42.823s42.824-19.173 42.824-42.823c0-23.651-19.173-42.824-42.824-42.824l-.032.001C253.621 156.431 270.292 152 288 152c57.438 0 104 46.562 104 104z",
+                        ],
+                        "iconName": "eye",
+                        "prefix": "fas",
+                      }
+                    }
+                    inverse={false}
+                    listItem={false}
+                    mask={null}
+                    pull={null}
+                    pulse={false}
+                    rotation={null}
+                    size={null}
+                    spin={false}
+                    symbol={false}
+                    title=""
+                    transform={null}
+                  />
+                   View
+                </ForwardRef>,
+              },
+              "ref": null,
+              "rendered": Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "function",
+                "props": Object {
+                  "children": Array [
+                    <FontAwesomeIcon
+                      border={false}
+                      className=""
+                      fixedWidth={false}
+                      flip={null}
+                      icon={
+                        Object {
+                          "icon": Array [
+                            576,
+                            512,
+                            Array [],
+                            "f06e",
+                            "M569.354 231.631C512.969 135.949 407.81 72 288 72 168.14 72 63.004 135.994 6.646 231.631a47.999 47.999 0 0 0 0 48.739C63.031 376.051 168.19 440 288 440c119.86 0 224.996-63.994 281.354-159.631a47.997 47.997 0 0 0 0-48.738zM288 392c-75.162 0-136-60.827-136-136 0-75.162 60.826-136 136-136 75.162 0 136 60.826 136 136 0 75.162-60.826 136-136 136zm104-136c0 57.438-46.562 104-104 104s-104-46.562-104-104c0-17.708 4.431-34.379 12.236-48.973l-.001.032c0 23.651 19.173 42.823 42.824 42.823s42.824-19.173 42.824-42.823c0-23.651-19.173-42.824-42.824-42.824l-.032.001C253.621 156.431 270.292 152 288 152c57.438 0 104 46.562 104 104z",
+                          ],
+                          "iconName": "eye",
+                          "prefix": "fas",
+                        }
+                      }
+                      inverse={false}
+                      listItem={false}
+                      mask={null}
+                      pull={null}
+                      pulse={false}
+                      rotation={null}
+                      size={null}
+                      spin={false}
+                      symbol={false}
+                      title=""
+                      transform={null}
+                    />,
+                    " View",
+                  ],
+                  "href": undefined,
+                  "target": "_blank",
+                },
+                "ref": null,
+                "rendered": Array [
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "function",
+                    "props": Object {
+                      "border": false,
+                      "className": "",
+                      "fixedWidth": false,
+                      "flip": null,
+                      "icon": Object {
+                        "icon": Array [
+                          576,
+                          512,
+                          Array [],
+                          "f06e",
+                          "M569.354 231.631C512.969 135.949 407.81 72 288 72 168.14 72 63.004 135.994 6.646 231.631a47.999 47.999 0 0 0 0 48.739C63.031 376.051 168.19 440 288 440c119.86 0 224.996-63.994 281.354-159.631a47.997 47.997 0 0 0 0-48.738zM288 392c-75.162 0-136-60.827-136-136 0-75.162 60.826-136 136-136 75.162 0 136 60.826 136 136 0 75.162-60.826 136-136 136zm104-136c0 57.438-46.562 104-104 104s-104-46.562-104-104c0-17.708 4.431-34.379 12.236-48.973l-.001.032c0 23.651 19.173 42.823 42.824 42.823s42.824-19.173 42.824-42.823c0-23.651-19.173-42.824-42.824-42.824l-.032.001C253.621 156.431 270.292 152 288 152c57.438 0 104 46.562 104 104z",
+                        ],
+                        "iconName": "eye",
+                        "prefix": "fas",
+                      },
+                      "inverse": false,
+                      "listItem": false,
+                      "mask": null,
+                      "pull": null,
+                      "pulse": false,
+                      "rotation": null,
+                      "size": null,
+                      "spin": false,
+                      "symbol": false,
+                      "title": "",
+                      "transform": null,
+                    },
+                    "ref": null,
+                    "rendered": null,
+                    "type": [Function],
+                  },
+                  " View",
+                ],
+                "type": Object {
+                  "$$typeof": Symbol(react.forward_ref),
+                  "attrs": undefined,
+                  "componentStyle": ComponentStyle {
+                    "componentId": "sc-dnqmqq",
+                    "isStatic": true,
+                    "rules": Array [
+                      "
+  display: inline-block;
+  vertical-align: middle;
+  padding-top: 0.35em;
+  text-decoration: none;
+
+  &:visited {
+    color: #424242;
+    text-decoration: none;
+  }
+",
+                    ],
+                  },
+                  "displayName": "styled.a",
+                  "render": [Function],
+                  "styledComponentId": "sc-dnqmqq",
+                  "target": "a",
+                  "warnTooManyClasses": [Function],
+                  "withComponent": [Function],
+                },
+              },
+              "type": Object {
+                "$$typeof": Symbol(react.forward_ref),
+                "attrs": undefined,
+                "componentStyle": ComponentStyle {
+                  "componentId": "sc-htoDjs",
+                  "isStatic": true,
+                  "rules": Array [
+                    "
+  display: inline-block;
+  height: 100%;
+  width: 50%;
+  color: #424242;
+  text-align: center;
+  &:hover {
+    cursor: pointer;
+    background-color: #fafafa;
+  }
+",
+                  ],
+                },
+                "displayName": "styled.li",
+                "render": [Function],
+                "styledComponentId": "sc-htoDjs",
+                "target": "li",
+                "warnTooManyClasses": [Function],
+                "withComponent": [Function],
+              },
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "function",
+              "props": Object {
+                "children": <ForwardRef>
+                  <FontAwesomeIcon
+                    border={false}
+                    className=""
+                    fixedWidth={false}
+                    flip={null}
+                    icon={
+                      Object {
+                        "icon": Array [
+                          512,
+                          512,
+                          Array [],
+                          "f362",
+                          "M0 168v-16c0-13.255 10.745-24 24-24h360V80c0-21.367 25.899-32.042 40.971-16.971l80 80c9.372 9.373 9.372 24.569 0 33.941l-80 80C409.956 271.982 384 261.456 384 240v-48H24c-13.255 0-24-10.745-24-24zm488 152H128v-48c0-21.314-25.862-32.08-40.971-16.971l-80 80c-9.372 9.373-9.372 24.569 0 33.941l80 80C102.057 463.997 128 453.437 128 432v-48h360c13.255 0 24-10.745 24-24v-16c0-13.255-10.745-24-24-24z",
+                        ],
+                        "iconName": "exchange-alt",
+                        "prefix": "fas",
+                      }
+                    }
+                    inverse={false}
+                    listItem={false}
+                    mask={null}
+                    pull={null}
+                    pulse={false}
+                    rotation={null}
+                    size={null}
+                    spin={false}
+                    symbol={false}
+                    title=""
+                    transform={null}
+                  />
+                   Transfer
+                </ForwardRef>,
+                "onClick": undefined,
+              },
+              "ref": null,
+              "rendered": Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "function",
+                "props": Object {
+                  "children": Array [
+                    <FontAwesomeIcon
+                      border={false}
+                      className=""
+                      fixedWidth={false}
+                      flip={null}
+                      icon={
+                        Object {
+                          "icon": Array [
+                            512,
+                            512,
+                            Array [],
+                            "f362",
+                            "M0 168v-16c0-13.255 10.745-24 24-24h360V80c0-21.367 25.899-32.042 40.971-16.971l80 80c9.372 9.373 9.372 24.569 0 33.941l-80 80C409.956 271.982 384 261.456 384 240v-48H24c-13.255 0-24-10.745-24-24zm488 152H128v-48c0-21.314-25.862-32.08-40.971-16.971l-80 80c-9.372 9.373-9.372 24.569 0 33.941l80 80C102.057 463.997 128 453.437 128 432v-48h360c13.255 0 24-10.745 24-24v-16c0-13.255-10.745-24-24-24z",
+                          ],
+                          "iconName": "exchange-alt",
+                          "prefix": "fas",
+                        }
+                      }
+                      inverse={false}
+                      listItem={false}
+                      mask={null}
+                      pull={null}
+                      pulse={false}
+                      rotation={null}
+                      size={null}
+                      spin={false}
+                      symbol={false}
+                      title=""
+                      transform={null}
+                    />,
+                    " Transfer",
+                  ],
+                },
+                "ref": null,
+                "rendered": Array [
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "function",
+                    "props": Object {
+                      "border": false,
+                      "className": "",
+                      "fixedWidth": false,
+                      "flip": null,
+                      "icon": Object {
+                        "icon": Array [
+                          512,
+                          512,
+                          Array [],
+                          "f362",
+                          "M0 168v-16c0-13.255 10.745-24 24-24h360V80c0-21.367 25.899-32.042 40.971-16.971l80 80c9.372 9.373 9.372 24.569 0 33.941l-80 80C409.956 271.982 384 261.456 384 240v-48H24c-13.255 0-24-10.745-24-24zm488 152H128v-48c0-21.314-25.862-32.08-40.971-16.971l-80 80c-9.372 9.373-9.372 24.569 0 33.941l80 80C102.057 463.997 128 453.437 128 432v-48h360c13.255 0 24-10.745 24-24v-16c0-13.255-10.745-24-24-24z",
+                        ],
+                        "iconName": "exchange-alt",
+                        "prefix": "fas",
+                      },
+                      "inverse": false,
+                      "listItem": false,
+                      "mask": null,
+                      "pull": null,
+                      "pulse": false,
+                      "rotation": null,
+                      "size": null,
+                      "spin": false,
+                      "symbol": false,
+                      "title": "",
+                      "transform": null,
+                    },
+                    "ref": null,
+                    "rendered": null,
+                    "type": [Function],
+                  },
+                  " Transfer",
+                ],
+                "type": Object {
+                  "$$typeof": Symbol(react.forward_ref),
+                  "attrs": undefined,
+                  "componentStyle": ComponentStyle {
+                    "componentId": "sc-dnqmqq",
+                    "isStatic": true,
+                    "rules": Array [
+                      "
+  display: inline-block;
+  vertical-align: middle;
+  padding-top: 0.35em;
+  text-decoration: none;
+
+  &:visited {
+    color: #424242;
+    text-decoration: none;
+  }
+",
+                    ],
+                  },
+                  "displayName": "styled.a",
+                  "render": [Function],
+                  "styledComponentId": "sc-dnqmqq",
+                  "target": "a",
+                  "warnTooManyClasses": [Function],
+                  "withComponent": [Function],
+                },
+              },
+              "type": Object {
+                "$$typeof": Symbol(react.forward_ref),
+                "attrs": undefined,
+                "componentStyle": ComponentStyle {
+                  "componentId": "sc-htoDjs",
+                  "isStatic": true,
+                  "rules": Array [
+                    "
+  display: inline-block;
+  height: 100%;
+  width: 50%;
+  color: #424242;
+  text-align: center;
+  &:hover {
+    cursor: pointer;
+    background-color: #fafafa;
+  }
+",
+                  ],
+                },
+                "displayName": "styled.li",
+                "render": [Function],
+                "styledComponentId": "sc-htoDjs",
+                "target": "li",
+                "warnTooManyClasses": [Function],
+                "withComponent": [Function],
+              },
+            },
+          ],
+          "type": Object {
+            "$$typeof": Symbol(react.forward_ref),
+            "attrs": undefined,
+            "componentStyle": ComponentStyle {
+              "componentId": "sc-gzVnrw",
+              "isStatic": true,
+              "rules": Array [
+                "
+  display: block;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  height: 2em;
+  width: 100%;
+  border-top: 1px solid #eee;
+",
+              ],
+            },
+            "displayName": "styled.ul",
+            "render": [Function],
+            "styledComponentId": "sc-gzVnrw",
+            "target": "ul",
+            "warnTooManyClasses": [Function],
+            "withComponent": [Function],
+          },
         },
         Object {
           "instance": null,
@@ -376,7 +1415,6 @@ ShallowWrapper {
               tokenId={123}
             />,
             "closeTimeoutMS": 0,
-            "contentLabel": "Example Modal",
             "isOpen": false,
             "onRequestClose": undefined,
             "parentSelector": [Function],
@@ -426,12 +1464,12 @@ ShallowWrapper {
           "rules": Array [
             "
   margin: 1em;
-  border: 1px solid #eee;
-  border-radius: 1px;
-  padding: 1em;
-  background-color: #fafafa;
+  padding-top: 1em;
+  background-color: white;
+  box-shadow: 0 1px 1px 0 rgba(60, 64, 67, 0.08),
+    0 1px 3px 1px rgba(60, 64, 67, 0.16);
   text-align: center;
-  width: 150px;
+  width: 200px;
 ",
           ],
         },
