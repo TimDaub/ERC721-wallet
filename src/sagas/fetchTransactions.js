@@ -47,13 +47,15 @@ function* getCryptoKitties(address, contractAddress, web3) {
 
 function* fetchTransactions(address, contractAddress) {
   const web3 = config.web3;
+  const networkId = yield web3.eth.net.getId();
 
   // If MLB contract
   if ("0x8c9b261faef3b3c2e64ab5e58e04615f8c788099" === contractAddress) {
     return yield getMLB(address, contractAddress, web3);
   } else if (
-    "0x06012c8cf97bead5deae237070f9587f8e7a266d" === contractAddress ||
-    "0xb1690c08e213a35ed9bab7b318de14420fb57d8c" === contractAddress
+    ("0x06012c8cf97bead5deae237070f9587f8e7a266d" === contractAddress ||
+      "0xb1690c08e213a35ed9bab7b318de14420fb57d8c" === contractAddress) &&
+    networkId === 1
   ) {
     return yield getCryptoKitties(address, contractAddress, web3);
   } else {
