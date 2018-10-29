@@ -113,12 +113,16 @@ class Wallet extends Component {
     const totalCollectibles = this.totalCollectibles(transactions);
     if (loading) {
       return (
-        <div>
-          <Headline />
-          <StyledLoader>
-            <FoldingCube color="#000" />
-          </StyledLoader>
-        </div>
+        <StyledWalletWrapper>
+          <CinemarketNavigation />
+          <div style={{ width: "100%", minHeight: "100vh" }}>
+            <CinemarketHeadline />
+            <CinemarketInfo />
+            <StyledLoader>
+              <FoldingCube color="#000" />
+            </StyledLoader>
+          </div>
+        </StyledWalletWrapper>
       );
     } else if (totalCollectibles === 0) {
       return (
@@ -138,7 +142,7 @@ class Wallet extends Component {
       return (
         <StyledWalletWrapper>
           <CinemarketNavigation />
-          <div>
+          <div style={{ width: "100%", minHeight: "100vh" }}>
             <CinemarketHeadline />
             <CinemarketInfo />
             {Object.keys(transactions).map((contractAddress, i) => (

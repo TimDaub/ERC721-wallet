@@ -5,7 +5,7 @@ import styled from "styled-components";
 const StyledNavigationList = styled.ul`
   background-color: ${props => (props.primary ? "#706f6f" : "#4da5d2")}
   margin-bottom:0px;
-  width: 27%;
+  width: 22%;
   list-style: none;
   margin: 0;
   padding: 0;
