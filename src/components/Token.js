@@ -42,7 +42,9 @@ const Token = props => (
     <StyledImage width="100%" src={props.token && props.token.image} />
     <p>{(props.token && props.token.name) || "<No name given>"}</p>
     <p>
-      {(props.token && props.token.description.substring(0, 50) + "...") ||
+      {(props.token &&
+        props.token.description &&
+        props.token.description.substring(0, 50) + "...") ||
         "<No description given>"}
     </p>
     {props.link ? (
