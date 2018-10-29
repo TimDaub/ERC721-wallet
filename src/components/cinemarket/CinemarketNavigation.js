@@ -29,6 +29,14 @@ const StyledNavigationElement = styled.li`
     padding-bottom: 11px;
     margin: 0;
   }
+  & a {
+    color: white;
+    text-decoration: none;
+    padding-left: 15px;
+    padding-bottom: 11px;
+    margin: 0;
+    display: block;
+  }
   &:nth-child(2) {
     margin-top: 20px;
   }
@@ -50,6 +58,8 @@ const StyledSubNavigationElement = styled.li`
   & a {
     text-decoration: none;
     color: #337ab7;
+    padding-left: 0;
+    padding-bottom: 0;
     &:hover {
       color: #fd6619;
       text-decoration: underline;
@@ -101,7 +111,7 @@ class CinemarketNavigation extends Component {
           ) : null}
         </StyledNavigationElement>
         <StyledNavigationElement>
-          <p>BUY A LICENSE</p>
+          <a href="customer-area/buy">BUY A LICENSE</a>
         </StyledNavigationElement>
         <StyledNavigationElement>
           <p onClick={this.toggleSubmenu("sell-your-film")}>SELL YOUR FILM</p>
@@ -114,19 +124,19 @@ class CinemarketNavigation extends Component {
           ) : null}
         </StyledNavigationElement>
         <StyledNavigationElement>
-          <p>PRE-SALES</p>
+          <a href="seller-space/pre-sale">PRE-SALES</a>
         </StyledNavigationElement>
         <StyledNavigationElement>
-          <p>TRANSACTION HISTORY BUYER</p>
+          <a href="customer-area/orders">TRANSACTION HISTORY BUYER</a>
         </StyledNavigationElement>
         <StyledNavigationElement>
-          <p>TRANSACTION HISTORY SELLER</p>
+          <a href="seller-space/orders">TRANSACTION HISTORY SELLER</a>
         </StyledNavigationElement>
         <StyledNavigationElement>
-          <p>BANKING INFORMATION</p>
+          <a href="seller-space/payment-information">BANKING INFORMATION</a>
         </StyledNavigationElement>
         <StyledNavigationElement>
-          <p>PERSONAL INFORMATION</p>
+          <a href="seller-space/profile">PERSONAL INFORMATION</a>
         </StyledNavigationElement>
       </StyledNavigationList>
     );

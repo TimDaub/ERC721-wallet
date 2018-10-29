@@ -122,13 +122,17 @@ class Wallet extends Component {
       );
     } else if (totalCollectibles === 0) {
       return (
-        <div>
-          <Headline />
-          <StyledEmptySet>
-            <h1>No collectibles found...</h1>
-            <p>Add a token to view your collectibles</p>
-          </StyledEmptySet>
-        </div>
+        <StyledWalletWrapper>
+          <CinemarketNavigation />
+          <div style={{ width: "100%", minHeight: "100vh" }}>
+            <CinemarketHeadline />
+            <CinemarketInfo />
+            <StyledEmptySet>
+              <h1>No collectibles found...</h1>
+              <p>Add a token to view your collectibles</p>
+            </StyledEmptySet>
+          </div>
+        </StyledWalletWrapper>
       );
     } else {
       return (
