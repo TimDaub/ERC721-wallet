@@ -1,11 +1,25 @@
 language: node_js
 node_js:
-    - "10.10.0"
+    - 8.11.3
 install:
     - npm i
     - npm install -g codecov
-script: 
-    - jest && codecov
 cache:
     directories:
-        - "node_modules"
+        - node_modules
+script:
+    - jest && codecov
+    - export BRANCH=$(if [ "$TRAVIS_PULL_REQUEST" == "false" ]; then echo $TRAVIS_BRANCH;
+      else echo $TRAVIS_PULL_REQUEST_BRANCH; fi)
+after_success:
+    - docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
+    - export REPO=timdaub/erc721-wallet
+    - export TAG=`if [ "$BRANCH" == "master" ]; then echo "latest"; else echo $BRANCH
+      ; fi`
+    - docker build -f Dockerfile -t $REPO:$COMMIT .
+    - docker tag $REPO:$COMMIT $REPO:$TAG
+    - docker tag $REPO:$COMMIT $REPO:travis-$TRAVIS_BUILD_NUMBER
+    - docker push $REPO
+env:
+    global:
+        - COMMIT=${TRAVIS_COMMIT::8}
