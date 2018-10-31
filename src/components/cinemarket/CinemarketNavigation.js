@@ -93,53 +93,53 @@ class CinemarketNavigation extends Component {
           {this.state.menus["dashboard"] ? (
             <StyledSubNavigationList>
               <StyledSubNavigationElement>
-                <a href="latest-ads">New listed</a>
+                <a href="../latest-ads">New listed</a>
               </StyledSubNavigationElement>
               <StyledSubNavigationElement>
-                <a href="seller-space/bids-offers">Bids and offers</a>
+                <a href="../seller-space/bids-offers">Bids and offers</a>
               </StyledSubNavigationElement>
               <StyledSubNavigationElement>
-                <a href="customer-area/wishlist">Followed</a>
+                <a href="../customer-area/wishlist">Followed</a>
               </StyledSubNavigationElement>
               <StyledSubNavigationElement>
-                <a href="my-messages">My messages</a>
+                <a href="../my-messages">My messages</a>
               </StyledSubNavigationElement>
               <StyledSubNavigationElement>
-                <a href="seller-space/catalog">My movies</a>
+                <a href="../seller-space/catalog">My movies</a>
               </StyledSubNavigationElement>
             </StyledSubNavigationList>
           ) : null}
         </StyledNavigationElement>
         <StyledNavigationElement>
-          <a href="customer-area/buy">BUY A LICENSE</a>
+          <a href="../customer-area/buy">BUY A LICENSE</a>
         </StyledNavigationElement>
         <StyledNavigationElement>
-          <a href="wallet">WALLET</a>
+          <a href="../wallet">WALLET</a>
         </StyledNavigationElement>
         <StyledNavigationElement>
           <p onClick={this.toggleSubmenu("sell-your-film")}>SELL YOUR FILM</p>
           {this.state.menus["sell-your-film"] ? (
             <StyledSubNavigationList>
               <StyledSubNavigationElement>
-                <a href="seller-space/catalog/add">Submission form</a>
+                <a href="../seller-space/catalog/add">Submission form</a>
               </StyledSubNavigationElement>
             </StyledSubNavigationList>
           ) : null}
         </StyledNavigationElement>
         <StyledNavigationElement>
-          <a href="seller-space/pre-sale">PRE-SALES</a>
+          <a href="../seller-space/pre-sale">PRE-SALES</a>
         </StyledNavigationElement>
         <StyledNavigationElement>
-          <a href="customer-area/orders">TRANSACTION HISTORY BUYER</a>
+          <a href="../customer-area/orders">TRANSACTION HISTORY BUYER</a>
         </StyledNavigationElement>
         <StyledNavigationElement>
-          <a href="seller-space/orders">TRANSACTION HISTORY SELLER</a>
+          <a href="../seller-space/orders">TRANSACTION HISTORY SELLER</a>
         </StyledNavigationElement>
         <StyledNavigationElement>
-          <a href="seller-space/payment-information">BANKING INFORMATION</a>
+          <a href="../seller-space/payment-information">BANKING INFORMATION</a>
         </StyledNavigationElement>
         <StyledNavigationElement>
-          <a href="seller-space/profile">PERSONAL INFORMATION</a>
+          <a href="../seller-space/profile">PERSONAL INFORMATION</a>
         </StyledNavigationElement>
       </StyledNavigationList>
     );
