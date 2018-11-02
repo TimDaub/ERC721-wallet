@@ -29,10 +29,10 @@ const StyledImage = styled.img`
 const CinemarketHeadline = () => (
   <StyledHeadline>
     <StyledImage src="./assets/logo-cinemarket.png" />
-    <a href="cart">
+    <a href="../cart">
       <FontAwesomeIcon icon={faShoppingCart} />
     </a>
-    <a href="logout">
+    <a href="../logout">
       <FontAwesomeIcon icon={faSignOutAlt} />
     </a>
   </StyledHeadline>

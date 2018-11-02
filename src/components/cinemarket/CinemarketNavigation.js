@@ -107,14 +107,14 @@ class CinemarketNavigation extends Component {
               <StyledSubNavigationElement>
                 <a href="../seller-space/catalog">My movies</a>
               </StyledSubNavigationElement>
+              <StyledSubNavigationElement>
+                <a href="../wallet/">Wallet</a>
+              </StyledSubNavigationElement>
             </StyledSubNavigationList>
           ) : null}
         </StyledNavigationElement>
         <StyledNavigationElement>
           <a href="../customer-area/buy">BUY A LICENSE</a>
-        </StyledNavigationElement>
-        <StyledNavigationElement>
-          <a href="../wallet">WALLET</a>
         </StyledNavigationElement>
         <StyledNavigationElement>
           <p onClick={this.toggleSubmenu("sell-your-film")}>SELL YOUR FILM</p>
