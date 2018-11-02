@@ -20,6 +20,7 @@ Trezor.
 |KnownOrigin.io|Fully supported|
 |left.gallery|Fully supported|
 |mokens.io|Fully supported|
+|ensnifty.com|Actions supported, CORS issues|
 |mlbcryptobaseball.com|Partially supported|
 |Ethermon Adventure|Partially supported|
 |Any 0xcert ERC721 contract|Not yet supported|
@@ -39,6 +40,12 @@ $ npm run dev
 ```
 $ docker build -t app .
 $ docker run -d -p 80:80 app
+```
+
+Or by pulling the image from docker hub directly:
+
+```
+$ docker run -p 80:80 timdaub/erc721-wallet
 ```
 
 ## Contribute & License
