@@ -108,7 +108,9 @@ class CinemarketNavigation extends Component {
                 <a href="../seller-space/catalog">My movies</a>
               </StyledSubNavigationElement>
               <StyledSubNavigationElement>
-                <a href="../wallet/">Wallet</a>
+                <b>
+                  <a href="../wallet/">Wallet</a>
+                </b>
               </StyledSubNavigationElement>
             </StyledSubNavigationList>
           ) : null}
