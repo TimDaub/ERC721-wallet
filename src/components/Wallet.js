@@ -6,11 +6,11 @@ import styled from "styled-components";
 import { FoldingCube } from "styled-spinkit";
 import { toast } from "react-toastify";
 
-import Headline from "./Headline";
-import Token from "./Token";
+import CinemarketToken from "./cinemarket/CinemarketToken";
+import TransferModal from "./cinemarket/CinemarketTransferModal";
+
 import getWeb3 from "../utils/getWeb3";
 import { fetchTransactionsBegin } from "../actions/fetchTransactions";
-import TransferModal from "./TransferModal";
 
 import CinemarketNavigation from "./cinemarket/CinemarketNavigation";
 import CinemarketHeadline from "./cinemarket/CinemarketHeadline";
@@ -85,9 +85,6 @@ class Wallet extends Component {
   }
 
   componentDidUpdate(prevProps, prevState) {
-    if (this.props.contracts !== prevProps.contracts) {
-      this.updateTransactions();
-    }
     if (this.props.error) {
       toast.error(this.props.error.message);
     }
@@ -152,7 +149,7 @@ class Wallet extends Component {
                 <StyledWallet>
                   {transactions[contractAddress].map(
                     ({ token, _tokenId, name, contract, link }, j) => (
-                      <Token
+                      <CinemarketToken
                         key={j}
                         token={token}
                         tokenId={_tokenId}
@@ -183,7 +180,6 @@ const mapStateToProps = (state, ownProps) => {
   return {
     transactions: state.transactions.items,
     loading: state.transactions.loading,
-    contracts: state.contracts.items,
     error: state.transactions.error
   };
 };

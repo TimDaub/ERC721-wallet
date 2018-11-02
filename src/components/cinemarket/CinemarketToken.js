@@ -5,7 +5,7 @@ import Modal from "react-modal";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faExchangeAlt, faEye } from "@fortawesome/free-solid-svg-icons";
 
-import TransferModal from "./TransferModal";
+import TransferModal from "./CinemarketTransferModal";
 
 const StyledToken = styled.div`
   margin: 1em;
@@ -30,7 +30,7 @@ const StyledTokenControls = styled.ul`
 const StyledTokenElement = styled.li`
   display: inline-block;
   height: 100%;
-  width: 50%;
+  width: 100%;
   color: #424242;
   text-align: center;
   &:hover {
@@ -84,14 +84,9 @@ const Token = props => (
         "<No description given>"}
     </p>
     <StyledTokenControls>
-      <StyledTokenElement>
-        <StyledTokenAnchor target="_blank" href={props.link}>
-          <FontAwesomeIcon icon={faEye} /> View
-        </StyledTokenAnchor>
-      </StyledTokenElement>
       <StyledTokenElement onClick={props.toggleModal(props.tokenId)}>
         <StyledTokenAnchor>
-          <FontAwesomeIcon icon={faExchangeAlt} /> Transfer
+          <FontAwesomeIcon icon={faExchangeAlt} /> Sublicense
         </StyledTokenAnchor>
       </StyledTokenElement>
     </StyledTokenControls>

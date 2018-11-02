@@ -1,15 +1,13 @@
 // @format
-import React from "react";
+import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { Provider } from "react-redux";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { createGlobalStyle } from "styled-components";
 import { ToastContainer } from "react-toastify";
 import GithubCorner from "react-github-corner";
 import "react-toastify/dist/ReactToastify.css";
 
 import Wallet from "./Wallet";
-import Start from "./Start";
 
 const GlobalStyle = createGlobalStyle`
   body {
@@ -18,20 +16,26 @@ const GlobalStyle = createGlobalStyle`
   }
 `;
 
-const Root = ({ store }) => (
-  <Provider store={store}>
-    <div>
-      <GlobalStyle />
-      <Router>
-        <Switch>
-          <Route path="/" component={Wallet} />
-        </Switch>
-      </Router>
-      <ToastContainer />
-      <GithubCorner href="https://github.com/timdaub/erc721-wallet" />
-    </div>
-  </Provider>
-);
+class Root extends Component {
+  componentDidMount() {
+    localStorage.setItem(
+      "tokens",
+      "0x9326f84fcca8a136da3a4f71bbffbde6635c58da"
+    );
+  }
+  render() {
+    const { store } = this.props;
+    return (
+      <Provider store={store}>
+        <div>
+          <GlobalStyle />
+          <Wallet />
+          <ToastContainer />
+        </div>
+      </Provider>
+    );
+  }
+}
 
 Root.propTypes = {
   store: PropTypes.object.isRequired

@@ -6,7 +6,7 @@ import Adapter from "enzyme-adapter-react-16";
 
 configure({ adapter: new Adapter() });
 
-import Token from "../../src/components/Token";
+import CinemarketToken from "../../../src/components/cinemarket/CinemarketToken";
 
 describe("Token component renders the token correctly", () => {
   it("renders correctly", () => {
@@ -22,7 +22,7 @@ describe("Token component renders the token correctly", () => {
     const toggleModal = () => {};
     const account = "0xabc";
     const wrapper = shallow(
-      <Token
+      <CinemarketToken
         token={token}
         tokenId={tokenId}
         name={name}

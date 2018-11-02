@@ -52,7 +52,7 @@ class TransferModal extends Component {
     const { validAddress } = this.state;
     return (
       <div>
-        <h1>Transfer token</h1>
+        <h1>Sublicense</h1>
         <StyledContainer>
           <StyledImage src={image} />
         </StyledContainer>
