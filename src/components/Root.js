@@ -8,6 +8,7 @@ import GithubCorner from "react-github-corner";
 import "react-toastify/dist/ReactToastify.css";
 
 import Wallet from "./Wallet";
+import config from "../config";
 
 const GlobalStyle = createGlobalStyle`
   body {
@@ -18,10 +19,7 @@ const GlobalStyle = createGlobalStyle`
 
 class Root extends Component {
   componentDidMount() {
-    localStorage.setItem(
-      "tokens",
-      "0x9326f84fcca8a136da3a4f71bbffbde6635c58da"
-    );
+    localStorage.setItem("tokens", config.contract);
   }
   render() {
     const { store } = this.props;
