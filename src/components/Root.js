@@ -5,6 +5,7 @@ import { Provider } from "react-redux";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { createGlobalStyle } from "styled-components";
 import { ToastContainer } from "react-toastify";
+import GithubCorner from "react-github-corner";
 import "react-toastify/dist/ReactToastify.css";
 
 import Wallet from "./Wallet";
@@ -28,6 +29,7 @@ const Root = ({ store }) => (
         </Switch>
       </Router>
       <ToastContainer />
+      <GithubCorner href="https://github.com/timdaub/erc721-wallet" />
     </div>
   </Provider>
 );
