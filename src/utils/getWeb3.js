@@ -8,10 +8,8 @@ import createLedgerSubprovider from "@ledgerhq/web3-subprovider";
 const resolveWeb3 = async resolve => {
   const urlParams = new URLSearchParams(window.location.search);
   const provider = urlParams.get("provider");
-  const rpcUrl = "https://mainnet.infura.io";
-  const networkId = 1;
 
-  if (provider === "metamask") {
+  if (provider === "metamask" || provider == null) {
     let { web3 } = window;
     const localProvider = `http://localhost:9545`;
 
@@ -30,6 +28,8 @@ const resolveWeb3 = async resolve => {
       resolve(web3);
     }
   } else if (provider === "ledger") {
+    const rpcUrl = "https://mainnet.infura.io";
+    const networkId = 1;
     const engine = new ProviderEngine();
     const getTransport = () => TransportU2F.create();
     const ledger = createLedgerSubprovider(getTransport, {

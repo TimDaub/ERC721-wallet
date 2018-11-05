@@ -70,7 +70,8 @@ class Wallet extends Component {
     const web3 = await getWeb3();
     const accounts = await web3.eth.getAccounts();
     let contracts = localStorage.getItem("tokens");
-    contracts = contracts.split(",");
+    if (contracts !== null) {
+      contracts = contracts.split(",");
 
     this.props.getTransactions(web3, accounts[0], contracts);
     this.setState({ accounts });
