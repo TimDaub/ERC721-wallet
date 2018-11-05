@@ -6,6 +6,7 @@ import { toast } from "react-toastify";
 import { withRouter } from "react-router-dom";
 import { FoldingCube } from "styled-spinkit";
 import LedgerWalletSubproviderFactory from "ledger-wallet-provider";
+import "u2f-api-polyfill";
 
 import getWeb3 from "../utils/getWeb3";
 import Headline from "./Headline";
@@ -101,16 +102,26 @@ class Start extends Component {
     if (location.protocol === "http:") {
       toast.warning("Switch to https for Ledger to work");
     } else {
-      const ledgerWalletSubProvider = await LedgerWalletSubproviderFactory();
-      if (ledgerWalletSubProvider.isSupported) {
+      if (window.u2f && !window.u2f.getApiVersion) {
+        // u2f object is found (Firefox with extension)
         this.props.history.push({
           pathname: "wallet",
           search: "?provider=ledger"
         });
       } else {
-        toast.warning(
-          "U2F is not supported, download plugin for Firefox or use Chrome"
-        );
+        // u2f object was not found. Using Google polyfill
+        const intervalId = setTimeout(() => {
+          toast.warning(
+            "U2F is not supported, download plugin for Firefox or use Chrome"
+          );
+        }, 3000);
+        u2f.getApiVersion(() => {
+          clearTimeout(intervalId);
+          this.props.history.push({
+            pathname: "wallet",
+            search: "?provider=ledger"
+          });
+        });
       }
     }
   }

@@ -1,14 +1,17 @@
 // @format
 import Web3 from "web3";
 import ProviderEngine from "web3-provider-engine";
-import RpcSubprovider from "web3-provider-engine/subproviders/rpc";
-import LedgerWalletSubproviderFactory from "ledger-wallet-provider";
+import FetchSubprovider from "web3-provider-engine/subproviders/fetch";
+import TransportU2F from "@ledgerhq/hw-transport-u2f";
+import createLedgerSubprovider from "@ledgerhq/web3-subprovider";
 
 const resolveWeb3 = async resolve => {
   const urlParams = new URLSearchParams(window.location.search);
   const provider = urlParams.get("provider");
+  const rpcUrl = "https://mainnet.infura.io";
+  const networkId = 1;
 
-  if (provider === "metamask" || !provider) {
+  if (provider === "metamask") {
     let { web3 } = window;
     const localProvider = `http://localhost:9545`;
 
@@ -27,16 +30,16 @@ const resolveWeb3 = async resolve => {
       resolve(web3);
     }
   } else if (provider === "ledger") {
-    var engine = new ProviderEngine();
-    var web3 = new Web3(engine);
-
-    var ledgerWalletSubProvider = await LedgerWalletSubproviderFactory();
-    engine.addProvider(ledgerWalletSubProvider);
-    engine.addProvider(
-      new RpcSubprovider({ rpcUrl: "https://mainnet.infura.io" })
-    );
+    const engine = new ProviderEngine();
+    const getTransport = () => TransportU2F.create();
+    const ledger = createLedgerSubprovider(getTransport, {
+      networkId,
+      accountsLength: 5
+    });
+    engine.addProvider(ledger);
+    engine.addProvider(new FetchSubprovider({ rpcUrl }));
     engine.start();
-    resolve(web3);
+    resolve(new Web3(engine));
   }
 
   resolve(null);
