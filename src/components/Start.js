@@ -10,6 +10,7 @@ import "u2f-api-polyfill";
 
 import getWeb3 from "../utils/getWeb3";
 import Headline from "./Headline";
+import LedgerModal from "./LedgerModal";
 
 const StyledStart = styled.div`
   text-align: center;
@@ -60,11 +61,13 @@ class Start extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      accountsLocked: false
+      accountsLocked: false,
+      modalOpen: false
     };
     this.checkMetamaskSetup = this.checkMetamaskSetup.bind(this);
     this.checkAccountsLocked = this.checkAccountsLocked.bind(this);
     this.checkLedgerSetup = this.checkLedgerSetup.bind(this);
+    this.toggleModal = this.toggleModal.bind(this);
   }
 
   async checkAccountsLocked() {
@@ -104,10 +107,7 @@ class Start extends Component {
     } else {
       if (window.u2f && !window.u2f.getApiVersion) {
         // u2f object is found (Firefox with extension)
-        this.props.history.push({
-          pathname: "wallet",
-          search: "?provider=ledger"
-        });
+        this.toggleModal();
       } else {
         // u2f object was not found. Using Google polyfill
         const intervalId = setTimeout(() => {
@@ -117,17 +117,19 @@ class Start extends Component {
         }, 3000);
         u2f.getApiVersion(() => {
           clearTimeout(intervalId);
-          this.props.history.push({
-            pathname: "wallet",
-            search: "?provider=ledger"
-          });
+          this.toggleModal();
         });
       }
     }
   }
 
+  toggleModal() {
+    const { modalOpen } = this.state;
+    this.setState({ modalOpen: !modalOpen });
+  }
+
   render() {
-    const { accountsLocked } = this.state;
+    const { modalOpen, accountsLocked } = this.state;
 
     return (
       <div>
@@ -156,6 +158,7 @@ class Start extends Component {
           <p>Please click "CONNECT" to load wallet.</p>
           <FoldingCube color="#000" />
         </Modal>
+        <LedgerModal isOpen={modalOpen} toggleModal={this.toggleModal} />
       </div>
     );
   }
