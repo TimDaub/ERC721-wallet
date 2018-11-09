@@ -20,7 +20,8 @@ Trezor.
 |KnownOrigin.io|Fully supported|
 |left.gallery|Fully supported|
 |mokens.io|Fully supported|
-|ensnifty.com|Actions supported, CORS issues|
+|ensnifty.com|Fully supported|
+|Gitcoin.co Kudos|Fully supported|
 |mlbcryptobaseball.com|Partially supported|
 |Ethermon Adventure|Partially supported|
 |Any 0xcert ERC721 contract|Not yet supported|
