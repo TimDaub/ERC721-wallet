@@ -7,14 +7,14 @@ import { FoldingCube } from "styled-spinkit";
 import { toast } from "react-toastify";
 
 import CinemarketToken from "./cinemarket/CinemarketToken";
-import TransferModal from "./cinemarket/CinemarketTransferModal";
-
-import getWeb3 from "../utils/getWeb3";
-import { fetchTransactionsBegin } from "../actions/fetchTransactions";
-
 import CinemarketNavigation from "./cinemarket/CinemarketNavigation";
 import CinemarketHeadline from "./cinemarket/CinemarketHeadline";
 import CinemarketInfo from "./cinemarket/CinemarketInfo";
+
+import CinemarketAccountsLockedModal from "./cinemarket/CinemarketAccountsLockedModal";
+
+import getWeb3 from "../utils/getWeb3";
+import { fetchTransactionsBegin } from "../actions/fetchTransactions";
 
 const StyledWalletWrapper = styled.div`
   display: flex;
@@ -58,7 +58,8 @@ class Wallet extends Component {
     this.state = {
       isOpen: false,
       modals: {},
-      accounts: []
+      accounts: [],
+      accountsLocked: false
     };
   }
 
@@ -71,17 +72,39 @@ class Wallet extends Component {
   };
 
   componentDidMount() {
-    this.updateTransactions();
+    this.checkAccountsLocked();
   }
 
-  async updateTransactions() {
+  async checkAccountsLocked() {
     const web3 = await getWeb3();
-    const accounts = await web3.eth.getAccounts();
-    let contracts = localStorage.getItem("tokens");
-    contracts = contracts.split(",");
+    const intervalId = setInterval(async () => {
+      const accounts = await web3.eth.getAccounts();
+      if (accounts.length) {
+        this.setState({ accountsLocked: false });
+        clearInterval(intervalId);
+        this.checkMetamaskSetup();
+      } else {
+        this.setState({ accountsLocked: true });
+      }
+    }, 100);
+  }
 
-    this.props.getTransactions(web3, accounts[0], contracts);
-    this.setState({ accounts });
+  async checkMetamaskSetup() {
+    const web3 = await getWeb3();
+    if (web3.currentProvider.isMetaMask) {
+      const accounts = await web3.eth.getAccounts();
+      if (accounts.length) {
+        let contracts = localStorage.getItem("tokens");
+        contracts = contracts.split(",");
+
+        this.props.getTransactions(web3, accounts[0], contracts);
+        this.setState({ accounts });
+      } else {
+        toast.warning("Unlock Metamask");
+      }
+    } else {
+      toast.warning("Install Metamask");
+    }
   }
 
   componentDidUpdate(prevProps, prevState) {
@@ -105,7 +128,7 @@ class Wallet extends Component {
   }
 
   render() {
-    const { modals } = this.state;
+    const { modals, accountsLocked } = this.state;
     const { transactions, loading } = this.props;
     const totalCollectibles = this.totalCollectibles(transactions);
     if (loading) {
@@ -119,6 +142,7 @@ class Wallet extends Component {
               <FoldingCube color="#000" />
             </StyledLoader>
           </div>
+          <CinemarketAccountsLockedModal accountsLocked={accountsLocked} />
         </StyledWalletWrapper>
       );
     } else if (totalCollectibles === 0) {
@@ -133,6 +157,7 @@ class Wallet extends Component {
               <p>Add a token to view your collectibles</p>
             </StyledEmptySet>
           </div>
+          <CinemarketAccountsLockedModal accountsLocked={accountsLocked} />
         </StyledWalletWrapper>
       );
     } else {

@@ -71,18 +71,6 @@ function* fetchTransactions(web3, address, contractAddress) {
   );
   const tokenJSON = yield call(Promise.all.bind(Promise), tokenJSONPromises);
 
-  const manifestations = tokenJSON.map(({ rightsOf }) => rightsOf);
-  const manifestationsPromises = manifestations.map(ipfsHash =>
-    fetch("https://ipfs.io/ipfs/" + ipfsHash)
-      .then(res => res.json())
-      .catch(err => null)
-  );
-  const manifestationsJSON = yield call(
-    Promise.all.bind(Promise),
-    manifestationsPromises
-  );
-  console.log(manifestationsJSON);
-
   for (let i = 0; i < returnValues.length; i++) {
     returnValues[i].token = tokenJSON[i];
     returnValues[i].name = tokenNames[i];

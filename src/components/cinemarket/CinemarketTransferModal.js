@@ -3,12 +3,12 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import styled from "styled-components";
 
-import { transferTokenBegin } from "../actions/transferToken";
-import StyledInput from "./StyledInput";
-import StyledParagraph from "./StyledParagraph";
-import StyledButton from "./StyledButton";
-import StyledSpan from "./StyledSpan";
-import getWeb3 from "../utils/getWeb3";
+import { transferTokenBegin } from "../../actions/transferToken";
+import StyledInput from "../StyledInput";
+import StyledParagraph from "../StyledParagraph";
+import StyledButton from "../StyledButton";
+import StyledSpan from "../StyledSpan";
+import getWeb3 from "../../utils/getWeb3";
 
 const StyledContainer = styled.div`
   display: flex;
