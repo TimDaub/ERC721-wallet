@@ -72,7 +72,7 @@ class CinemarketNavigation extends Component {
     super(props);
 
     this.state = {
-      menus: {}
+      menus: { dashboard: true }
     };
   }
 

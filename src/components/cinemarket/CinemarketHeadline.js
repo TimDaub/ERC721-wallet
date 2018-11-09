@@ -7,6 +7,8 @@ import {
   faShoppingCart
 } from "@fortawesome/free-solid-svg-icons";
 
+import img from "../../assets/logo-cinemarket.png";
+
 const StyledHeadline = styled.div`
   height: 60px;
   width: 100%;
@@ -28,7 +30,7 @@ const StyledImage = styled.img`
 
 const CinemarketHeadline = () => (
   <StyledHeadline>
-    <StyledImage src="./assets/logo-cinemarket.png" />
+    <StyledImage src={img} />
     <a href="../cart">
       <FontAwesomeIcon icon={faShoppingCart} />
     </a>
