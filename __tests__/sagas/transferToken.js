@@ -5,7 +5,6 @@ import { call } from "redux-saga/effects";
 const transferToken = require("../../src/sagas/transferToken").__get__(
   "transferToken"
 );
-import config from "../../src/config";
 
 describe("token transfer", () => {
   it("it does transfer a token to an address", async () => {
@@ -14,7 +13,7 @@ describe("token transfer", () => {
     const tokenId = 0;
     const contract = "0x9326f84fcca8a136da3a4f71bbffbde6635c58da";
 
-    config.web3 = {
+    const web3Mock = {
       eth: {
         Contract: jest.fn(() => {
           return {
@@ -27,7 +26,7 @@ describe("token transfer", () => {
     };
 
     return expectSaga(transferToken, {
-      payload: { from, to, tokenId, contract }
+      payload: { web3: web3Mock, from, to, tokenId, contract }
     })
       .put({
         type: "TRANSFER_TOKEN_SUCCESS"

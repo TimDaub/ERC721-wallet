@@ -6,10 +6,8 @@ import {
   addNameAndSymbolFailure
 } from "../actions/addNameAndSymbol";
 import ERC721 from "../abis/ERC721.json";
-import config from "../config";
 
-function* addNameAndSymbol({ payload: { contract } }) {
-  const web3 = config.web3;
+function* addNameAndSymbol({ payload: { web3, contract } }) {
   try {
     contract = new web3.eth.Contract(ERC721, contract);
   } catch (err) {

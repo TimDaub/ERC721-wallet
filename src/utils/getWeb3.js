@@ -1,11 +1,18 @@
+// @format
 import Web3 from "web3";
 
 const resolveWeb3 = resolve => {
   let { web3 } = window;
-  const alreadyInjected = typeof web3 !== "undefined"; // i.e. Mist/Metamask
   const localProvider = `http://localhost:9545`;
 
-  if (alreadyInjected) {
+  if (window.ethereum) {
+    web3 = new Web3(ethereum);
+    try {
+      window.ethereum.enable().then(() => resolve(web3));
+    } catch (err) {
+      alert(err);
+    }
+  } else if (window.web3) {
     web3 = new Web3(web3.currentProvider);
   } else {
     const provider = new Web3.providers.HttpProvider(localProvider);

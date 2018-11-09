@@ -5,10 +5,9 @@ import {
   transferTokenFailure
 } from "../actions/transferToken";
 import ERC721 from "../abis/ERC721.json";
-import config from "../config";
 
-function* transferToken({ payload: { from, to, tokenId, contract } }) {
-  const web3 = config.web3;
+function* transferToken({ payload: { web3, from, to, tokenId, contract } }) {
+  console.log(from);
   var erc721Contract = new web3.eth.Contract(ERC721, contract);
   let tx;
   try {

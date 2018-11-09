@@ -10,7 +10,7 @@ import StyledSpan from "./StyledSpan";
 import StyledParagraph from "./StyledParagraph";
 import { addTokenBegin } from "../actions/addToken";
 import { addNameAndSymbolBegin } from "../actions/addNameAndSymbol";
-import config from "../config";
+import getWeb3 from "../utils/getWeb3";
 
 class TokenAddModal extends Component {
   constructor(props) {
@@ -28,15 +28,15 @@ class TokenAddModal extends Component {
     this.props.addToken(this.refs.contract.value);
   }
 
-  onChange() {
+  async onChange() {
     const contract = this.refs.contract.value;
 
-    const web3 = config.web3;
+    const web3 = await getWeb3();
     const validAddress = web3.utils.isAddress(contract);
     this.setState({ validAddress });
 
     if (validAddress) {
-      this.props.addNameAndSymbol(contract);
+      this.props.addNameAndSymbol(web3, contract);
     }
   }
 

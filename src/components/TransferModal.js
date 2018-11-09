@@ -8,7 +8,7 @@ import StyledInput from "./StyledInput";
 import StyledParagraph from "./StyledParagraph";
 import StyledButton from "./StyledButton";
 import StyledSpan from "./StyledSpan";
-import config from "../config";
+import getWeb3 from "../utils/getWeb3";
 
 const StyledContainer = styled.div`
   display: flex;
@@ -33,15 +33,16 @@ class TransferModal extends Component {
     this.onChange = this.onChange.bind(this);
   }
 
-  transfer() {
+  async transfer() {
     const { from, tokenId, contract } = this.props;
-    this.props.transfer(from, this.refs.to.value, tokenId, contract);
+    const web3 = await getWeb3();
+    this.props.transfer(web3, from, this.refs.to.value, tokenId, contract);
   }
 
-  onChange() {
+  async onChange() {
     const to = this.refs.to.value;
 
-    const web3 = config.web3;
+    const web3 = await getWeb3();
     const validAddress = web3.utils.isAddress(to);
     this.setState({ validAddress });
   }

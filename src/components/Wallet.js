@@ -72,7 +72,7 @@ class Wallet extends Component {
     let contracts = localStorage.getItem("tokens");
     contracts = contracts.split(",");
 
-    this.props.getTransactions(accounts[0], contracts);
+    this.props.getTransactions(web3, accounts[0], contracts);
     this.setState({ accounts });
   }
 

@@ -4,7 +4,6 @@ import { call } from "redux-saga/effects";
 import Web3 from "web3";
 
 import { fetchTransactionsBatch } from "../../src/sagas/fetchTransactions";
-import config from "../../src/config";
 
 expectSaga.DEFAULT_TIMEOUT = 500;
 
@@ -12,8 +11,7 @@ describe("transaction fetching", () => {
   it("should process transactions correctly and return a token", async () => {
     const contractAddress = "0x9326f84fcca8a136da3a4f71bbffbde6635c58da";
     const address = "0x51Ff1fab76079d20418d1c74DA65653FfE3fD0aa";
-
-    config.web3 = {
+    const web3Mock = {
       eth: {
         net: {
           getId: jest.fn(() => 1)
@@ -34,7 +32,7 @@ describe("transaction fetching", () => {
     };
 
     return expectSaga(fetchTransactionsBatch, {
-      payload: { address, contracts: [contractAddress] }
+      payload: { web3: web3Mock, address, contracts: [contractAddress] }
     })
       .put({
         type: "FETCH_TRANSACTIONS_SUCCESS",
@@ -57,8 +55,7 @@ describe("transaction fetching", () => {
   it("should process transactions correctly and return no token", async () => {
     const contractAddress = "0x9326f84fcca8a136da3a4f71bbffbde6635c58da";
     const address = "0x51Ff1fab76079d20418d1c74DA65653FfE3fD0aa";
-
-    config.web3 = {
+    const web3Mock = {
       eth: {
         net: {
           getId: jest.fn(() => 1)
@@ -79,25 +76,7 @@ describe("transaction fetching", () => {
     };
 
     return expectSaga(fetchTransactionsBatch, {
-      payload: { address, contracts: [contractAddress] }
-    })
-      .put({
-        type: "FETCH_TRANSACTIONS_SUCCESS",
-        payload: {
-          transactions: {
-            [contractAddress]: []
-          }
-        }
-      })
-      .run();
-  });
-
-  it("shouldn't process transactions but return an empty array", async () => {
-    const contractAddress = "0x9326f84fcca8a136da3a4f71bbffbde6635c58da";
-    const address = "0x51Ff1fab76079d20418d1c74DA65653FfE3fD0aa";
-
-    return expectSaga(fetchTransactionsBatch, {
-      payload: { address, contracts: [contractAddress] }
+      payload: { web3: web3Mock, address, contracts: [contractAddress] }
     })
       .put({
         type: "FETCH_TRANSACTIONS_SUCCESS",

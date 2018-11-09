@@ -4,11 +4,9 @@ import {
   fetchTransactionsSuccess,
   fetchTransactionsFailure
 } from "../actions/fetchTransactions";
-import getWeb3 from "../utils/getWeb3";
 import Utils from "web3-utils";
 import ERC721 from "../abis/ERC721.json";
 import MLB from "../abis/MLB.json";
-import config from "../config";
 
 function* getMLB(address, contractAddress, web3) {
   const contract = new web3.eth.Contract(MLB, contractAddress);
@@ -60,8 +58,7 @@ function* getCryptoKitties(address, contractAddress, web3) {
   return returnValues;
 }
 
-function* fetchTransactions(address, contractAddress) {
-  const web3 = config.web3;
+function* fetchTransactions(web3, address, contractAddress) {
   const networkId = yield web3.eth.net.getId();
 
   // If MLB contract
@@ -149,11 +146,13 @@ function* fetchTransactions(address, contractAddress) {
 }
 
 export function* fetchTransactionsBatch(action) {
-  const { address, contracts } = action.payload;
+  const { web3, address, contracts } = action.payload;
   let results;
   try {
     results = yield all(
-      contracts.map(contract => call(fetchTransactions, address, contract))
+      contracts.map(contract =>
+        call(fetchTransactions, web3, address, contract)
+      )
     );
   } catch (err) {
     yield put(fetchTransactionsFailure(err));

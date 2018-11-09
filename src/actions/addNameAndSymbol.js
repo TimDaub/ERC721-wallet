@@ -4,9 +4,9 @@ export const ADD_NAME_AND_SYMBOL_SUCCESS = "ADD_NAME_AND_SYMBOL_SUCCESS";
 export const ADD_NAME_AND_SYMBOL_FAILURE = "ADD_NAME_AND_SYMBOL_FAILURE";
 export const ADD_NAME_AND_SYMBOL_RESET = "ADD_NAME_AND_SYMBOL_RESET";
 
-export const addNameAndSymbolBegin = contract => ({
+export const addNameAndSymbolBegin = (web3, contract) => ({
   type: ADD_NAME_AND_SYMBOL_BEGIN,
-  payload: { contract }
+  payload: { web3, contract }
 });
 
 export const addNameAndSymbolSuccess = (name, symbol) => ({
