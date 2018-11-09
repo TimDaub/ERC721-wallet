@@ -2,6 +2,7 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const CleanWebpackPlugin = require("clean-webpack-plugin");
+const FaviconsWebpackPlugin = require("favicons-webpack-plugin");
 
 const outputDirectory = "dist";
 
@@ -37,6 +38,7 @@ module.exports = {
     new CleanWebpackPlugin([outputDirectory]),
     new HtmlWebpackPlugin({
       template: "./public/index.html"
-    })
+    }),
+    new FaviconsWebpackPlugin("./assets/mycollectibles-logo.png")
   ]
 };
