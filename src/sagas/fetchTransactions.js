@@ -23,7 +23,7 @@ function* getMLB(address, contractAddress, web3) {
   return returnValues;
 }
 
-function* getCryptoKitties(address, contractAddress, web3) {
+function* getCryptoKitties(address, contractAddress) {
   let tokens;
   try {
     tokens = yield fetch(

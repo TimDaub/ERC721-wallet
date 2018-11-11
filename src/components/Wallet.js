@@ -72,9 +72,9 @@ class Wallet extends Component {
     let contracts = localStorage.getItem("tokens");
     if (contracts !== null) {
       contracts = contracts.split(",");
-
-    this.props.getTransactions(web3, accounts[0], contracts);
-    this.setState({ accounts });
+      this.props.getTransactions(web3, accounts[0], contracts);
+      this.setState({ accounts });
+    }
   }
 
   componentDidUpdate(prevProps, prevState) {

@@ -5,11 +5,11 @@ import FetchSubprovider from "web3-provider-engine/subproviders/fetch";
 import TransportU2F from "@ledgerhq/hw-transport-u2f";
 import createLedgerSubprovider from "@ledgerhq/web3-subprovider";
 
-const resolveWeb3 = async resolve => {
+const resolveWeb3 = async (resolve, initProvider) => {
   const urlParams = new URLSearchParams(window.location.search);
-  const provider = urlParams.get("provider");
+  const provider = urlParams.get("provider") || initProvider;
 
-  if (provider === "metamask" || provider == null) {
+  if (provider === "metamask") {
     let { web3 } = window;
     const localProvider = `http://localhost:9545`;
 
@@ -25,8 +25,8 @@ const resolveWeb3 = async resolve => {
     } else {
       const provider = new Web3.providers.HttpProvider(localProvider);
       web3 = new Web3(provider);
-      resolve(web3);
     }
+    resolve(web3);
   } else if (provider === "ledger") {
     const rpcUrl = "https://mainnet.infura.io";
     const networkId = 1;
@@ -45,14 +45,14 @@ const resolveWeb3 = async resolve => {
   resolve(null);
 };
 
-export default () =>
+export default provider =>
   new Promise(resolve => {
     // Wait for loading completion to avoid race conditions with web3 injection timing.
     window.addEventListener(`load`, () => {
-      resolveWeb3(resolve);
+      resolveWeb3(resolve, provider);
     });
     // If document has loaded already, try to get Web3 immediately.
     if (document.readyState === `complete`) {
-      resolveWeb3(resolve);
+      resolveWeb3(resolve, provider);
     }
   });

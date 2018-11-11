@@ -5,7 +5,6 @@ import Modal from "react-modal";
 import { toast } from "react-toastify";
 import { withRouter } from "react-router-dom";
 import { FoldingCube } from "styled-spinkit";
-import LedgerWalletSubproviderFactory from "ledger-wallet-provider";
 import "u2f-api-polyfill";
 
 import getWeb3 from "../utils/getWeb3";
@@ -62,7 +61,8 @@ class Start extends Component {
     super(props);
     this.state = {
       accountsLocked: false,
-      modalOpen: false
+      ledgerModalOpen: false,
+      ledgerLoading: false
     };
     this.checkMetamaskSetup = this.checkMetamaskSetup.bind(this);
     this.checkAccountsLocked = this.checkAccountsLocked.bind(this);
@@ -71,7 +71,7 @@ class Start extends Component {
   }
 
   async checkAccountsLocked() {
-    const web3 = await getWeb3();
+    const web3 = await getWeb3("metamask");
     const intervalId = setInterval(async () => {
       const accounts = await web3.eth.getAccounts();
       if (accounts.length) {
@@ -85,7 +85,7 @@ class Start extends Component {
   }
 
   async checkMetamaskSetup() {
-    const web3 = await getWeb3();
+    const web3 = await getWeb3("metamask");
     if (web3.currentProvider.isMetaMask) {
       const accounts = await web3.eth.getAccounts();
       if (accounts.length) {
@@ -102,6 +102,7 @@ class Start extends Component {
   }
 
   async checkLedgerSetup() {
+    this.setState({ ledgerLoading: true });
     if (location.protocol === "http:") {
       toast.warning("Switch to https for Ledger to work");
     } else {
@@ -115,21 +116,29 @@ class Start extends Component {
             "U2F is not supported, download plugin for Firefox or use Chrome"
           );
         }, 3000);
-        u2f.getApiVersion(() => {
+        u2f.getApiVersion(async () => {
           clearTimeout(intervalId);
-          this.toggleModal();
         });
+        const web3 = await getWeb3("ledger");
+        try {
+          const accounts = await web3.eth.getAccounts();
+          this.setState({ ledgerLoading: false });
+          this.toggleModal();
+        } catch (err) {
+          this.setState({ ledgerLoading: false });
+          toast.warning("Ledger Wallet not connected or locked");
+        }
       }
     }
   }
 
   toggleModal() {
-    const { modalOpen } = this.state;
-    this.setState({ modalOpen: !modalOpen });
+    const { ledgerModalOpen } = this.state;
+    this.setState({ ledgerModalOpen: !ledgerModalOpen });
   }
 
   render() {
-    const { modalOpen, accountsLocked } = this.state;
+    const { ledgerModalOpen, accountsLocked, ledgerLoading } = this.state;
 
     return (
       <div>
@@ -146,7 +155,7 @@ class Start extends Component {
           </ConnectButton>
           <br />
           <ConnectButton color="black" onClick={this.checkLedgerSetup}>
-            Connect to Ledger
+            {ledgerLoading ? "Loading..." : "Connect to Ledger"}
           </ConnectButton>
         </StyledStart>
         <Modal isOpen={accountsLocked} style={customStyles} ariaHideApp={false}>
@@ -158,7 +167,7 @@ class Start extends Component {
           <p>Please click "CONNECT" to load wallet.</p>
           <FoldingCube color="#000" />
         </Modal>
-        <LedgerModal isOpen={modalOpen} toggleModal={this.toggleModal} />
+        <LedgerModal isOpen={ledgerModalOpen} toggleModal={this.toggleModal} />
       </div>
     );
   }
