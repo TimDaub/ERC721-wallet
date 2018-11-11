@@ -105,9 +105,12 @@ class Wallet extends Component {
     const totalCollectibles = this.totalCollectibles(transactions);
     if (loading) {
       return (
-        <StyledLoader>
-          <FoldingCube color="#000" />
-        </StyledLoader>
+        <div>
+          <Headline />
+          <StyledLoader>
+            <FoldingCube color="#000" />
+          </StyledLoader>
+        </div>
       );
     } else if (totalCollectibles === 0) {
       return (
