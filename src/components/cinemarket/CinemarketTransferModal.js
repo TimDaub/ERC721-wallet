@@ -16,9 +16,38 @@ const StyledContainer = styled.div`
   justify-content: center;
 `;
 
+const FileInput = styled.input`
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  z-index: -1;
+`;
+
 const StyledImage = styled.img`
   width: 100px;
   height: 100px;
+`;
+
+const StyledLabel = styled.label`
+  display: inline-block;
+  font-family: "Ubuntu", sans-serif;
+  background-color: ${props => (props.secondary ? "white" : "black")};
+  color: ${props => (props.secondary ? "black" : "white")};
+  border: 1px solid black;
+  border-radius: 1px;
+  padding: 0.5em;
+  font-size: 1em;
+  float: ${props => props.float};
+  margin: ${props => props.margin};
+  &:focus {
+    outline: 0;
+  }
+  &:hover {
+    background-color: ${props => (props.secondary ? "black" : "white")};
+    border: 1px solid black;
+    color: ${props => (props.secondary ? "white" : "black")};
+    cursor: pointer;
+  }
 `;
 
 class TransferModal extends Component {
@@ -31,12 +60,24 @@ class TransferModal extends Component {
 
     this.transfer = this.transfer.bind(this);
     this.onChange = this.onChange.bind(this);
+    this.onFileUpload = this.onFileUpload.bind(this);
+  }
+
+  componentDidUpdate(prevProps) {
+    const { error, loading, toggleModal } = this.props;
+    if (error) {
+      toast.error(error.message);
+    }
+    if (prevProps.loading && loading === false) {
+      toggleModal();
+    }
   }
 
   async transfer() {
-    const { from, tokenId, contract } = this.props;
+    const { from, token, contract, tokenHash } = this.props;
+    const { file, to } = this.refs;
     const web3 = await getWeb3();
-    this.props.transfer(web3, from, this.refs.to.value, tokenId, contract);
+    this.props.transfer(web3, from, to.value, token, contract, file, tokenHash);
   }
 
   async onChange() {
@@ -47,9 +88,19 @@ class TransferModal extends Component {
     this.setState({ validAddress });
   }
 
+  async onFileUpload() {
+    const filePath = this.refs.file.value;
+    const splitFilePath = filePath.split("\\");
+    const fileName = splitFilePath[splitFilePath.length - 1];
+    this.setState({ fileName });
+  }
+
   render() {
-    const { tokenId, image, name } = this.props;
-    const { validAddress } = this.state;
+    const {
+      token: { name, image },
+      loading
+    } = this.props;
+    const { validAddress, fileName } = this.state;
     return (
       <div>
         <h1>Sublicense</h1>
@@ -58,13 +109,23 @@ class TransferModal extends Component {
         </StyledContainer>
         <StyledParagraph>Name</StyledParagraph>
         <StyledInput type="text" value={name} readOnly={name} />
-        <StyledParagraph>Token ID</StyledParagraph>
-        <StyledInput type="text" value={tokenId} readOnly={tokenId} />
+        <FileInput
+          type="file"
+          name="file"
+          id="file"
+          ref="file"
+          accept="application/pdf"
+          onChange={this.onFileUpload}
+        />
+        <StyledLabel margin="2em 1em 0 0" htmlFor="file">
+          Upload License
+        </StyledLabel>
+        <span>{fileName || "Choose a file..."}</span>
         <StyledParagraph>Recipient</StyledParagraph>
         <StyledInput type="text" ref="to" autoFocus onChange={this.onChange} />
         {validAddress ? null : <StyledSpan>Invalid Address</StyledSpan>}
         <StyledButton float="right" margin="2em 0 0 0" onClick={this.transfer}>
-          Next
+          {loading ? "Loading..." : "Next"}
         </StyledButton>
       </div>
     );
@@ -75,8 +136,15 @@ const mapDispatchToProps = {
   transfer: transferTokenBegin
 };
 
+const mapStateToProps = (state, ownProps) => {
+  return {
+    loading: state.transfer.loading,
+    error: state.transfer.error
+  };
+};
+
 TransferModal = connect(
-  null,
+  mapStateToProps,
   mapDispatchToProps
 )(TransferModal);
 

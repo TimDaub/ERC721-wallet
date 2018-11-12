@@ -131,6 +131,7 @@ class Wallet extends Component {
     const { modals, accountsLocked } = this.state;
     const { transactions, loading } = this.props;
     const totalCollectibles = this.totalCollectibles(transactions);
+
     if (loading) {
       return (
         <StyledWalletWrapper>
@@ -173,11 +174,15 @@ class Wallet extends Component {
                   this.separator(i, transactions[contractAddress][0].name)}
                 <StyledWallet>
                   {transactions[contractAddress].map(
-                    ({ token, _tokenId, name, contract, link }, j) => (
+                    (
+                      { token, _tokenId, name, contract, link, tokenHash },
+                      j
+                    ) => (
                       <CinemarketToken
                         key={j}
                         token={token}
                         tokenId={_tokenId}
+                        tokenHash={tokenHash}
                         link={link}
                         name={name}
                         contract={contract}

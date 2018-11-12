@@ -97,7 +97,9 @@ const Token = props => (
       ariaHideApp={false}
     >
       <TransferModal
-        tokenId={props.tokenId}
+        toggleModal={props.toggleModal(props.tokenId)}
+        token={props.token}
+        tokenHash={props.tokenHash}
         from={props.account}
         image={props.token && props.token.image}
         name={(props.token && props.token.name) || "<No name given>"}

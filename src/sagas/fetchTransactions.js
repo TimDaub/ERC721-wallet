@@ -59,6 +59,11 @@ function* fetchTransactions(web3, address, contractAddress) {
     }
   }
 
+  const tokenURIHashes = tokenURIs.map(tokenURI => {
+    const tokenURISplit = tokenURI.split("/");
+    return tokenURISplit[tokenURISplit.length - 1];
+  });
+
   const tokenNamePromises = returnValues.map(() =>
     contract.methods.name().call()
   );
@@ -75,6 +80,7 @@ function* fetchTransactions(web3, address, contractAddress) {
     returnValues[i].token = tokenJSON[i];
     returnValues[i].name = tokenNames[i];
     returnValues[i].contract = contractAddress;
+    returnValues[i].tokenHash = tokenURIHashes[i];
   }
 
   return returnValues;
