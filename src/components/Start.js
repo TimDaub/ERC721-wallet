@@ -155,7 +155,7 @@ class Start extends Component {
           </ConnectButton>
           <br />
           <ConnectButton color="black" onClick={this.checkLedgerSetup}>
-            {ledgerLoading ? "Loading..." : "Connect to Ledger"}
+            {ledgerLoading ? "Loading..." : "Connect to Ledger (Beta)"}
           </ConnectButton>
         </StyledStart>
         <Modal isOpen={accountsLocked} style={customStyles} ariaHideApp={false}>

@@ -107,7 +107,7 @@ class LedgerModal extends Component {
 
     this.props.history.push({
       pathname: "wallet",
-      search: "?provider=ledger&path=" + actualValue
+      search: "?provider=ledger&path=" + actualValue + "&network=mainnet"
     });
   }
 

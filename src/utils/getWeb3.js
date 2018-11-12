@@ -14,6 +14,7 @@ const resolveWeb3 = async (
   const urlParams = new URLSearchParams(window.location.search);
   const provider = urlParams.get("provider") || initProvider;
   const path = urlParams.get("path") || initPath;
+  const network = urlParams.get("network") || "mainnet";
 
   if (provider === "metamask") {
     let { web3 } = window;
@@ -34,7 +35,7 @@ const resolveWeb3 = async (
     }
     resolve(web3);
   } else if (provider === "ledger") {
-    const rpcUrl = "https://mainnet.infura.io";
+    const rpcUrl = `https://${network}.infura.io`;
     const networkId = 1;
     const engine = new ProviderEngine();
     const getTransport = () => TransportU2F.create();
