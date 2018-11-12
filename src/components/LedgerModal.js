@@ -38,7 +38,8 @@ class LedgerModal extends Component {
     super(props);
     this.state = {
       accounts: [],
-      accountsOffset: 0
+      accountsOffset: 0,
+      accountSelected: 0
     };
   }
 
@@ -52,6 +53,12 @@ class LedgerModal extends Component {
     if (accountsOffset !== prevState.accountsOffset) {
       this.updateAccounts();
     }
+  }
+
+  selectAccount(accountSelected) {
+    return () => {
+      this.setState({ accountSelected });
+    };
   }
 
   async updateAccounts() {
@@ -82,7 +89,7 @@ class LedgerModal extends Component {
     };
 
     const { isOpen, toggleModal } = this.props;
-    const { accounts, accountsOffset } = this.state;
+    const { accounts, accountsOffset, accountSelected } = this.state;
     return (
       <div>
         <Modal
@@ -107,10 +114,20 @@ class LedgerModal extends Component {
               </List>
             </ListElement>
             {accounts.map((account, i) => (
-              <ListElement key={i}>
+              <ListElement key={i} onClick={this.selectAccount(i)}>
                 <List>
-                  <InlineElement width="10%">{i}</InlineElement>
-                  <InlineElement width="70%">{account}</InlineElement>
+                  <InlineElement width="10%">
+                    {i + accountsOffset}
+                  </InlineElement>
+                  <InlineElement width="10%">
+                    <input
+                      type="radio"
+                      onChange={this.selectAccount(i)}
+                      checked={accountSelected === i}
+                      value={i}
+                    />
+                  </InlineElement>
+                  <InlineElement width="60%">{account}</InlineElement>
                   <InlineElement width="20%">
                     <a
                       target="_blank"
