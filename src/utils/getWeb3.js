@@ -5,7 +5,7 @@ import FetchSubprovider from "web3-provider-engine/subproviders/fetch";
 import TransportU2F from "@ledgerhq/hw-transport-u2f";
 import createLedgerSubprovider from "@ledgerhq/web3-subprovider";
 
-const resolveWeb3 = async (resolve, initProvider, accountsOffset) => {
+const resolveWeb3 = async (resolve, initProvider, accountsOffset = 0) => {
   const urlParams = new URLSearchParams(window.location.search);
   const provider = urlParams.get("provider") || initProvider;
 
