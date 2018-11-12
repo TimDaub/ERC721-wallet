@@ -17,7 +17,7 @@ function upload(file) {
   return eventChannel(emit => {
     const reader = new FileReader();
     reader.onloadend = async () => {
-      const buf = buffer.Buffer(reader.result); // Convert data into buffer
+      const buf = buffer.Buffer(reader.result);
       let result;
       try {
         result = await ipfs.files.add(buf, { pin: true });

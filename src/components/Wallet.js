@@ -10,7 +10,6 @@ import CinemarketToken from "./cinemarket/CinemarketToken";
 import CinemarketNavigation from "./cinemarket/CinemarketNavigation";
 import CinemarketHeadline from "./cinemarket/CinemarketHeadline";
 import CinemarketInfo from "./cinemarket/CinemarketInfo";
-
 import CinemarketAccountsLockedModal from "./cinemarket/CinemarketAccountsLockedModal";
 
 import getWeb3 from "../utils/getWeb3";
