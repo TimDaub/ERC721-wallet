@@ -2,14 +2,19 @@
 import React, { Component } from "react";
 import Modal from "react-modal";
 import styled from "styled-components";
+import { withRouter } from "react-router-dom";
+import Dropdown from "react-dropdown";
+import "react-dropdown/style.css";
 
 import getWeb3 from "../utils/getWeb3";
 import StyledButton from "./StyledButton";
+import StyledInput from "./StyledInput";
 
 const List = styled.ul`
   list-style: none;
   padding-left: 0;
   width: 100%;
+  margin: ${props => props.margin};
 `;
 
 const ListElement = styled.li`
@@ -33,14 +38,20 @@ const InlineElement = styled.li`
   text-align: center;
 `;
 
+const Select = styled.select``;
+
 class LedgerModal extends Component {
   constructor(props) {
     super(props);
     this.state = {
       accounts: [],
       accountsOffset: 0,
-      accountSelected: 0
+      accountSelected: 0,
+      pathSelected: { value: "44'/60'/0'/0", label: "ETH (m/44'/60'/0'/0)*" }
     };
+
+    this.onPathSelect = this.onPathSelect.bind(this);
+    this.unlock = this.unlock.bind(this);
   }
 
   componentDidMount() {
@@ -48,9 +59,13 @@ class LedgerModal extends Component {
   }
 
   componentDidUpdate(prevProps, prevState) {
-    const { accountsOffset } = this.state;
+    const { accountsOffset, pathSelected } = this.state;
 
-    if (accountsOffset !== prevState.accountsOffset) {
+    if (
+      accountsOffset !== prevState.accountsOffset ||
+      (pathSelected.value !== prevState.pathSelected.value &&
+        pathSelected.value !== "custom")
+    ) {
       this.updateAccounts();
     }
   }
@@ -62,8 +77,8 @@ class LedgerModal extends Component {
   }
 
   async updateAccounts() {
-    const { accountsOffset } = this.state;
-    const web3 = await getWeb3("ledger", accountsOffset);
+    const { accountsOffset, pathSelected } = this.state;
+    const web3 = await getWeb3("ledger", accountsOffset, pathSelected.value);
     const accounts = await web3.eth.getAccounts();
     this.setState({ accounts });
   }
@@ -73,6 +88,27 @@ class LedgerModal extends Component {
       const { accountsOffset } = this.state;
       this.setState({ accountsOffset: accountsOffset + offset });
     };
+  }
+
+  onPathSelect(pathSelected) {
+    this.setState({ pathSelected });
+  }
+
+  unlock() {
+    const {
+      pathSelected: { value },
+      accountSelected
+    } = this.state;
+
+    // We replace the last value of pathSelected with the account selected.
+    const valueSplit = value.split("/");
+    valueSplit[3] = accountSelected;
+    const actualValue = valueSplit.join("/");
+
+    this.props.history.push({
+      pathname: "wallet",
+      search: "?provider=ledger&path=" + actualValue
+    });
   }
 
   render() {
@@ -89,7 +125,15 @@ class LedgerModal extends Component {
     };
 
     const { isOpen, toggleModal } = this.props;
-    const { accounts, accountsOffset, accountSelected } = this.state;
+    const {
+      accounts,
+      accountsOffset,
+      accountSelected,
+      pathSelected
+    } = this.state;
+
+    const options = [{ value: "44'/60'/0'/0", label: "ETH (m/44'/60'/0'/0)*" }];
+
     return (
       <div>
         <Modal
@@ -99,6 +143,30 @@ class LedgerModal extends Component {
           ariaHideApp={false}
         >
           <h1>Select an Address</h1>
+          <List>
+            <InlineElement
+              width={pathSelected.value === "custom" ? "50%" : "100%"}
+            >
+              <Dropdown
+                options={options}
+                value={pathSelected}
+                onChange={this.onPathSelect}
+                placeholder="Select a derivation path"
+              />
+            </InlineElement>
+            *{" "}
+            <a
+              target="_blank"
+              href="https://github.com/LedgerHQ/ledgerjs/issues/200#issuecomment-434314003"
+            >
+              Ledger only allows this derivation path currently.
+            </a>
+            {pathSelected.value === "custom" ? (
+              <InlineElement width="50%">
+                <StyledInput type="text" placeholder="44'/60'/0" />
+              </InlineElement>
+            ) : null}
+          </List>
           <List>
             <ListElement>
               <List>
@@ -157,10 +225,13 @@ class LedgerModal extends Component {
           >
             More →
           </StyledButton>
+          <StyledButton float="right" margin="1em 0 0 0" onClick={this.unlock}>
+            Unlock
+          </StyledButton>
         </Modal>
       </div>
     );
   }
 }
 
-export default LedgerModal;
+export default withRouter(LedgerModal);

@@ -5,9 +5,15 @@ import FetchSubprovider from "web3-provider-engine/subproviders/fetch";
 import TransportU2F from "@ledgerhq/hw-transport-u2f";
 import createLedgerSubprovider from "@ledgerhq/web3-subprovider";
 
-const resolveWeb3 = async (resolve, initProvider, accountsOffset = 0) => {
+const resolveWeb3 = async (
+  resolve,
+  initProvider,
+  accountsOffset = 0,
+  initPath = "44'/60'/0'/0"
+) => {
   const urlParams = new URLSearchParams(window.location.search);
   const provider = urlParams.get("provider") || initProvider;
+  const path = urlParams.get("path") || initPath;
 
   if (provider === "metamask") {
     let { web3 } = window;
@@ -35,7 +41,8 @@ const resolveWeb3 = async (resolve, initProvider, accountsOffset = 0) => {
     const ledger = createLedgerSubprovider(getTransport, {
       networkId,
       accountsLength: 5,
-      accountsOffset
+      accountsOffset,
+      path
     });
     engine.addProvider(ledger);
     engine.addProvider(new FetchSubprovider({ rpcUrl }));
@@ -46,14 +53,14 @@ const resolveWeb3 = async (resolve, initProvider, accountsOffset = 0) => {
   resolve(null);
 };
 
-export default (provider, accountsOffset) =>
+export default (provider, accountsOffset, path) =>
   new Promise(resolve => {
     // Wait for loading completion to avoid race conditions with web3 injection timing.
     window.addEventListener(`load`, () => {
-      resolveWeb3(resolve, provider, accountsOffset);
+      resolveWeb3(resolve, provider, accountsOffset, path);
     });
     // If document has loaded already, try to get Web3 immediately.
     if (document.readyState === `complete`) {
-      resolveWeb3(resolve, provider, accountsOffset);
+      resolveWeb3(resolve, provider, accountsOffset, path);
     }
   });

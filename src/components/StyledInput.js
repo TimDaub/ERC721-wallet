@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 export default styled.input`
   display: block;
-  font-size: 1.1em;
+  font-size: 1em;
   width: 99%;
   height: 2em;
   border: 1px solid grey;
