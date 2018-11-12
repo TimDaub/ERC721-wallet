@@ -44,6 +44,6 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: "./public/index.html"
     }),
-    new FaviconsWebpackPlugin("./assets/mycollectibles-logo.png")
+    new FaviconsWebpackPlugin("./assets/cinemarket-logo.png")
   ]
 };
