@@ -5,7 +5,7 @@ import FetchSubprovider from "web3-provider-engine/subproviders/fetch";
 import TransportU2F from "@ledgerhq/hw-transport-u2f";
 import createLedgerSubprovider from "@ledgerhq/web3-subprovider";
 
-const resolveWeb3 = async (resolve, initProvider) => {
+const resolveWeb3 = async (resolve, initProvider, accountsOffset) => {
   const urlParams = new URLSearchParams(window.location.search);
   const provider = urlParams.get("provider") || initProvider;
 
@@ -34,7 +34,8 @@ const resolveWeb3 = async (resolve, initProvider) => {
     const getTransport = () => TransportU2F.create();
     const ledger = createLedgerSubprovider(getTransport, {
       networkId,
-      accountsLength: 5
+      accountsLength: 5,
+      accountsOffset
     });
     engine.addProvider(ledger);
     engine.addProvider(new FetchSubprovider({ rpcUrl }));
@@ -45,14 +46,14 @@ const resolveWeb3 = async (resolve, initProvider) => {
   resolve(null);
 };
 
-export default provider =>
+export default (provider, accountsOffset) =>
   new Promise(resolve => {
     // Wait for loading completion to avoid race conditions with web3 injection timing.
     window.addEventListener(`load`, () => {
-      resolveWeb3(resolve, provider);
+      resolveWeb3(resolve, provider, accountsOffset);
     });
     // If document has loaded already, try to get Web3 immediately.
     if (document.readyState === `complete`) {
-      resolveWeb3(resolve, provider);
+      resolveWeb3(resolve, provider, accountsOffset);
     }
   });

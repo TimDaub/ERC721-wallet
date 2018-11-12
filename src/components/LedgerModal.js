@@ -4,15 +4,16 @@ import Modal from "react-modal";
 import styled from "styled-components";
 
 import getWeb3 from "../utils/getWeb3";
+import StyledButton from "./StyledButton";
 
 const List = styled.ul`
   list-style: none;
   padding-left: 0;
   width: 100%;
-  height: 30px;
 `;
 
 const ListElement = styled.li`
+  height: 30px;
   padding: 5px 0 5px 0;
   &: nth-child(even) {
     background-color: #f5f5f5;
@@ -36,14 +37,37 @@ class LedgerModal extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      accounts: []
+      accounts: [],
+      accountsOffset: 0
     };
   }
-  async componentDidMount() {
-    const web3 = await getWeb3("ledger");
+
+  componentDidMount() {
+    this.updateAccounts();
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    const { accountsOffset } = this.state;
+
+    if (accountsOffset !== prevState.accountsOffset) {
+      this.updateAccounts();
+    }
+  }
+
+  async updateAccounts() {
+    const { accountsOffset } = this.state;
+    const web3 = await getWeb3("ledger", accountsOffset);
     const accounts = await web3.eth.getAccounts();
     this.setState({ accounts });
   }
+
+  changeAccountOffset(offset) {
+    return () => {
+      const { accountsOffset } = this.state;
+      this.setState({ accountsOffset: accountsOffset + offset });
+    };
+  }
+
   render() {
     const customStyles = {
       content: {
@@ -58,7 +82,7 @@ class LedgerModal extends Component {
     };
 
     const { isOpen, toggleModal } = this.props;
-    const { accounts } = this.state;
+    const { accounts, accountsOffset } = this.state;
     return (
       <div>
         <Modal
@@ -99,6 +123,23 @@ class LedgerModal extends Component {
               </ListElement>
             ))}
           </List>
+          <StyledButton
+            onClick={this.changeAccountOffset(-5)}
+            width="49%"
+            secondary
+            margin="0 1% 0 0"
+            disabled={accountsOffset - 5 < 0}
+          >
+            ← Back
+          </StyledButton>
+          <StyledButton
+            onClick={this.changeAccountOffset(5)}
+            width="49%"
+            secondary
+            margin="0 0 0 1%"
+          >
+            More →
+          </StyledButton>
         </Modal>
       </div>
     );
