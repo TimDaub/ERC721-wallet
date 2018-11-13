@@ -40,7 +40,7 @@ const resolveWeb3 = async (
     const engine = new ProviderEngine();
     const getTransport = () => TransportU2F.create();
     const ledger = createLedgerSubprovider(getTransport, {
-      networkId,
+      networkId: 4,
       accountsLength: 5,
       accountsOffset,
       path

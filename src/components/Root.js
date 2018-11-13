@@ -16,6 +16,13 @@ const GlobalStyle = createGlobalStyle`
     font-family: 'Ubuntu', sans-serif;
     background-color: white;
   }
+  .input-range__slider {
+    background: black !important;
+    border: 1px solid black !important;
+  }
+  .input-range__track--active {
+    background: black !important;
+  }
 `;
 
 const Root = ({ store }) => (
