@@ -110,7 +110,13 @@ ShallowWrapper {
             from="0xabc"
             image="https://example.com/image.jpg"
             name="Token"
-            tokenId={123}
+            token={
+              Object {
+                "description": "nft description",
+                "image": "https://example.com/image.jpg",
+                "name": "Token",
+              }
+            }
           />
         </Modal>,
       ],
@@ -131,7 +137,7 @@ ShallowWrapper {
           "$$typeof": Symbol(react.forward_ref),
           "attrs": undefined,
           "componentStyle": ComponentStyle {
-            "componentId": "sc-iwsKbI",
+            "componentId": "sc-gqjmRU",
             "isStatic": true,
             "rules": Array [
               "
@@ -143,7 +149,7 @@ ShallowWrapper {
           },
           "displayName": "styled.img",
           "render": [Function],
-          "styledComponentId": "sc-iwsKbI",
+          "styledComponentId": "sc-gqjmRU",
           "target": "img",
           "warnTooManyClasses": [Function],
           "withComponent": [Function],
@@ -337,7 +343,7 @@ ShallowWrapper {
               "$$typeof": Symbol(react.forward_ref),
               "attrs": undefined,
               "componentStyle": ComponentStyle {
-                "componentId": "sc-dnqmqq",
+                "componentId": "sc-gZMcBi",
                 "isStatic": true,
                 "rules": Array [
                   "
@@ -355,7 +361,7 @@ ShallowWrapper {
               },
               "displayName": "styled.a",
               "render": [Function],
-              "styledComponentId": "sc-dnqmqq",
+              "styledComponentId": "sc-gZMcBi",
               "target": "a",
               "warnTooManyClasses": [Function],
               "withComponent": [Function],
@@ -365,7 +371,7 @@ ShallowWrapper {
             "$$typeof": Symbol(react.forward_ref),
             "attrs": undefined,
             "componentStyle": ComponentStyle {
-              "componentId": "sc-htoDjs",
+              "componentId": "sc-iwsKbI",
               "isStatic": true,
               "rules": Array [
                 "
@@ -383,7 +389,7 @@ ShallowWrapper {
             },
             "displayName": "styled.li",
             "render": [Function],
-            "styledComponentId": "sc-htoDjs",
+            "styledComponentId": "sc-iwsKbI",
             "target": "li",
             "warnTooManyClasses": [Function],
             "withComponent": [Function],
@@ -393,7 +399,7 @@ ShallowWrapper {
           "$$typeof": Symbol(react.forward_ref),
           "attrs": undefined,
           "componentStyle": ComponentStyle {
-            "componentId": "sc-gzVnrw",
+            "componentId": "sc-dnqmqq",
             "isStatic": true,
             "rules": Array [
               "
@@ -409,7 +415,7 @@ ShallowWrapper {
           },
           "displayName": "styled.ul",
           "render": [Function],
-          "styledComponentId": "sc-gzVnrw",
+          "styledComponentId": "sc-dnqmqq",
           "target": "ul",
           "warnTooManyClasses": [Function],
           "withComponent": [Function],
@@ -427,7 +433,13 @@ ShallowWrapper {
             from="0xabc"
             image="https://example.com/image.jpg"
             name="Token"
-            tokenId={123}
+            token={
+              Object {
+                "description": "nft description",
+                "image": "https://example.com/image.jpg",
+                "name": "Token",
+              }
+            }
           />,
           "closeTimeoutMS": 0,
           "isOpen": false,
@@ -461,7 +473,13 @@ ShallowWrapper {
             "from": "0xabc",
             "image": "https://example.com/image.jpg",
             "name": "Token",
-            "tokenId": 123,
+            "toggleModal": undefined,
+            "token": Object {
+              "description": "nft description",
+              "image": "https://example.com/image.jpg",
+              "name": "Token",
+            },
+            "tokenHash": undefined,
           },
           "ref": null,
           "rendered": null,
@@ -474,7 +492,7 @@ ShallowWrapper {
       "$$typeof": Symbol(react.forward_ref),
       "attrs": undefined,
       "componentStyle": ComponentStyle {
-        "componentId": "sc-bZQynM",
+        "componentId": "sc-htoDjs",
         "isStatic": true,
         "rules": Array [
           "
@@ -490,7 +508,7 @@ ShallowWrapper {
       },
       "displayName": "styled.div",
       "render": [Function],
-      "styledComponentId": "sc-bZQynM",
+      "styledComponentId": "sc-htoDjs",
       "target": "div",
       "warnTooManyClasses": [Function],
       "withComponent": [Function],
@@ -581,7 +599,13 @@ ShallowWrapper {
               from="0xabc"
               image="https://example.com/image.jpg"
               name="Token"
-              tokenId={123}
+              token={
+                Object {
+                  "description": "nft description",
+                  "image": "https://example.com/image.jpg",
+                  "name": "Token",
+                }
+              }
             />
           </Modal>,
         ],
@@ -602,7 +626,7 @@ ShallowWrapper {
             "$$typeof": Symbol(react.forward_ref),
             "attrs": undefined,
             "componentStyle": ComponentStyle {
-              "componentId": "sc-iwsKbI",
+              "componentId": "sc-gqjmRU",
               "isStatic": true,
               "rules": Array [
                 "
@@ -614,7 +638,7 @@ ShallowWrapper {
             },
             "displayName": "styled.img",
             "render": [Function],
-            "styledComponentId": "sc-iwsKbI",
+            "styledComponentId": "sc-gqjmRU",
             "target": "img",
             "warnTooManyClasses": [Function],
             "withComponent": [Function],
@@ -808,7 +832,7 @@ ShallowWrapper {
                 "$$typeof": Symbol(react.forward_ref),
                 "attrs": undefined,
                 "componentStyle": ComponentStyle {
-                  "componentId": "sc-dnqmqq",
+                  "componentId": "sc-gZMcBi",
                   "isStatic": true,
                   "rules": Array [
                     "
@@ -826,7 +850,7 @@ ShallowWrapper {
                 },
                 "displayName": "styled.a",
                 "render": [Function],
-                "styledComponentId": "sc-dnqmqq",
+                "styledComponentId": "sc-gZMcBi",
                 "target": "a",
                 "warnTooManyClasses": [Function],
                 "withComponent": [Function],
@@ -836,7 +860,7 @@ ShallowWrapper {
               "$$typeof": Symbol(react.forward_ref),
               "attrs": undefined,
               "componentStyle": ComponentStyle {
-                "componentId": "sc-htoDjs",
+                "componentId": "sc-iwsKbI",
                 "isStatic": true,
                 "rules": Array [
                   "
@@ -854,7 +878,7 @@ ShallowWrapper {
               },
               "displayName": "styled.li",
               "render": [Function],
-              "styledComponentId": "sc-htoDjs",
+              "styledComponentId": "sc-iwsKbI",
               "target": "li",
               "warnTooManyClasses": [Function],
               "withComponent": [Function],
@@ -864,7 +888,7 @@ ShallowWrapper {
             "$$typeof": Symbol(react.forward_ref),
             "attrs": undefined,
             "componentStyle": ComponentStyle {
-              "componentId": "sc-gzVnrw",
+              "componentId": "sc-dnqmqq",
               "isStatic": true,
               "rules": Array [
                 "
@@ -880,7 +904,7 @@ ShallowWrapper {
             },
             "displayName": "styled.ul",
             "render": [Function],
-            "styledComponentId": "sc-gzVnrw",
+            "styledComponentId": "sc-dnqmqq",
             "target": "ul",
             "warnTooManyClasses": [Function],
             "withComponent": [Function],
@@ -898,7 +922,13 @@ ShallowWrapper {
               from="0xabc"
               image="https://example.com/image.jpg"
               name="Token"
-              tokenId={123}
+              token={
+                Object {
+                  "description": "nft description",
+                  "image": "https://example.com/image.jpg",
+                  "name": "Token",
+                }
+              }
             />,
             "closeTimeoutMS": 0,
             "isOpen": false,
@@ -932,7 +962,13 @@ ShallowWrapper {
               "from": "0xabc",
               "image": "https://example.com/image.jpg",
               "name": "Token",
-              "tokenId": 123,
+              "toggleModal": undefined,
+              "token": Object {
+                "description": "nft description",
+                "image": "https://example.com/image.jpg",
+                "name": "Token",
+              },
+              "tokenHash": undefined,
             },
             "ref": null,
             "rendered": null,
@@ -945,7 +981,7 @@ ShallowWrapper {
         "$$typeof": Symbol(react.forward_ref),
         "attrs": undefined,
         "componentStyle": ComponentStyle {
-          "componentId": "sc-bZQynM",
+          "componentId": "sc-htoDjs",
           "isStatic": true,
           "rules": Array [
             "
@@ -961,7 +997,7 @@ ShallowWrapper {
         },
         "displayName": "styled.div",
         "render": [Function],
-        "styledComponentId": "sc-bZQynM",
+        "styledComponentId": "sc-htoDjs",
         "target": "div",
         "warnTooManyClasses": [Function],
         "withComponent": [Function],

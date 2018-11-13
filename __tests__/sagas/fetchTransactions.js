@@ -11,6 +11,7 @@ describe("transaction fetching", () => {
   it("should process transactions correctly and return a token", async () => {
     const contractAddress = "0x9326f84fcca8a136da3a4f71bbffbde6635c58da";
     const address = "0x51Ff1fab76079d20418d1c74DA65653FfE3fD0aa";
+    const tokenURI = "https://example.com";
     const web3Mock = {
       eth: {
         net: {
@@ -23,7 +24,7 @@ describe("transaction fetching", () => {
               .mockReturnValueOnce([{ returnValues: { _tokenId: 1 } }]) //outputs
               .mockReturnValueOnce([{ returnValues: { _tokenId: 2 } }]), // inputs
             methods: {
-              tokenURI: jest.fn(() => jest.fn(() => "https://example.com")),
+              tokenURI: jest.fn(() => jest.fn(() => tokenURI)),
               name: jest.fn(() => jest.fn(() => "name"))
             }
           };
@@ -31,6 +32,8 @@ describe("transaction fetching", () => {
       }
     };
 
+    const tokenURISplit = tokenURI.split("/");
+    const tokenHash = tokenURISplit[tokenURISplit.length - 1];
     return expectSaga(fetchTransactionsBatch, {
       payload: { web3: web3Mock, address, contracts: [contractAddress] }
     })
@@ -43,7 +46,8 @@ describe("transaction fetching", () => {
                 _tokenId: 2,
                 token: null,
                 name: "name",
-                contract: contractAddress
+                contract: contractAddress,
+                tokenHash
               }
             ]
           }
