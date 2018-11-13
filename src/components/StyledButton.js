@@ -11,6 +11,7 @@ export default styled.button`
   font-size: 1em;
   float: ${props => props.float};
   margin: ${props => props.margin};
+  width: ${props => props.width};
   &:focus {
     outline: 0;
   }
@@ -19,5 +20,14 @@ export default styled.button`
     border: 1px solid black;
     color: ${props => (props.secondary ? "white" : "black")};
     cursor: pointer;
+  }
+  &:disabled {
+    background-color: #fafafa;
+    border: 1px solid #bdbdbd;
+    color: #bdbdbd;
+    &:hover {
+      color: #bdbdbd;
+      cursor: not-allowed !important;
+    }
   }
 `;

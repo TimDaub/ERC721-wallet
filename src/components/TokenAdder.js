@@ -9,7 +9,8 @@ import StyledButton from "./StyledButton";
 import { addNameAndSymbolReset } from "../actions/addNameAndSymbol";
 
 const StyledTokenAdder = styled.div`
-  margin-left: auto;
+  display: inline-block;
+  vertical-align: top;
 `;
 
 const customStyles = {
