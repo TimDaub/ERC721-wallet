@@ -69,10 +69,6 @@ const customStyles = {
   }
 };
 
-function textEllipsis(text) {
-  return text.substring(0, 100) + "...";
-}
-
 const Token = props => (
   <StyledToken>
     <StyledImage width="100%" src={props.token && props.token.image} />
