@@ -1,7 +1,7 @@
 // @format
 import { call, take, put, takeLatest } from "redux-saga/effects";
 import { eventChannel, END } from "redux-saga";
-const Tx = require("ethereumjs-tx");
+import Tx from "ethereumjs-tx";
 import buffer from "buffer";
 import Eth from "@ledgerhq/hw-app-eth";
 import TransportU2F from "@ledgerhq/hw-transport-u2f";
@@ -35,7 +35,8 @@ function* transferToken({
     } catch (err) {
       yield put(transferTokenFailure(err));
     }
-    yield put(transferTokenSuccess(tx.transactionHash));
+    console.log(tx);
+    yield put(transferTokenSuccess(tx && tx.transactionHash));
   } else if (provider === "ledger") {
     const transport = yield TransportU2F.create();
     const eth = new Eth(transport);
@@ -73,6 +74,7 @@ function* transferToken({
     } catch (err) {
       yield put(transferTokenFailure(err));
     }
+    // TODO: We currently can't get the transactionHash
     yield put(transferTokenSuccess("abc"));
   }
 }

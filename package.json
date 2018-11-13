@@ -10,6 +10,9 @@
     "test": "jest -e --watch"
   },
   "jest": {
+    "moduleNameMapper": {
+      "\\.(css|less)$": "identity-obj-proxy"
+    },
     "coverageDirectory": "./coverage/",
     "collectCoverage": true,
     "setupFiles": [
@@ -80,6 +83,7 @@
     "favicons-webpack-plugin": "0.0.9",
     "file-loader": "^1.1.11",
     "html-webpack-plugin": "^3.2.0",
+    "identity-obj-proxy": "^3.0.0",
     "jest": "^23.6.0",
     "jest-fetch-mock": "^1.6.6",
     "jest-localstorage-mock": "^2.2.0",
