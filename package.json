@@ -6,10 +6,13 @@
   "scripts": {
     "start": "node src/server/index.js",
     "build": "webpack --mode production",
-    "dev": "webpack-dev-server --mode development --content-base src --hot --inline",
+    "dev": "webpack-dev-server --https --mode development --content-base src --hot --inline",
     "test": "jest -e --watch"
   },
   "jest": {
+    "moduleNameMapper": {
+      "\\.(css|less)$": "identity-obj-proxy"
+    },
     "coverageDirectory": "./coverage/",
     "collectCoverage": true,
     "setupFiles": [
@@ -26,12 +29,19 @@
     "@fortawesome/fontawesome-svg-core": "^1.2.7",
     "@fortawesome/free-solid-svg-icons": "^5.4.2",
     "@fortawesome/react-fontawesome": "^0.1.3",
+    "@ledgerhq/hw-app-eth": "^4.24.0",
+    "@ledgerhq/hw-transport-u2f": "^4.28.0",
+    "@ledgerhq/web3-subprovider": "^4.28.0",
+    "buffer": "^5.2.1",
     "enzyme": "^3.7.0",
+    "ethereumjs-tx": "^1.3.7",
     "jest-styled-components": "^6.2.1",
     "prop-types": "^15.6.2",
     "react": "^16.3.1",
     "react-dom": "^16.3.1",
+    "react-dropdown": "^1.6.2",
     "react-github-corner": "^2.3.0",
+    "react-input-range": "^1.3.0",
     "react-modal": "^3.6.1",
     "react-redux": "^5.0.7",
     "react-router-dom": "^4.3.1",
@@ -41,7 +51,9 @@
     "redux-saga-test-plan": "^3.7.0",
     "styled-components": "^4.0.0",
     "styled-spinkit": "^0.4.0",
+    "u2f-api-polyfill": "^0.4.4",
     "web3": "1.0.0-beta.35",
+    "web3-provider-engine": "^14.1.0",
     "web3-utils": "^1.0.0-beta.36",
     "zeppelin-solidity": "^1.12.0"
   },
@@ -71,6 +83,7 @@
     "favicons-webpack-plugin": "0.0.9",
     "file-loader": "^1.1.11",
     "html-webpack-plugin": "^3.2.0",
+    "identity-obj-proxy": "^3.0.0",
     "jest": "^23.6.0",
     "jest-fetch-mock": "^1.6.6",
     "jest-localstorage-mock": "^2.2.0",

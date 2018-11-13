@@ -50,7 +50,7 @@ class Wallet extends Component {
     this.state = {
       isOpen: false,
       modals: {},
-      accounts: []
+      account: []
     };
   }
 
@@ -68,12 +68,13 @@ class Wallet extends Component {
 
   async updateTransactions() {
     const web3 = await getWeb3();
-    const accounts = await web3.eth.getAccounts();
+    const account = (await web3.eth.getAccounts())[0];
     let contracts = localStorage.getItem("tokens");
-    contracts = contracts.split(",");
-
-    this.props.getTransactions(web3, accounts[0], contracts);
-    this.setState({ accounts });
+    if (contracts !== null) {
+      contracts = contracts.split(",");
+      this.props.getTransactions(web3, account, contracts);
+      this.setState({ account });
+    }
   }
 
   componentDidUpdate(prevProps, prevState) {
@@ -142,7 +143,7 @@ class Wallet extends Component {
                       contract={contract}
                       modals={modals}
                       toggleModal={this.toggleModal}
-                      account={this.state.accounts[0]}
+                      account={this.state.account}
                     />
                   )
                 )}

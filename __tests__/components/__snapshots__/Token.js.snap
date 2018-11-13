@@ -168,7 +168,7 @@ ShallowWrapper {
           "$$typeof": Symbol(react.forward_ref),
           "attrs": undefined,
           "componentStyle": ComponentStyle {
-            "componentId": "sc-iwsKbI",
+            "componentId": "sc-gZMcBi",
             "isStatic": true,
             "rules": Array [
               "
@@ -180,7 +180,7 @@ ShallowWrapper {
           },
           "displayName": "styled.img",
           "render": [Function],
-          "styledComponentId": "sc-iwsKbI",
+          "styledComponentId": "sc-gZMcBi",
           "target": "img",
           "warnTooManyClasses": [Function],
           "withComponent": [Function],
@@ -417,7 +417,7 @@ ShallowWrapper {
                 "$$typeof": Symbol(react.forward_ref),
                 "attrs": undefined,
                 "componentStyle": ComponentStyle {
-                  "componentId": "sc-dnqmqq",
+                  "componentId": "sc-iwsKbI",
                   "isStatic": true,
                   "rules": Array [
                     "
@@ -435,7 +435,7 @@ ShallowWrapper {
                 },
                 "displayName": "styled.a",
                 "render": [Function],
-                "styledComponentId": "sc-dnqmqq",
+                "styledComponentId": "sc-iwsKbI",
                 "target": "a",
                 "warnTooManyClasses": [Function],
                 "withComponent": [Function],
@@ -445,7 +445,7 @@ ShallowWrapper {
               "$$typeof": Symbol(react.forward_ref),
               "attrs": undefined,
               "componentStyle": ComponentStyle {
-                "componentId": "sc-htoDjs",
+                "componentId": "sc-dnqmqq",
                 "isStatic": true,
                 "rules": Array [
                   "
@@ -463,7 +463,7 @@ ShallowWrapper {
               },
               "displayName": "styled.li",
               "render": [Function],
-              "styledComponentId": "sc-htoDjs",
+              "styledComponentId": "sc-dnqmqq",
               "target": "li",
               "warnTooManyClasses": [Function],
               "withComponent": [Function],
@@ -593,7 +593,7 @@ ShallowWrapper {
                 "$$typeof": Symbol(react.forward_ref),
                 "attrs": undefined,
                 "componentStyle": ComponentStyle {
-                  "componentId": "sc-dnqmqq",
+                  "componentId": "sc-iwsKbI",
                   "isStatic": true,
                   "rules": Array [
                     "
@@ -611,7 +611,7 @@ ShallowWrapper {
                 },
                 "displayName": "styled.a",
                 "render": [Function],
-                "styledComponentId": "sc-dnqmqq",
+                "styledComponentId": "sc-iwsKbI",
                 "target": "a",
                 "warnTooManyClasses": [Function],
                 "withComponent": [Function],
@@ -621,7 +621,7 @@ ShallowWrapper {
               "$$typeof": Symbol(react.forward_ref),
               "attrs": undefined,
               "componentStyle": ComponentStyle {
-                "componentId": "sc-htoDjs",
+                "componentId": "sc-dnqmqq",
                 "isStatic": true,
                 "rules": Array [
                   "
@@ -639,7 +639,7 @@ ShallowWrapper {
               },
               "displayName": "styled.li",
               "render": [Function],
-              "styledComponentId": "sc-htoDjs",
+              "styledComponentId": "sc-dnqmqq",
               "target": "li",
               "warnTooManyClasses": [Function],
               "withComponent": [Function],
@@ -650,7 +650,7 @@ ShallowWrapper {
           "$$typeof": Symbol(react.forward_ref),
           "attrs": undefined,
           "componentStyle": ComponentStyle {
-            "componentId": "sc-gzVnrw",
+            "componentId": "sc-htoDjs",
             "isStatic": true,
             "rules": Array [
               "
@@ -666,7 +666,7 @@ ShallowWrapper {
           },
           "displayName": "styled.ul",
           "render": [Function],
-          "styledComponentId": "sc-gzVnrw",
+          "styledComponentId": "sc-htoDjs",
           "target": "ul",
           "warnTooManyClasses": [Function],
           "withComponent": [Function],
@@ -718,6 +718,7 @@ ShallowWrapper {
             "from": "0xabc",
             "image": "https://example.com/image.jpg",
             "name": "Token",
+            "toggleModal": undefined,
             "tokenId": 123,
           },
           "ref": null,
@@ -731,7 +732,7 @@ ShallowWrapper {
       "$$typeof": Symbol(react.forward_ref),
       "attrs": undefined,
       "componentStyle": ComponentStyle {
-        "componentId": "sc-bZQynM",
+        "componentId": "sc-gzVnrw",
         "isStatic": true,
         "rules": Array [
           "
@@ -747,7 +748,7 @@ ShallowWrapper {
       },
       "displayName": "styled.div",
       "render": [Function],
-      "styledComponentId": "sc-bZQynM",
+      "styledComponentId": "sc-gzVnrw",
       "target": "div",
       "warnTooManyClasses": [Function],
       "withComponent": [Function],
@@ -896,7 +897,7 @@ ShallowWrapper {
             "$$typeof": Symbol(react.forward_ref),
             "attrs": undefined,
             "componentStyle": ComponentStyle {
-              "componentId": "sc-iwsKbI",
+              "componentId": "sc-gZMcBi",
               "isStatic": true,
               "rules": Array [
                 "
@@ -908,7 +909,7 @@ ShallowWrapper {
             },
             "displayName": "styled.img",
             "render": [Function],
-            "styledComponentId": "sc-iwsKbI",
+            "styledComponentId": "sc-gZMcBi",
             "target": "img",
             "warnTooManyClasses": [Function],
             "withComponent": [Function],
@@ -1145,7 +1146,7 @@ ShallowWrapper {
                   "$$typeof": Symbol(react.forward_ref),
                   "attrs": undefined,
                   "componentStyle": ComponentStyle {
-                    "componentId": "sc-dnqmqq",
+                    "componentId": "sc-iwsKbI",
                     "isStatic": true,
                     "rules": Array [
                       "
@@ -1163,7 +1164,7 @@ ShallowWrapper {
                   },
                   "displayName": "styled.a",
                   "render": [Function],
-                  "styledComponentId": "sc-dnqmqq",
+                  "styledComponentId": "sc-iwsKbI",
                   "target": "a",
                   "warnTooManyClasses": [Function],
                   "withComponent": [Function],
@@ -1173,7 +1174,7 @@ ShallowWrapper {
                 "$$typeof": Symbol(react.forward_ref),
                 "attrs": undefined,
                 "componentStyle": ComponentStyle {
-                  "componentId": "sc-htoDjs",
+                  "componentId": "sc-dnqmqq",
                   "isStatic": true,
                   "rules": Array [
                     "
@@ -1191,7 +1192,7 @@ ShallowWrapper {
                 },
                 "displayName": "styled.li",
                 "render": [Function],
-                "styledComponentId": "sc-htoDjs",
+                "styledComponentId": "sc-dnqmqq",
                 "target": "li",
                 "warnTooManyClasses": [Function],
                 "withComponent": [Function],
@@ -1321,7 +1322,7 @@ ShallowWrapper {
                   "$$typeof": Symbol(react.forward_ref),
                   "attrs": undefined,
                   "componentStyle": ComponentStyle {
-                    "componentId": "sc-dnqmqq",
+                    "componentId": "sc-iwsKbI",
                     "isStatic": true,
                     "rules": Array [
                       "
@@ -1339,7 +1340,7 @@ ShallowWrapper {
                   },
                   "displayName": "styled.a",
                   "render": [Function],
-                  "styledComponentId": "sc-dnqmqq",
+                  "styledComponentId": "sc-iwsKbI",
                   "target": "a",
                   "warnTooManyClasses": [Function],
                   "withComponent": [Function],
@@ -1349,7 +1350,7 @@ ShallowWrapper {
                 "$$typeof": Symbol(react.forward_ref),
                 "attrs": undefined,
                 "componentStyle": ComponentStyle {
-                  "componentId": "sc-htoDjs",
+                  "componentId": "sc-dnqmqq",
                   "isStatic": true,
                   "rules": Array [
                     "
@@ -1367,7 +1368,7 @@ ShallowWrapper {
                 },
                 "displayName": "styled.li",
                 "render": [Function],
-                "styledComponentId": "sc-htoDjs",
+                "styledComponentId": "sc-dnqmqq",
                 "target": "li",
                 "warnTooManyClasses": [Function],
                 "withComponent": [Function],
@@ -1378,7 +1379,7 @@ ShallowWrapper {
             "$$typeof": Symbol(react.forward_ref),
             "attrs": undefined,
             "componentStyle": ComponentStyle {
-              "componentId": "sc-gzVnrw",
+              "componentId": "sc-htoDjs",
               "isStatic": true,
               "rules": Array [
                 "
@@ -1394,7 +1395,7 @@ ShallowWrapper {
             },
             "displayName": "styled.ul",
             "render": [Function],
-            "styledComponentId": "sc-gzVnrw",
+            "styledComponentId": "sc-htoDjs",
             "target": "ul",
             "warnTooManyClasses": [Function],
             "withComponent": [Function],
@@ -1446,6 +1447,7 @@ ShallowWrapper {
               "from": "0xabc",
               "image": "https://example.com/image.jpg",
               "name": "Token",
+              "toggleModal": undefined,
               "tokenId": 123,
             },
             "ref": null,
@@ -1459,7 +1461,7 @@ ShallowWrapper {
         "$$typeof": Symbol(react.forward_ref),
         "attrs": undefined,
         "componentStyle": ComponentStyle {
-          "componentId": "sc-bZQynM",
+          "componentId": "sc-gzVnrw",
           "isStatic": true,
           "rules": Array [
             "
@@ -1475,7 +1477,7 @@ ShallowWrapper {
         },
         "displayName": "styled.div",
         "render": [Function],
-        "styledComponentId": "sc-bZQynM",
+        "styledComponentId": "sc-gzVnrw",
         "target": "div",
         "warnTooManyClasses": [Function],
         "withComponent": [Function],
