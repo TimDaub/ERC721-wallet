@@ -1,5 +1,9 @@
 # ERC721 Wallet [![Build Status](https://travis-ci.com/TimDaub/ERC721-wallet.svg?branch=master)](https://travis-ci.com/TimDaub/ERC721-wallet) [![Codecov branch](https://img.shields.io/codecov/c/github/TimDaub/ERC721-wallet/master.svg)](https://codecov.io/github/TimDaub/ERC721-wallet?branch=master)
 
+## Note from 2020
+
+With this project, I wanted to show that ERC721 wallets are indeed possible through pure decentralization (e.g. by a client fetching all of the data from a node). However, this turned out quite frustrating and impossible given some UX constraints I set myself. A friend even did a quite sophisticated experiment outlining the problem of the standard. I highly recommend checking it out: https://vrde.github.io/erc721-benchmark/ 
+
 ## Demo
 
 Check out the demo here: https://www.mycollectibles.io/
